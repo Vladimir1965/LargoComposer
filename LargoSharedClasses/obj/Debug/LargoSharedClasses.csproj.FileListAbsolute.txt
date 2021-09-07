@@ -1,0 +1,2 @@
+C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.csprojAssemblyReference.cache
+C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.csproj.GenerateResource.cache
