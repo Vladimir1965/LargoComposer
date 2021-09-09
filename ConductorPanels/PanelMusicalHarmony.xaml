@@ -1,0 +1,45 @@
+﻿<largoSupport:PanelAbstract
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="ConductorPanels.PanelMusicalHarmony" 
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+    Height="46.636" Width="306.641">
+
+    <largoSupport:PanelAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ConductorControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoSupport:PanelAbstract.Resources>
+
+    <Grid d:DataContext="{d:DesignInstance}" Height="46" VerticalAlignment="Top" >
+        <Grid.RowDefinitions>
+
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0,0,0,5">
+            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Dissonance:" VerticalAlignment="Top" Margin="2,23,0,0" />
+            <Slider x:Name="Dissonance" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Minimum="0" Maximum="100" Margin="75,22,0,0" />
+
+            <TextBlock x:Name="txtHarmonicModality" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Harmonic Modality" VerticalAlignment="Top" Width="154" Margin="2,1,0,0" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.363"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Name="txtRhythmicModality" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Rhythmic of Harmony" VerticalAlignment="Top" Width="141" Margin="162,0,0,0"/>
+        </Grid>
+
+    </Grid>
+
+
+</largoSupport:PanelAbstract>

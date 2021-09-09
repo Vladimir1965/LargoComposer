@@ -1,0 +1,228 @@
+﻿<ResourceDictionary x:Uid="ResourceDictionary_1" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush  x:Key="BlueBackgroundBrush" Color="Blue" />
+    <SolidColorBrush  x:Key="RedBackgroundBrush" Color="Red" />
+
+    <!--item in a ResourceDictionary-->
+    <EllipseGeometry x:Uid="EllipseGeometry_1" x:Key="ClippingShape" RadiusX="20" />
+    <!--XAML that defines the actual UI
+<Button Style="{StaticResource STSmallButton}" Clip="{StaticResource clippingShape}" />
+-->
+    <Style x:Uid="Style_1" x:Key="DgcHeaders" TargetType="{x:Type TextBlock}">
+        <Setter x:Uid="Setter_1" Property="TextAlignment" Value="Left" />
+        <Setter x:Uid="Setter_2" Property="Foreground" Value="Black"/>
+        <Setter x:Uid="Setter_3" Property="FontSize" Value="12"/>
+        <Setter x:Uid="Setter_4" Property="FontFamily" Value="Andalus"/>
+        <Setter x:Uid="Setter_5" Property="FontWeight" Value="Bold"/>
+        <Setter x:Uid="Setter_6" Property="FontStyle" Value="Italic"/>
+        <Setter x:Uid="Setter_7" Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+    <Style x:Uid="Style_2a" x:Key="DgcStyleCheck" TargetType="{x:Type CheckBox}">
+        <Setter x:Uid="Setter_9" Property="Foreground" Value="Black"/>
+        <Setter x:Uid="Setter_2" Property="Background"  Value= "LightYellow" />
+        <Setter x:Uid="Setter_10" Property="FontSize" Value="12"/>
+        <Setter x:Uid="Setter_11" Property="FontFamily" Value="Andalus"/>
+        <Setter x:Uid="Setter_12" Property="FontWeight" Value="Bold"/>
+        <Setter x:Uid="Setter_13" Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+    <Style x:Uid="Style_2b" x:Key="DgcStyleLeftBold" TargetType="{x:Type TextBlock}">
+        <Setter x:Uid="Setter_8" Property="TextAlignment" Value="Left" />
+        <Setter x:Uid="Setter_9" Property="Foreground" Value="Black"/>
+        <Setter x:Uid="Setter_2" Property="Background"  Value= "LightYellow" />
+        <Setter x:Uid="Setter_10" Property="FontSize" Value="12"/>
+        <Setter x:Uid="Setter_11" Property="FontFamily" Value="Andalus"/>
+        <Setter x:Uid="Setter_12" Property="FontWeight" Value="Bold"/>
+        <Setter x:Uid="Setter_13" Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+    <Style x:Uid="Style_2c" x:Key="DgcStyleLeftBoldRead" TargetType="{x:Type TextBlock}">
+        <Setter x:Uid="Setter_8" Property="TextAlignment" Value="Left" />
+        <Setter x:Uid="Setter_9" Property="Foreground" Value="Black"/>
+        <Setter x:Uid="Setter_2" Property="Background" Value="WhiteSmoke" />
+        <Setter x:Uid="Setter_10" Property="FontSize" Value="12"/>
+        <Setter x:Uid="Setter_11" Property="FontFamily" Value="Andalus"/>
+        <Setter x:Uid="Setter_12" Property="FontWeight" Value="Bold"/>
+        <Setter x:Uid="Setter_13" Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+    <Style x:Uid="Style_2d" x:Key="DgcStyleLeftBoldSmall" TargetType="{x:Type TextBlock}">
+        <Setter x:Uid="Setter_8" Property="TextAlignment" Value="Left" />
+        <Setter x:Uid="Setter_9" Property="Foreground" Value="Black"/>
+        <Setter x:Uid="Setter_2" Property="Background"  Value= "LightYellow" />
+        <Setter x:Uid="Setter_10" Property="FontSize" Value="12"/>
+        <Setter x:Uid="Setter_11" Property="FontFamily" Value="Andalus"/>
+        <Setter x:Uid="Setter_12" Property="FontWeight" Value="Bold"/>
+        <Setter x:Uid="Setter_13" Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+    <Style x:Uid="Style_3" x:Key="DgcStyleLeft" TargetType="{x:Type TextBlock}">
+        <Setter x:Uid="Setter_14" Property="TextAlignment" Value="Left" />
+        <Setter x:Uid="Setter_15" Property="Foreground" Value="Black"/>
+        <Setter x:Uid="Setter_2" Property="Background"  Value= "LightYellow" />
+        <Setter x:Uid="Setter_16" Property="FontSize" Value="12"/>
+        <Setter x:Uid="Setter_17" Property="FontFamily" Value="Andalus"/>
+        <Setter x:Uid="Setter_18" Property="FontWeight" Value="Normal"/>
+        <Setter x:Uid="Setter_19" Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+
+    <Style x:Key="StSmallGridLabel" TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="Height" Value="23"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+
+    <Style x:Key="StTabTextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="FontWeight"  Value="Bold"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="20"/>
+    </Style>
+
+    <Style x:Key="StSmallTextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Height" Value="23"/>
+    </Style>
+
+    <Style x:Key="StNameTextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="FontWeight"  Value="Normal"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Height" Value="24"/>
+    </Style>
+
+    <Style x:Key="StSmallLabel" TargetType="{x:Type Label}">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Height" Value="28"/>
+    </Style>
+
+    <Style x:Key="StTitleLabel" TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight"  Value="Bold" />
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Height" Value="26"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+    </Style>
+
+    <Style x:Key="StBigLabel" TargetType="{x:Type Label}">
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight"  Value="ExtraBold" />
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Height" Value="48"/>
+    </Style>
+
+    <Style x:Key="StSmallButton" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="FontWeight"  Value="Normal"/>
+        <Setter Property="Foreground" Value="#FF284B7E"/>
+        <Setter Property="Height" Value="23"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+
+    <Style x:Key="StBigButton" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+
+    <Style x:Key="StMenu" TargetType="{x:Type Menu}">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="FontWeight"  Value="Normal"/>
+        <!--<Setter Property="Background"  Value="DimGray"/>-->
+        <Setter Property="Height" Value="24"/>
+    </Style>
+
+    <Style x:Key="StMenuItem" TargetType="{x:Type MenuItem}">
+        <Setter Property="Foreground"  Value="#FF354B7E"/>
+        <Setter Property="Background"  Value="#FFEDEDED"/>
+    </Style>
+
+    <Style x:Key="StButtonRemove" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+
+    </Style>
+
+    <Style x:Key="WrappedColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding}"></TextBlock>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="StMainMenu" TargetType="{x:Type Menu}">
+        <Setter Property="Background" Value="#FF9CAAC1" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="StMainMenuItem" TargetType="{x:Type MenuItem}">
+        <Setter Property="Background" Value="WhiteSmoke" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="FontWeight"  Value="Normal"/>
+    </Style>
+    
+    <Style x:Key="StBlueMenu" TargetType="{x:Type Menu}">
+        <Setter Property="Background" Value="WhiteSmoke" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="Foreground" Value="MidnightBlue" />
+    </Style>
+
+    <Style x:Key="StBlueMenuItem" TargetType="{x:Type MenuItem}">
+        <Setter Property="Background" Value="WhiteSmoke" />
+        <Setter Property="Foreground" Value="MidnightBlue" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="FontFamily" Value="Andalus"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="FontWeight"  Value="Normal"/>
+    </Style>
+
+</ResourceDictionary>
