@@ -224,10 +224,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EditorControls\EditorControls.csproj">
-      <Project>{fbbbf10b-9f9a-4f02-ba1b-cbacce7cd3f1}</Project>
-      <Name>EditorControls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LargoSharedClasses\LargoSharedClasses.csproj">
       <Project>{17701162-cef6-4450-a7f7-134931fff835}</Project>
       <Name>LargoSharedClasses</Name>

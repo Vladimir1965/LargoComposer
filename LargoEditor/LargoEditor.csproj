@@ -122,10 +122,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EditorControls\EditorControls.csproj">
-      <Project>{fbbbf10b-9f9a-4f02-ba1b-cbacce7cd3f1}</Project>
-      <Name>EditorControls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EditorPanels\EditorPanels.csproj">
       <Project>{41abed79-4ae2-457c-8b66-7a732358ce8e}</Project>
       <Name>EditorPanels</Name>
