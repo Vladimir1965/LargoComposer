@@ -1,10 +1,10 @@
-﻿// <copyright file="SupportLog.cs" company="Largo">
-// Copyright (c) 2009 All Right Reserved
+﻿// <copyright file="SupportLog.cs" company="Traced-Ideas, Czech republic">
+// Copyright (c) 1990-2021 All Right Reserved
 // </copyright>
-// <author> vl </author>
+// <author>vl</author>
 // <email></email>
-// <date>2009-02-01</date>
-// <summary>BwPort</summary>
+// <date>2021-09-01</date>
+// <summary>Part of Largo Composer</summary>
 
 using System;
 using System.Diagnostics.Contracts;
