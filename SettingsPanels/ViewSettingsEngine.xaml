@@ -1,0 +1,65 @@
+﻿<largoSupport:PanelAbstract
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+    xmlns:LargoSharedControls="clr-namespace:LargoSharedControls;assembly=LargoSharedControls"
+    mc:Ignorable="d"
+	x:Class="SettingsPanels.ViewSettingsEngine" Width="490.204" Height="211" >
+
+    <Grid Margin="0,0,-4,-4" HorizontalAlignment="Left" Width="490" RenderTransformOrigin="0.614,0.512">
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="25"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="25"/>
+        </Grid.ColumnDefinitions>
+
+        <Border BorderThickness="2" Width="292" BorderBrush="DarkGray" Margin="10,47,0,0" HorizontalAlignment="Left" 
+                Height="110" VerticalAlignment="Top">
+            <Grid Margin="0,0,-2,-2" Height="108" VerticalAlignment="Top" HorizontalAlignment="Left" Width="290">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0*" />
+                </Grid.ColumnDefinitions>
+                <CheckBox Content="Individualize melodic voices" Height="16" HorizontalAlignment="Left"  
+                          x:Name="CheckBoxIndividualizeMelodicVoices" VerticalAlignment="Top" Foreground="Black" 
+                          x:FieldModifier="private" Margin="8,8,0,0" Grid.Column="0"  />
+                <CheckBox Content="Highlight melodic voices" Foreground="Black" Height="16"  
+                          x:Name="CheckBoxHighlightMelodicVoices" 
+                          x:FieldModifier="private" Margin="8,28,4,0" VerticalAlignment="Top" />
+                <CheckBox Content="Correct result pitch to limits" Height="16" HorizontalAlignment="Left" 
+                          x:Name="CheckCorrectResultPitch" VerticalAlignment="Top" Foreground="Black" 
+                          x:FieldModifier="private" Margin="8,48,0,0" Grid.Column="0"  />
+                <CheckBox Content="Correct result octave to range of instruments" Height="16" HorizontalAlignment="Left" 
+                          x:Name="CheckBoxCorrectOctaves" VerticalAlignment="Top" Foreground="Black" 
+                          x:FieldModifier="private" Margin="8,68,0,0" Grid.Column="0" />
+            </Grid>
+        </Border>
+
+        <Label VerticalAlignment="Top" HorizontalAlignment="Left"
+               Content="Musical rules" Margin="10,9,0,0" />
+        <ComboBox VerticalAlignment="Top" HorizontalAlignment="Left" Height="23"
+                  Margin="127,8,0,0" x:Name="ComboBoxMusicalRules"  Width="149" x:FieldModifier="private">
+            <ComboBoxItem Content="Standard rules" />
+            <ComboBoxItem Content="Harmonic rules" />
+            <ComboBoxItem Content="Impulse rules" />
+        </ComboBox>
+
+        <Grid Margin="302,47,0,0" HorizontalAlignment="Left" Width="178" Height="59" VerticalAlignment="Top" >
+            <Label Content="Lowest tone" Margin="11,3,73,0" />
+            <Label Content="Highest tone"
+                    Margin="11,29,83,0" />
+            <LargoSharedControls:ControlMusicalNote HorizontalAlignment="Left" x:Name="UcLowNotes" 
+                    VerticalAlignment="Top" Width="53" x:FieldModifier="private" Margin="111,3,0,0" />
+            <LargoSharedControls:ControlMusicalNote HorizontalAlignment="Left" x:Name="UcHighNotes" 
+                    VerticalAlignment="Top" Width="54" x:FieldModifier="private" Margin="110,30,0,0" />
+        </Grid>
+        <Button Click="SaveChanges"   Width="25" Height="25"  
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,76,20,10">
+            <Image Source="/LargoSharedControls;component/Images/save.png" VerticalAlignment="Top" HorizontalAlignment="Right"></Image>
+        </Button>
+    </Grid>
+</largoSupport:PanelAbstract>
