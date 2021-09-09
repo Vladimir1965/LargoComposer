@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargoSharedWindows", "Largo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargoManager", "LargoManager\LargoManager.csproj", "{03C6832E-1E72-4DFD-BBA7-125432047233}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerPanels", "ManagerPanels\ManagerPanels.csproj", "{95368A57-4B21-4658-97FA-065DDBABCEA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,14 @@ Global
 		{03C6832E-1E72-4DFD-BBA7-125432047233}.Release|Any CPU.Build.0 = Release|Any CPU
 		{03C6832E-1E72-4DFD-BBA7-125432047233}.Release|x86.ActiveCfg = Release|x86
 		{03C6832E-1E72-4DFD-BBA7-125432047233}.Release|x86.Build.0 = Release|x86
+		{95368A57-4B21-4658-97FA-065DDBABCEA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95368A57-4B21-4658-97FA-065DDBABCEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95368A57-4B21-4658-97FA-065DDBABCEA7}.Debug|x86.ActiveCfg = Debug|x86
+		{95368A57-4B21-4658-97FA-065DDBABCEA7}.Debug|x86.Build.0 = Debug|x86
+		{95368A57-4B21-4658-97FA-065DDBABCEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95368A57-4B21-4658-97FA-065DDBABCEA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95368A57-4B21-4658-97FA-065DDBABCEA7}.Release|x86.ActiveCfg = Release|x86
+		{95368A57-4B21-4658-97FA-065DDBABCEA7}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
