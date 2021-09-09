@@ -1,0 +1,40 @@
+﻿<largoSupport:WinAbstract x:Class="EditorWindows.SideRhythmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+   xmlns:largoCommon="clr-namespace:LargoSharedClasses;assembly=LargoSharedClasses"
+        mc:Ignorable="d"
+        Title="Rhythm" 
+        Height="299" Width="257" Closing="Window_Closing"  >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Grid.Column="0" Grid.Row="0" x:Name="DataGridRhythmicFaces" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,0,0,0" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="img1" Height="18" Width="18" AllowDrop="True"
+                                   Source="/LargoSharedControls;component/Images/dragdot.png"                                 
+                                   PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
+                                   MouseMove="List_MouseMove">
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Rhythm" 
+                                    Binding="{Binding Name}" IsReadOnly="True" 
+                                    Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</largoSupport:WinAbstract>

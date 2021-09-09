@@ -1,0 +1,67 @@
+﻿<largoSupport:PanelAbstract
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+    mc:Ignorable="d"
+    xmlns:resx="clr-namespace:LargoSharedClasses.Localization;assembly=LargoSharedClasses"      
+	x:Class="EditorPanels.InspectTones"
+    BorderThickness="0"
+	d:DesignWidth="400" d:DesignHeight="399" Width="400" >
+
+    <largoSupport:PanelAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoSupport:PanelAbstract.Resources>
+
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" d:DataContext="{d:DesignInstance}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="DataGridTones" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" MouseDoubleClick="DataGridTones_MouseDoubleClick" ClipToBounds="True" 
+                FontFamily="Andalus"  Margin="0,32,0,0">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Binding="{Binding Path=Root}" Header="{Loc Root}" IsReadOnly="True" Width="150" />
+                <DataGridTextColumn Header="{x:Static resx:BaseControls.Type}" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" 
+                                Binding="{Binding Path=ToneType}" IsReadOnly="True"
+                                    Width="50" ElementStyle="{StaticResource DGCStyleLeftBold}" /> -->
+                <DataGridTextColumn Header="{x:Static resx:BaseControls.Note}" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" 
+                                Binding="{Binding Path=Note}"  IsReadOnly="True"
+                                    Width="*" ElementStyle="{StaticResource DgcStyleLeft}" />
+
+                <DataGridTextColumn Header="{x:Static resx:BaseControls.Duration}" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" 
+                                Binding="{Binding Path=Duration}"  IsReadOnly="True"
+                                    Width="55" ElementStyle="{StaticResource DgcStyleLeft}" />
+                <DataGridTextColumn Header="{x:Static resx:BaseControls.Loudness}" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" 
+                                Binding="{Binding Path=Loudness}"  IsReadOnly="True"
+                                    Width="60" ElementStyle="{StaticResource DgcStyleLeft}" />
+
+                <DataGridTextColumn Header="{x:Static resx:BaseControls.Staff}" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" 
+                                Binding="{Binding Path=Staff}"  IsReadOnly="True"
+                                    Width="50" ElementStyle="{StaticResource DgcStyleLeft}" />
+                <DataGridTextColumn Header="{x:Static resx:BaseControls.Voice}" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" 
+                                Binding="{Binding Path=Voice}"  IsReadOnly="True"
+                                    Width="40" ElementStyle="{StaticResource DgcStyleLeft}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Margin="6,4,0,0" Style="{StaticResource StButtonRemove}" Click="Play">
+            <Image Source="/LargoSharedControls;component/Images/play.png" />
+        </Button>
+        <Button Margin="34,4,0,0" Style="{StaticResource StButtonRemove}" Click="StopPlaying">
+            <Image Source="/LargoSharedControls;component/Images/stop.png" />
+        </Button>
+        <!--
+        <LargoNotation:PanelStave Height="122" HorizontalAlignment="Left" Margin="0,46,0,0" 
+                                        Name="panelStave" VerticalAlignment="Top" Width="351" />
+        -->
+    </Grid>
+</largoSupport:PanelAbstract>

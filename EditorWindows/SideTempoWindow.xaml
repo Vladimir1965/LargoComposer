@@ -1,0 +1,56 @@
+﻿<largoSupport:WinAbstract x:Class="EditorWindows.SideTempoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+   xmlns:largoCommon="clr-namespace:LargoSharedClasses;assembly=LargoSharedClasses"
+        mc:Ignorable="d"
+        Title="Tempo" Height="236.929" Width="280" Closing="Window_Closing" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <!-- <LargoSharedControls:ControlTempo Grid.Column="0" HorizontalAlignment="Left" Margin="5,5,0,0" 
+                x:Name="uCMusTempo1" VerticalAlignment="Top" x:FieldModifier="private"  /> -->
+
+            <ComboBox x:Name="ComboRawTempo" Height="22" 
+				SelectionChanged="RawTempoSelectionChanged"
+				DisplayMemberPath="Value" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,5,5,0"  />
+        </Grid>
+        
+        <DataGrid Grid.Row="2" Grid.Column="1" x:Name="DataGridTempo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,0,0,0" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="img1" Height="18" Width="18" AllowDrop="True" Tag="Tempo"
+                                   Source="/LargoSharedControls;component/Images/dragdot.png"                                 
+                                   PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
+                                   MouseMove="List_MouseMove">
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Tempo" 
+                                    Binding="{Binding Value}" IsReadOnly="True" 
+                                    Width="*"  />
+                <DataGridTextColumn Header="Value" 
+                                    Binding="{Binding Key}" IsReadOnly="True" 
+                                    Width="70"  />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</largoSupport:WinAbstract>

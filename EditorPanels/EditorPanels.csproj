@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41ABED79-4AE2-457C-8B66-7A732358CE8E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EditorPanels</RootNamespace>
+    <AssemblyName>EditorPanels</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Annotations">
+      <HintPath>..\..\..\SOLUTIONS-2020\PrivateWPF\Largo2020\ExternalLibs\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\AbstractText.cs" />
+    <Compile Include="Abstract\EditorEventArgs.cs" />
+    <Compile Include="Abstract\EditorEventSender.cs" />
+    <Compile Include="Abstract\EditorLine.cs" />
+    <Compile Include="Abstract\InspectorType.cs" />
+    <Compile Include="Cells\BarCell.cs" />
+    <Compile Include="Cells\BaseCell.cs" />
+    <Compile Include="Cells\CellType.cs" />
+    <Compile Include="Cells\ContentCell.cs" />
+    <Compile Include="Cells\CornerCell.cs" />
+    <Compile Include="Cells\GroupCell.cs" />
+    <Compile Include="Cells\LineCell.cs" />
+    <Compile Include="Cells\SeedCell.cs" />
+    <Compile Include="Cells\SeedSize.cs" />
+    <Compile Include="Cells\VoiceCell.cs" />
+    <Compile Include="Detail\EditorCells.xaml.cs">
+      <DependentUpon>EditorCells.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\MaterialHarmonicBars.xaml.cs">
+      <DependentUpon>MaterialHarmonicBars.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\MaterialHarmonicModality.xaml.cs">
+      <DependentUpon>MaterialHarmonicModality.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\MaterialHarmony.xaml.cs">
+      <DependentUpon>MaterialHarmony.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\MaterialMelody.xaml.cs">
+      <DependentUpon>MaterialMelody.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\MaterialRhythm.xaml.cs">
+      <DependentUpon>MaterialRhythm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\MaterialRhythmicModality.xaml.cs">
+      <DependentUpon>MaterialRhythmicModality.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\MotivesHarmony.xaml.cs">
+      <DependentUpon>MotivesHarmony.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\PanelToneTracer.xaml.cs">
+      <DependentUpon>PanelToneTracer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorInspector.xaml.cs">
+      <DependentUpon>EditorInspector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorSettings.cs" />
+    <Compile Include="EditorSettingsPanel.xaml.cs">
+      <DependentUpon>EditorSettingsPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorSpace.cs" />
+    <Compile Include="EditorSpaceCells.cs" />
+    <Compile Include="EditorSpaceDraw.cs" />
+    <Compile Include="EditorSpaceGroups.cs" />
+    <Compile Include="InspectBar.xaml.cs">
+      <DependentUpon>InspectBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InspectElement.xaml.cs">
+      <DependentUpon>InspectElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InspectHeader.xaml.cs">
+      <DependentUpon>InspectHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InspectLine.xaml.cs">
+      <DependentUpon>InspectLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InspectMelodicMotive.xaml.cs">
+      <DependentUpon>InspectMelodicMotive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InspectRhythmicMotive.xaml.cs">
+      <DependentUpon>InspectRhythmicMotive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InspectTones.xaml.cs">
+      <DependentUpon>InspectTones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LineSpace.cs" />
+    <Compile Include="LineSpaceCells.cs" />
+    <Compile Include="LineSpaceDraw.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkSpace.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Detail\EditorCells.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Detail\MaterialHarmonicBars.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Detail\MaterialHarmonicModality.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Detail\MaterialHarmony.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Detail\MaterialMelody.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Detail\MaterialRhythm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Detail\MaterialRhythmicModality.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Detail\MotivesHarmony.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Detail\PanelToneTracer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditorInspector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditorSettingsPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InspectBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InspectElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InspectHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InspectLine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InspectMelodicMotive.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InspectRhythmicMotive.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InspectTones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EditorControls\EditorControls.csproj">
+      <Project>{fbbbf10b-9f9a-4f02-ba1b-cbacce7cd3f1}</Project>
+      <Name>EditorControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LargoSharedClasses\LargoSharedClasses.csproj">
+      <Project>{17701162-cef6-4450-a7f7-134931fff835}</Project>
+      <Name>LargoSharedClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LargoSharedControls\LargoSharedControls.csproj">
+      <Project>{7010bfdf-ba28-4adf-8098-90e712583e51}</Project>
+      <Name>LargoSharedControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

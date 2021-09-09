@@ -1,0 +1,95 @@
+﻿<largoSupport:PanelAbstract x:Class="EditorPanels.InspectLine"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+    xmlns:resx="clr-namespace:LargoSharedClasses.Localization;assembly=LargoSharedClasses"
+                           
+                                 mc:Ignorable="d"
+                                 BorderThickness="0" 
+    d:DesignWidth="360" d:DesignHeight="622" >
+
+    <largoSupport:PanelAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoSupport:PanelAbstract.Resources>
+
+    <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" FontSize="12" FontWeight="Bold" Height="20" HorizontalAlignment="Stretch" Margin="5,4,0,0" 
+        		x:Name="TextTopTitle" Text="0" VerticalAlignment="Top"
+        		x:FieldModifier="private" Grid.ColumnSpan="2" 
+                Background="LightBlue" Foreground="MidnightBlue"  />
+            </Grid>
+
+<!--
+        <Grid Grid.Row="0">
+            
+            <StackPanel Grid.Column="0" Orientation="Horizontal" Height="20" Margin="19,27,0,0" 
+        		HorizontalAlignment="Left" VerticalAlignment="Top" Width="297">
+                <RadioButton Content="Melodic line" Height="16" HorizontalAlignment="Left" x:Name="radioButtonMelodic" 
+        			Width="120" Checked="RadioButtonMelodic_Checked" IsEnabled="False" x:FieldModifier="private" />
+                <RadioButton Content="Rhythmic line" Height="16" x:Name="radioButtonRhythmic" 
+        			Checked="RadioButtonRhythmic_Checked" IsEnabled="False" x:FieldModifier="private" Margin="0,2" Width="187" />
+            </StackPanel>
+
+            <Label Grid.Column="0" Content="Midi channel" Height="28" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="10,142,0,0" />
+            <LargoSharedControls:ControlChannel Grid.Column="0" HorizontalAlignment="Left"  x:Name="uCMidChannel1" VerticalAlignment="Top" Width="40" 
+                                          SelectionChanged="UCMidChannel1_SelectionChanged" Margin="122,142,0,0" RenderTransformOrigin="0.95,-0.583" />
+            <Label Content="Staff" HorizontalAlignment="Left" Margin="19,76,0,0" VerticalAlignment="Top"/>
+            <TextBlock x:Name="textStaff" HorizontalAlignment="Left" Margin="73,81,0,0" TextWrapping="Wrap" 
+                       Text="TextBlock" VerticalAlignment="Top"/>
+            <Label Content="Voice" HorizontalAlignment="Left" Margin="19,97,0,0" VerticalAlignment="Top"/>
+            <TextBlock x:Name="textVoice" HorizontalAlignment="Left" Margin="73,102,0,0" TextWrapping="Wrap" 
+                       Text="TextBlock" VerticalAlignment="Top"/>
+            
+        </Grid>
+-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid AutoGenerateColumns="False" Name="DataGridIdentification" 
+                      HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" 
+                      CanUserReorderColumns ="False" CanUserDeleteRows="False"
+                      CanUserResizeRows="False" CanUserResizeColumns="True"
+                      CanUserAddRows="False"
+                      x:FieldModifier="private">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static resx:BaseControls.Property}" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" 
+                        Binding="{Binding Path=Key}" ElementStyle="{StaticResource DgcStyleLeft}" 
+                                    IsReadOnly="False" Width="170" >
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Key}" />
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resx:BaseControls.Value}" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}"
+                        Binding="{Binding Path=Value}" ElementStyle="{StaticResource DgcStyleLeft}" 
+                                    IsReadOnly="True" Width="*" >
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Value}" />
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</largoSupport:PanelAbstract>

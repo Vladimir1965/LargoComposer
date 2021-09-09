@@ -1,0 +1,114 @@
+﻿<largoSupport:WinAbstract x:Class="EditorWindows.TemplatesSavedOrchestra"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+        Title="Saved orchestrations" Height="296" Width="924.5" >
+
+    <Grid Background="#FFE5E5E5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="360"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Grid.Column="0" Grid.Row="1"  x:Name ="GridBlocks" HorizontalAlignment="Left" 
+                      VerticalAlignment="Stretch" AutoGenerateColumns="False" CanUserAddRows="False"
+                      MouseDoubleClick="GridBlocks_MouseDoubleClick" SelectionChanged="GridBlocks_SelectionChanged" 
+                  Margin="5,0,0,0" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="img1" Height="18" Width="18" AllowDrop="True"
+                                       Source="/LargoSharedControls;component/Images/dragdot.png"                                 
+                                       PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
+                                       MouseMove="List_MouseMove">
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Header.TwoRowName}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Header.Origin}" IsReadOnly="True" Width="80"/>
+                <DataGridTextColumn Header="Sections" Binding="{Binding SectionCount}" IsReadOnly="True" Width="60"/>
+                <DataGridTextColumn Header="Instruments" Binding="{Binding InstrumentCount}" IsReadOnly="True" Width="60"/>
+                <DataGridTextColumn Header="Tracks" Binding="{Binding TrackCount}" IsReadOnly="True" Width="60"  />
+                <DataGridTextColumn Header="From bar" Binding="{Binding BarNumberFrom}" IsReadOnly="True" Width="50"  />
+                <DataGridTextColumn Header="To bar" Binding="{Binding BarNumberTo}" IsReadOnly="True" Width="50"  />
+
+                <!--
+                <DataGridTextColumn Header="Vocals" 
+					Binding="{Binding NumberOfVocals}" IsReadOnly="True"
+					Width="90"  />
+                <DataGridTextColumn Header="Strings" 
+					Binding="{Binding NumberOfStrings}" IsReadOnly="True"
+					Width="90"  />
+                <DataGridTextColumn Header="Woodwinds" 
+					Binding="{Binding NumberOfWoodwinds}" IsReadOnly="True"
+					Width="90"  />
+                <DataGridTextColumn Header="Keyboards" 
+					Binding="{Binding NumberOfKeyboards}" IsReadOnly="True"
+					Width="90"  />
+                <DataGridTextColumn Header="Guitars" 
+					Binding="{Binding NumberOfGuitars}" IsReadOnly="True"
+					Width="90"  />
+                <DataGridTextColumn Header="Brass" 
+					Binding="{Binding NumberOfBrass}" IsReadOnly="True"
+					Width="90"  />
+                <DataGridTextColumn Header="Synthetic" 
+					Binding="{Binding NumberOfSynthetic}" IsReadOnly="True"
+					Width="90"  /> -->
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <DataGrid Grid.Column="1" Grid.Row="1"  x:Name ="DataGridTracks" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+			AutoGenerateColumns="False" Margin="5,0,0,0" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Instrument" 
+                                    Binding="{Binding InstrumentString}" IsReadOnly="True" 
+                                    Width="100"  />
+                <DataGridTextColumn Header="Section" 
+                                    Binding="{Binding InstrumentGroupString}" IsReadOnly="True" 
+                                    Width="100"  />
+                <DataGridTextColumn Header="Octave" 
+					Binding="{Binding OctaveString}" IsReadOnly="True"
+					Width="70"  />
+                <DataGridTextColumn Header="Band" 
+					Binding="{Binding BandTypeString}" IsReadOnly="True"
+					Width="90"  />
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox Grid.Column="0" Grid.Row="0" x:Name ="ComboSections" HorizontalAlignment="Left" Margin="348,9,0,0" VerticalAlignment="Top" Width="44" 
+                  SelectionChanged="ComboSections_SelectionChanged"/>
+        <ComboBox Grid.Column="0" Grid.Row="0" x:Name ="ComboInstruments" HorizontalAlignment="Left" Margin="496,8,0,0" VerticalAlignment="Top" Width="54" 
+                  SelectionChanged="ComboInstruments_SelectionChanged"/>
+        <Label Grid.Column="0" Grid.Row="0" Content="Sections" HorizontalAlignment="Left" Margin="285,6,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="0" Grid.Row="0" Content="Instruments" HorizontalAlignment="Left" Margin="414,5,0,0" VerticalAlignment="Top"/>
+        <ComboBox Grid.Column="0" Grid.Row="0" x:Name ="ComboSources" HorizontalAlignment="Left" Margin="70,9,0,0" VerticalAlignment="Top" Width="208" 
+                  SelectionChanged="ComboSources_SelectionChanged"/>
+        <Label Grid.Column="0" Grid.Row="0" Content="Source" HorizontalAlignment="Left" Margin="9,6,0,0" VerticalAlignment="Top"/>
+        <ComboBox Grid.Column="0" Grid.Row="0" x:Name ="ComboDates" HorizontalAlignment="Left" Margin="69,36,0,0" VerticalAlignment="Top" Width="98" 
+            SelectionChanged="ComboDates_SelectionChanged"/>
+        <Label Grid.Column="0" Grid.Row="0" Content="Date" HorizontalAlignment="Left" Margin="11,34,0,0" VerticalAlignment="Top"/>
+        <!--
+        <Menu Margin="6,7,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Grid.Row="1" Grid.Column="0">
+
+            <MenuItem Header="Import" Width="76">
+
+            </MenuItem>
+            <Separator/>
+        </Menu>
+
+        <CheckBox x:Name="buttonShowAll" Content="Show all" HorizontalAlignment="Left" Margin="380,16,0,0" VerticalAlignment="Top" 
+            Checked="ButtonShowAll_Checked" Unchecked="ButtonShowAll_Unchecked" 
+                      Grid.Row="1" Grid.Column="0" />
+        -->
+        <!--
+        <Button Content="=&gt;" HorizontalAlignment="Left" Margin="227,1,0,0" FontSize="20" FontWeight="Bold" 
+            VerticalAlignment="Top" Width="36" Click="OrchestraToEditor" Height="32" 
+            Background="LightSkyBlue" Foreground="Black" Grid.Column="1" Grid.Row="1" /> -->
+    </Grid>
+</largoSupport:WinAbstract>

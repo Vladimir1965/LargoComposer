@@ -1,0 +1,86 @@
+﻿<largoSupport:WinAbstract x:Class="EditorWindows.SideHarmonicStructuresWindow"
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+                          xmlns:largoControls="clr-namespace:LargoSharedControls;assembly=LargoSharedControls"
+                          xmlns:detail="clr-namespace:EditorPanels.Detail;assembly=EditorPanels"
+                          mc:Ignorable="d"
+        Title="Harmonic structures" 
+        Height="440" Width="299" Closing="Window_Closing"  >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="58"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <ComboBox x:Name="ListType" HorizontalAlignment="Left" Margin="2,3,0,0" 
+                      VerticalAlignment="Top" Width="183" SelectionChanged="ListType_SelectionChanged">
+                <ComboBoxItem Content="Modality structures" Tag="1" IsSelected="True" />
+               <!-- <ComboBoxItem Content="Structures of user templates" Tag="2"/>
+                <ComboBoxItem Content="Structures of saved templates" Tag="3"/> -->
+            </ComboBox>
+        
+            <ComboBox x:Name="ModalityLevel" HorizontalAlignment="Left" Margin="190,3,0,0" VerticalAlignment="Top" Width="100"
+                      SelectionChanged="ModalityLevel_SelectionChanged">
+                <ComboBoxItem Content="All" Tag="0"/>
+                <ComboBoxItem Content="Tetratonics" Tag="4"/>
+                <ComboBoxItem Content="Pentatonics" Tag="5"/>
+                <ComboBoxItem Content="Hexatonics" Tag="6"/>
+                <ComboBoxItem Content="Heptatonics" Tag="7"/>
+                <ComboBoxItem Content="Octatonics" Tag="8"/>
+            </ComboBox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+
+            <largoControls:ControlHarmonicModality  x:Name="ControlHarmonicModality" 
+                HorizontalAlignment="Left" Height="56" Margin="2,1,0,0" VerticalAlignment="Top" Width="246" 
+                SelectionChanged="ControlHarmonicModality_SelectionChanged"/>
+
+            <Image Grid.Column="1" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Margin="0,24,0,0"
+                   Source="/LargoSharedControls;component/Images/dragdot.png"  />
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="0">
+            <ComboBox x:Name="ChordLevel" HorizontalAlignment="Left" Margin="6,4,0,0" VerticalAlignment="Top" Width="100"
+                SelectionChanged="ChordLevel_SelectionChanged">
+                <ComboBoxItem Content="All" Tag="0"/>
+                <ComboBoxItem Content="Dyads" Tag="2"/>
+                <ComboBoxItem Content="Triads" Tag="3"/>
+                <ComboBoxItem Content="Tetrachord" Tag="4"/>
+                <ComboBoxItem Content="Pentachords" Tag="5"/>
+            </ComboBox>
+            
+            <!--
+            <ComboBox x:Name="SonanceLevel" HorizontalAlignment="Left" Margin="190,3,0,0" VerticalAlignment="Top" Width="100"
+                SelectionChanged="SonanceLevel_SelectionChanged">
+                <ComboBoxItem Content="All" Tag="0"/>
+                <ComboBoxItem Content="Consonances" Tag="4"/>
+                <ComboBoxItem Content="Middle sonances" Tag="4"/>
+                <ComboBoxItem Content="Dissonances" Tag="5"/>
+            </ComboBox>
+            -->
+        </Grid>
+
+        <detail:MaterialHarmony Grid.Row="4" Grid.Column="0" Name="PanelDetailMaterial" 
+                       HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
+                       Background="#80284B7E" x:FieldModifier="private"  
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" />
+
+        <!-- this is working bud not to be very nice 
+        <largoPanelsEditorDetail:MotivesHarmony Grid.Column="0" Grid.Row="1"  Name="panelDetailMotives" 
+                       HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
+                       Background="#80284B7E" x:FieldModifier="private"  
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0"  /> -->
+    </Grid>
+</largoSupport:WinAbstract>

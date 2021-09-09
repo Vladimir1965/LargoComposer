@@ -1,0 +1,52 @@
+﻿<largoSupport:PanelAbstract
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="EditorPanels.Detail.MaterialHarmonicModality"
+    d:DesignWidth="539" d:DesignHeight="289" 
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+   xmlns:largoCommon="clr-namespace:LargoSharedClasses;assembly=LargoSharedClasses"    >
+
+    <largoSupport:PanelAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoSupport:PanelAbstract.Resources>
+
+    <Grid d:DataContext="{d:DesignInstance}">
+        <DataGrid x:Name="DataGridMaterial" IsSynchronizedWithCurrentItem="True" 
+				AutoGenerateColumns="False" AlternatingRowBackground="Azure"
+				CanUserAddRows="True" CanUserDeleteRows="True"	CanUserSortColumns="True" 
+                CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserResizeRows="True" 
+				d:LayoutOverrides="GridBox" SelectionChanged="DataGridHarBars_SelectionChanged">
+				<DataGrid.Columns>
+				    <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
+				        <DataGridTemplateColumn.CellTemplate>
+				            <DataTemplate>
+				                <Image Name="img1" Height="18" Width="18" AllowDrop="True"
+				                       Source="/LargoSharedControls;component/Images/dragdot.png"                                 
+				                       PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
+				                       MouseMove="List_MouseMove">
+				                </Image>
+				            </DataTemplate>
+				        </DataGridTemplateColumn.CellTemplate>
+				    </DataGridTemplateColumn>
+                <!-- <DataGridTextColumn Header="Occurrence" IsReadOnly="True" Width="70"
+                        SortMemberPath="Occurrence" Binding="{Binding Path=Occurrence}" /> -->
+                <DataGridTextColumn Header="Modality" IsReadOnly="True" Width="*"
+						Binding="{Binding Path=Name}" />
+                <DataGridTextColumn Header="Level" IsReadOnly="True" Width="50"
+						Binding="{Binding Path=Level}" />
+                <DataGridTextColumn Header="Tones" IsReadOnly="True" Width="*"
+						Binding="{Binding Path=ToneSchema}" />
+                    
+
+				</DataGrid.Columns>
+			</DataGrid>
+
+    </Grid>
+</largoSupport:PanelAbstract>

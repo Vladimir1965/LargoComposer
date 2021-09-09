@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E75DEFF6-A09E-4404-A00B-E3F66B947651}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>EditorWindows</RootNamespace>
+    <AssemblyName>EditorWindows</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Page Include="BlockHarmonyWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BlockListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BlockMelodyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="BlockRhythmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="InspectorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SideHarmonicModalityWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="SideHarmonicStructuresWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="SideInstrumentWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SideMelodyWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SideOrchestraWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="SideRhythmicModalityWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="SideRhythmicStructuresWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SideRhythmWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SideTempoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SideVoicesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SmartHarmonyWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SmartRhythmWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TemplatesSavedHarmonic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TemplatesSavedOrchestra.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TemplatesSavedRhythmic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlockHarmonyWindow.xaml.cs">
+      <DependentUpon>BlockHarmonyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BlockListWindow.xaml.cs">
+      <DependentUpon>BlockListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BlockMelodyWindow.xaml.cs">
+      <DependentUpon>BlockMelodyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BlockRhythmWindow.xaml.cs">
+      <DependentUpon>BlockRhythmWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InspectorWindow.xaml.cs">
+      <DependentUpon>InspectorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideHarmonicModalityWindow.xaml.cs">
+      <DependentUpon>SideHarmonicModalityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideHarmonicStructuresWindow.xaml.cs">
+      <DependentUpon>SideHarmonicStructuresWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideInstrumentWindow.xaml.cs">
+      <DependentUpon>SideInstrumentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideMelodyWindow.xaml.cs">
+      <DependentUpon>SideMelodyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideOrchestraWindow.xaml.cs">
+      <DependentUpon>SideOrchestraWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideRhythmicModalityWindow.xaml.cs">
+      <DependentUpon>SideRhythmicModalityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideRhythmicStructuresWindow.xaml.cs">
+      <DependentUpon>SideRhythmicStructuresWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideRhythmWindow.xaml.cs">
+      <DependentUpon>SideRhythmWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideTempoWindow.xaml.cs">
+      <DependentUpon>SideTempoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideVoicesWindow.xaml.cs">
+      <DependentUpon>SideVoicesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SmartHarmonyWindow.xaml.cs">
+      <DependentUpon>SmartHarmonyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SmartRhythmWindow.xaml.cs">
+      <DependentUpon>SmartRhythmWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TemplatesSavedHarmonic.xaml.cs">
+      <DependentUpon>TemplatesSavedHarmonic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TemplatesSavedOrchestra.xaml.cs">
+      <DependentUpon>TemplatesSavedOrchestra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TemplatesSavedRhythmic.xaml.cs">
+      <DependentUpon>TemplatesSavedRhythmic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindows.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EditorControls\EditorControls.csproj">
+      <Project>{fbbbf10b-9f9a-4f02-ba1b-cbacce7cd3f1}</Project>
+      <Name>EditorControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EditorPanels\EditorPanels.csproj">
+      <Project>{41abed79-4ae2-457c-8b66-7a732358ce8e}</Project>
+      <Name>EditorPanels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LargoSharedClasses\LargoSharedClasses.csproj">
+      <Project>{17701162-cef6-4450-a7f7-134931fff835}</Project>
+      <Name>LargoSharedClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LargoSharedControls\LargoSharedControls.csproj">
+      <Project>{7010bfdf-ba28-4adf-8098-90e712583e51}</Project>
+      <Name>LargoSharedControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LargoSharedPanels\LargoSharedPanels.csproj">
+      <Project>{56e85e30-6b1b-4e83-9de1-78fd4fe1a14b}</Project>
+      <Name>LargoSharedPanels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LargoSharedWindows\LargoSharedWindows.csproj">
+      <Project>{6ecf34e9-3073-40ac-85f3-3de56ab8cc44}</Project>
+      <Name>LargoSharedWindows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Annotations">
+      <HintPath>..\..\..\SOLUTIONS-2020\PrivateWPF\Largo2020\ExternalLibs\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

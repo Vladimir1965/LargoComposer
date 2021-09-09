@@ -1,0 +1,62 @@
+﻿<largoSupport:WinAbstract x:Class="EditorWindows.SmartRhythmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+                          Title="Create rhythmic stream" Height="394.917" Width="905.248">
+
+    <Grid Background="#FFE5E5E5" Margin="0,0,2,0">
+        <!--
+        <Label Content="X" HorizontalAlignment="Left" Margin="204,8,0,0" VerticalAlignment="Top" Width="76"/>
+        <Slider x:Name="SliderContinuity" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="180" Maximum="100"/>
+
+        <Label Content="X" HorizontalAlignment="Left" Margin="515,10,0,0" VerticalAlignment="Top" Width="76"/>
+        <Slider x:Name="SliderImpulse" HorizontalAlignment="Left" Margin="626,16,0,0" VerticalAlignment="Top" Width="180" Maximum="100"/>
+        -->
+        <Button Content="Rebuild" HorizontalAlignment="Left" Margin="314,37,0,0" VerticalAlignment="Top" Width="91" Click="Rebuild" />
+
+        <CheckBox x:Name="RegularStructures" Content="Regular structures" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" Unchecked="RegularStructures_Unchecked" Checked="RegularStructures_Checked"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,61,0,0" TextWrapping="Wrap" Text="Material" VerticalAlignment="Top"/>
+        <DataGrid x:Name="GridMaterial" HorizontalAlignment="Left" Height="282" Margin="0,80,0,2" VerticalAlignment="Stretch" Width="417"
+            AutoGenerateColumns="False" CanUserAddRows="False" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image x:Name="img1" Height="18" Width="18" AllowDrop="True"
+                                Source="/LargoSharedControls;component/Images/dragdot.png"                                 
+                                PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
+                                MouseMove="List_MouseMove"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="Schema" Binding="{Binding ElementSchema}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Level" Binding="{Binding Level}" IsReadOnly="True" Width="60"/>
+                <DataGridTextColumn Header="Tones" Binding="{Binding ToneLevel}" IsReadOnly="True" Width="60"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock HorizontalAlignment="Left" Margin="466,59,0,0" TextWrapping="Wrap" Text="Stream" VerticalAlignment="Top"/>
+        <DataGrid x:Name="GridStream" HorizontalAlignment="Left" Height="282" Margin="466,80,0,2" VerticalAlignment="Stretch" Width="417"
+            AutoGenerateColumns="False" CanUserAddRows="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Schema" Binding="{Binding ElementSchema}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Level" Binding="{Binding Level}" IsReadOnly="True" Width="60"/>
+                <DataGridTextColumn Header="Tones" Binding="{Binding ToneLevel}" IsReadOnly="True" Width="60"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="=>" HorizontalAlignment="Left" Margin="426,126,0,0" VerticalAlignment="Top" Width="30" 
+                Click="AddToStream"  Height="29"/>
+        <CheckBox x:Name="RandomSelection" Content="Random selection" HorizontalAlignment="Left" Margin="595,45,0,0" VerticalAlignment="Top" />
+        <CheckBox x:Name="BlockStructures" Content="Structures of current block" HorizontalAlignment="Left" Margin="11,42,0,0" VerticalAlignment="Top" 
+                  Unchecked="BlockStructures_Unchecked" Checked="BlockStructures_Checked"/>
+
+        <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Margin="844,43,0,0"
+            Source="/LargoSharedControls;component/Images/dragdot.png"  
+            PreviewMouseLeftButtonDown="Stream_PreviewMouseLeftButtonDown"
+            MouseMove="Stream_MouseMove"/>
+    </Grid>
+</largoSupport:WinAbstract>

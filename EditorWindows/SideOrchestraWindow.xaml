@@ -1,0 +1,81 @@
+﻿<largoSupport:WinAbstract x:Class="EditorWindows.SideOrchestraWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+                          Title="Orchestra" Height="300" Width="920" >
+
+    <Grid Background="#FFE5E5E5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="360"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+            <ComboBox  x:Name ="ComboSources" HorizontalAlignment="Left" Margin="3,9,0,0" VerticalAlignment="Top" Width="355" 
+                      SelectionChanged="ComboSources_SelectionChanged"/>
+
+            <Label  Content="Length" Margin="372,4,494,0" VerticalAlignment="Top"/>
+            <ComboBox  x:Name ="ComboLength" HorizontalAlignment="Left" Margin="427,4,0,0" VerticalAlignment="Top" Width="44" 
+                  SelectionChanged="ComboLength_SelectionChanged"/>
+        </Grid>
+
+        <DataGrid Grid.Column="0" Grid.Row="1"  x:Name ="GridOrchestra" HorizontalAlignment="Left" 
+                      VerticalAlignment="Stretch" AutoGenerateColumns="False" CanUserAddRows="False"
+                      MouseDoubleClick="GridOrchestra_MouseDoubleClick" SelectionChanged="GridOrchestra_SelectionChanged" 
+                  Margin="5,0,0,0" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="img1" Height="18" Width="18" AllowDrop="True"
+                                       Source="/LargoSharedControls;component/Images/dragdot.png"                                 
+                                       PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
+                                       MouseMove="List_MouseMove">
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Orchestra" IsReadOnly="True" Width="*"
+                    Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Count" IsReadOnly="True" Width="60"
+                    Binding="{Binding Count}" />
+                <DataGridTextColumn Header="Title" IsReadOnly="True" Width="*"
+                    Binding="{Binding Title}" />
+                <DataGridTextColumn Header="Author" IsReadOnly="True" Width="*"
+                    Binding="{Binding Author}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="1" Grid.Column ="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="41*"/>
+                <ColumnDefinition Width="206*"/>
+                <ColumnDefinition Width="305*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox HorizontalAlignment="Stretch" Height="23" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" 
+                     Text="{Binding Name, Mode=OneWay}" FontWeight="Bold" IsEnabled="False" Grid.ColumnSpan="3" />
+
+            <TextBlock HorizontalAlignment="Left" Margin="165,40,0,0" TextWrapping="Wrap" Text="Count:" VerticalAlignment="Top" Grid.Column="2"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="214,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81"
+                     Text="{Binding Count, Mode=OneWay}" IsEnabled="False" Grid.Column="2" />
+
+            <DataGrid  x:Name ="GridVoices" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+			AutoGenerateColumns="False" Margin="5,65,0,0" Grid.ColumnSpan="3" Grid.Column="0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Octave" IsReadOnly="True" Width="*"
+                    Binding="{Binding Octave}" />
+                    <DataGridTextColumn Header="Instrument" IsReadOnly="True" Width="*"
+                    Binding="{Binding Instrument}" />
+                    <DataGridTextColumn Header="Loudness" IsReadOnly="True" Width="*"
+                    Binding="{Binding Loudness}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</largoSupport:WinAbstract>

@@ -1,0 +1,362 @@
+﻿<largoSupport:WinAbstract x:Class="LargoEditor.EditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+                          Title="Musical editor" 
+        Height="750" Width="1443" 
+        Closing="Window_Closing" Loaded="Window_Loaded" StateChanged="Window_StateChanged">
+    <!-- Activated="Window_Activated"  -->
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row ="0" Margin="1,1,0,0"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <!-- Music block -->
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="130"/>
+                <!-- Side panels -->
+                <ColumnDefinition Width="720"/>
+                <!--  -->
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row ="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Musical block" Margin="21,0,0,0" FontWeight="Bold"></TextBlock>
+                <StackPanel Grid.Row ="1" Grid.Column="0"  IsEnabled="True" Visibility="Visible" Name="TopLedgeCommand"  
+                        Orientation="Horizontal" Height="36" Margin="9,3,0,0" Width="160"  
+                        HorizontalAlignment="Left" VerticalAlignment="Top"  >
+
+                    <Button x:Name = "ButtonBlock" HorizontalAlignment="Left" Margin="8,0,0,0" VerticalAlignment="Top" 
+                        Width="28" Height="28"  Click="BlockInspector" ToolTip="Detail of musical block">
+                        <Image Source="/LargoSharedControls;component/Images/button_props.png" Width="24" Height="24" />
+                    </Button>
+
+                    <Button Name="ButtonAddLine" Grid.Row="0" HorizontalAlignment="Left" Margin="12,0,0,0" 
+                        Width="28" Height="28" VerticalAlignment="Top"  Click="EditorAddLine" 
+                        ToolTip="Add musical line"  >
+                        <Image Source="/LargoSharedControls;component/Images/button_add_line.png" Width="24" Height="24"  />
+                    </Button>
+
+                    <Button Grid.Row="0" HorizontalAlignment="Left" Margin="4,0,0,0" 
+                        Width="28" Height="28" VerticalAlignment="Top"  Click="EditorAddBar"
+                        ToolTip="Add musical bar"  >
+                        <Image Source="/LargoSharedControls;component/Images/button_add_bar.png" Width="24" Height="24"  />
+                    </Button>
+
+                    <Button Grid.Row="0" HorizontalAlignment="Left" Margin="12,0,0,0" 
+                        Width="28" Height="28" VerticalAlignment="Top"  Click="ViewInspector"
+                        ToolTip="Inspector of musical properties" >
+                        <Image Source="/LargoSharedControls;component/Images/button_inspector.png" Width="24" Height="24"  />
+                    </Button>
+                    <!--
+                    <Button  Name="ButtonSettings" Style="{StaticResource StButtonRemove}" Click="MainSettings" ToolTip="Main Settings"
+                         Width="28" Height="28" Margin="16,0,0,0" VerticalAlignment="Top"  >
+                        <Image Source="/LargoSharedControls;component/Images/settingsmain.png" Width="24" Height="24"  />
+                    </Button>
+                    -->
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row ="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Plan" Margin="3,0,0,0" FontWeight="Bold"></TextBlock>
+                <TextBlock Grid.Row="0" Text="Compose and play" Margin="70,0,0,0" FontWeight="Bold"></TextBlock>
+
+                <StackPanel Grid.Row ="1" Grid.Column="0" IsEnabled="True" Visibility="Visible" Name="TopLedgeEdit"  
+                        Orientation="Horizontal" Height="33"  
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Width="260" >
+
+                    <ToggleButton x:Name = "ToggleContentBase" ToolTip="Switch musical plan / musical editor"
+                            Content = " 0 -- I "  IsChecked="True" Width = "60"  Height="27"
+                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="3,3,0,0"
+                            Checked = "TogglePlanToMusic" Unchecked = "ToggleMusicToPlan" FontWeight="Bold" />
+                    <!--
+                    <Button HorizontalAlignment="Left" Margin="8,3,0,0" VerticalAlignment="Top" 
+                            Width="28" Height="28"  Click="CompositionSettings" ToolTip="Settings for composition">
+                        <Image Source="/LargoSharedControls;component/Images/settingscompose.png" Width="24" Height="24" />
+                    </Button>
+                    -->
+
+                    <Button HorizontalAlignment="Left" Margin="8,3,0,0" VerticalAlignment="Top" 
+                            Width="28" Height="28"  Click="ComposeAndPlay" ToolTip="Play music">
+                        <Image Source="/LargoSharedControls;component/Images/button_play.png" Width="24" Height="24" />
+                    </Button>
+
+                    <Button HorizontalAlignment="Left" Margin="8,3,0,0" VerticalAlignment="Top" 
+                            Width="28" Height="28" Click="MusicStop" ToolTip="Stop music">
+                        <Image Source="/LargoSharedControls;component/Images/button_stop.png" Width="24" Height="24"  />
+                    </Button>
+
+                    <Button HorizontalAlignment="Left" Margin="8,3,0,0" VerticalAlignment="Top" 
+                            Width="28" Height="28"  Click="PlayMp3"  ToolTip="Convert music to MP3 and play">
+                        <Image Source="/LargoSharedControls;component/Images/button_playmp3.png" Width="24" Height="24" />
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row ="0" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Templates" Margin="21,0,0,0" FontWeight="Bold"></TextBlock>
+                <StackPanel Grid.Row ="1" Grid.Column="0"  IsEnabled="True" Visibility="Visible" Name="TopLedgeCommand2"  
+                        Orientation="Horizontal" Height="36" Margin="9,3,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"  >
+
+                    <Button x:Name="ButtonHarmony" Grid.Row="0" HorizontalAlignment="Left" Margin="12,0,0,0" 
+                        Width="28" Height="28" VerticalAlignment="Top"  Click="HarmonicTemplates"
+                        ToolTip="Harmonic templates"  >
+                        <Image Source="/LargoSharedControls;component/Images/harmonic_template.png" Width="24" Height="24"  />
+                    </Button>
+
+                    <Button x:Name="ButtonRhythm" Grid.Row="0" HorizontalAlignment="Left" Margin="4,0,0,0" 
+                        Width="28" Height="28" VerticalAlignment="Top"  Click="RhythmicTemplates"
+                        ToolTip="Rhythmic templates"  >
+                        <Image Source="/LargoSharedControls;component/Images/button_new_rhythm.png" Width="24" Height="24"  />
+                    </Button>
+
+                    <!-- Saved orchestrations -->
+                    <Button Grid.Row="0" HorizontalAlignment="Left" Margin="16,0,0,0" 
+                        Width="28" Height="28" VerticalAlignment="Top"  Click="SavedOrchestrations" 
+                        ToolTip="Saved orchestrations" >
+                        <Image Source="/LargoSharedControls;component/Images/orchestra24.png" Width="24" Height="24"  />
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row ="0" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Side panels" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
+                <!--
+                <Button Grid.Row="1" Content="All" HorizontalAlignment="Left" Margin="4,2,0,0" 
+                        Width="40" Height="26" VerticalAlignment="Top"  Click="ViewAllPanels"
+                        ToolTip="Open all side panels" /> -->
+                <!--
+                <Menu Grid.Row="1" Name="MenuEdit1"  Height="26" Width="80" FlowDirection="LeftToRight"
+                      x:FieldModifier="private" 
+                VerticalAlignment="Top" HorizontalAlignment="Left" Margin="49,0,0,0"  ToolTip="Open side panel" >
+                    <MenuItem Header="Open" Height="27">
+                        <MenuItem Header="Instruments" Click="ViewPanel" Tag="4" >
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_instrument.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Tempo" Click="ViewPanel" Tag="5" >
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_tempo.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator/>
+                        <MenuItem Header="Harmony" Click="ViewPanel" Tag="1" >
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_harmony.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Rhythm" Click="ViewPanel" Tag="2" >
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_rhythm.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Melody" Click="ViewPanel" Tag="3" >
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_melody.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Orchestra" Click="ViewPanel" Tag="9" >
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/orchestra.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Voices" Click="ViewPanel" Tag="6" >
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_voices.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Key (Modality])" >
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_rhythm.png" />
+                            </MenuItem.Icon>
+                            <MenuItem Header="Harmonic" Click="ViewPanel" Tag="7" >
+                                <MenuItem.Icon>
+                                    <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_harmony.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Rhythmic" Click="ViewPanel" Tag="8" >
+                                <MenuItem.Icon>
+                                    <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_rhythm.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        <Separator/>
+                    <MenuItem Header="Saved harmonic streams" Click="ViewPanel" Tag="9" />
+                    <MenuItem Header="Saved orchestrations" Click="ViewPanel" Tag="10" /> 
+                    </MenuItem>
+                    <MenuItem Header="What next?" Click="ViewPanel" Tag="0"/>                 
+                </Menu> -->
+                <Menu Grid.Row="1" Grid.Column="0" Name="MenuEdit2"  Height="26" Width="699" FlowDirection="LeftToRight"
+                      x:FieldModifier="private" 
+                VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,7,0,0"  ToolTip="Open side panel" RenderTransformOrigin="0.5,0.5" >
+                    <Menu.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.214"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Menu.RenderTransform>
+
+                    <MenuItem Header="Instruments" Click="ViewPanel" Tag="4" >
+                        <MenuItem.Icon>
+                            <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_instrument.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Tempo" Click="ViewPanel" Tag="5" >
+                        <MenuItem.Icon>
+                            <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_tempo.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Harmony" Click="ViewPanel" Tag="1" >
+                        <MenuItem.Icon>
+                            <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_harmony.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Rhythm" Click="ViewPanel" Tag="2" >
+                        <MenuItem.Icon>
+                            <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_rhythm.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Melody" Click="ViewPanel" Tag="3" >
+                        <MenuItem.Icon>
+                            <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_melody.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Orchestra" Click="ViewPanel" Tag="9" >
+                        <MenuItem.Icon>
+                            <Image Source="pack://application:,,,/LargoSharedControls;component/Images/orchestra.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Voices" Click="ViewPanel" Tag="6" >
+                        <MenuItem.Icon>
+                            <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_voices.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Key (Modality])" >
+                        <MenuItem.Icon>
+                            <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_rhythm.png" />
+                        </MenuItem.Icon>
+                        <MenuItem Header="Harmonic" Click="ViewPanel" Tag="7" >
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_harmony.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Rhythmic" Click="ViewPanel" Tag="8" >
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_rhythm.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+            </Grid>
+            <!-- 
+            <largoControls:ControlHarmonicModality Grid.Row="0" Grid.Column="3" x:Name="ControlHarmonicModality" HorizontalAlignment="Left" 
+            Height="56" 
+            VerticalAlignment="Top" Width="246" 
+            SelectionChanged="ControlHarmonicModality_SelectionChanged"/> 
+            -->
+
+            <Grid Grid.Row ="0" Grid.Column="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Save" Margin="4,0,0,0" FontWeight="Bold"></TextBlock>
+                <!--
+                <Menu Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,7,0,0" Width="80"  >
+                    <MenuItem Header="Save as" Width="80" Height="25" >
+                        <MenuItem Header="Save as MIF" Click="FileSaveAs" Tag="5" ToolTip="Save music as music interchange file" />
+                    </MenuItem>
+                </Menu> -->
+
+                <StackPanel Grid.Row ="1" Grid.Column="0"  IsEnabled="True" Visibility="Visible" Name="TopLedgeSave"  
+                        Orientation="Horizontal" Height="36"  Margin="1,1,0,0"
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" >
+
+                    <!-- Blocks -->
+                    <!--
+                    <Button Grid.Row="1" Content="LB" HorizontalAlignment="Left" Margin="4,6,0,0" 
+                            Width="24" Height="24" VerticalAlignment="Top"  Click="BlockList" 
+                            ToolTip="List of blocks" />
+                    -->
+                    <Button  Name="ButtonSave" Style="{StaticResource StButtonRemove}" Click="Save" ToolTip="Save musical block"
+                         Width="28" Height="28" Margin="3,4,0,0" VerticalAlignment="Top"  >
+                        <Image Source="/LargoSharedControls;component/Images/save.png" Width="24" Height="24"  />
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row ="0" Grid.Column="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="16*"/>
+                    <RowDefinition Height="39*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row ="1" Grid.Column="0" x:Name="GridCanvas" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Canvas Grid.Row="0" Grid.Column="0"
+                    x:Name="ChartCanvas" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                    Width="4000" Height="1000" Margin="0,0,-2000,-400"  />
+
+            <ScrollBar Grid.Row="0" Grid.Column="0" x:Name="VerticalScrollBar"  Orientation="Vertical"                        
+                   HorizontalAlignment="Left" VerticalAlignment="Top" Scroll="VerticalScrollBar_Scroll" 
+                   Margin="0,0,0,0" Maximum="20" />
+            <ScrollBar Grid.Row="0" Grid.Column="0" x:Name="HorizontalScrollBar"  Orientation="Horizontal" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" Scroll="HorizontalScrollBar_Scroll" 
+                   Margin="0,0,0,0" Maximum="20"  />
+        </Grid>
+
+    </Grid>
+</largoSupport:WinAbstract>

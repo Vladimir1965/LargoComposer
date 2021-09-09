@@ -1,0 +1,26 @@
+﻿<largoSupport:WinAbstract x:Class="EditorWindows.BlockHarmonyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+                          xmlns:detail="clr-namespace:EditorPanels.Detail;assembly=EditorPanels"
+        mc:Ignorable="d"
+        Title="Block Harmony" Height="440" Width="806" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <detail:MaterialHarmonicBars Grid.Column="0" Name="PanelDetailMaterial" 
+                       HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
+                       Background="#80284B7E" x:FieldModifier="private"  
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0"  />
+        <!-- <largoPanelsEditorDetail:DetailRhythmicMotives Grid.Column="0" Grid.Row="1"  Name="panelDetailMotives" 
+                       HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
+                       Background="#80284B7E" x:FieldModifier="private"  
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0"  /> -->
+    </Grid>
+</largoSupport:WinAbstract>

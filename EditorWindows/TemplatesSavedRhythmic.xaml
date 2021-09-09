@@ -1,0 +1,106 @@
+﻿<largoSupport:WinAbstract x:Class="EditorWindows.TemplatesSavedRhythmic"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+        Title="Saved rhythmic templates" Height="300" Width="920" >
+
+    <Grid Background="#FFE5E5E5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="360"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+            <ComboBox  x:Name ="ComboSources" HorizontalAlignment="Left" Margin="3,9,0,0" VerticalAlignment="Top" Width="355" 
+                      SelectionChanged="ComboSources_SelectionChanged"/>
+
+            <Label  Content="Length" Margin="540,9,326,0" VerticalAlignment="Top"/>
+            <ComboBox  x:Name ="ComboLength" HorizontalAlignment="Left" Margin="595,9,0,0" VerticalAlignment="Top" Width="44" 
+                  SelectionChanged="ComboLength_SelectionChanged"/>
+            <Label Content="Date" HorizontalAlignment="Left" Margin="364,9,0,0" VerticalAlignment="Top"/>
+            <ComboBox  x:Name ="ComboDates" HorizontalAlignment="Left" Margin="411,9,0,0" VerticalAlignment="Top" Width="98" 
+                SelectionChanged="ComboDates_SelectionChanged"/>
+        </Grid>
+        
+            <DataGrid Grid.Column="0" Grid.Row="1"  x:Name ="GridMaterials" HorizontalAlignment="Left" 
+                      VerticalAlignment="Stretch" AutoGenerateColumns="False" CanUserAddRows="False"
+                      MouseDoubleClick="GridMaterials_MouseDoubleClick" SelectionChanged="GridMaterials_SelectionChanged" 
+                  Margin="5,0,0,0" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="img1" Height="18" Width="18" AllowDrop="True"
+                                       Source="/LargoSharedControls;component/Images/dragdot.png"                                 
+                                       PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
+                                       MouseMove="List_MouseMove">
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Header.TwoRowName}" IsReadOnly="True" Width="*"/>
+                <!--
+                <DataGridTextColumn Header="Date" Binding="{Binding Header.Origin}" IsReadOnly="True" Width="80"/>
+                <DataGridTextColumn Header="Count" Binding="{Binding Count}" IsReadOnly="True" Width="45"/>
+                <DataGridTextColumn Header="Outline" Binding="{Binding Outline}" IsReadOnly="True" Width="100"/> -->
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <Grid Grid.Row="1" Grid.Column ="1" >
+            <TextBox HorizontalAlignment="Stretch" Height="23" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" 
+                     Text="{Binding Header.FullName, Mode=OneWay}" FontWeight="Bold" IsEnabled="False" />
+
+            <TextBlock HorizontalAlignment="Left" Margin="5,38,0,0" TextWrapping="Wrap" Text="Date:" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="85,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174"
+                    Text="{Binding Header.Origin, Mode=OneWay}" IsEnabled="False" />
+
+            <TextBlock HorizontalAlignment="Left" Margin="282,38,0,0" TextWrapping="Wrap" Text="Count:" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="362,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174"
+                     Text="{Binding Count, Mode=OneWay}" IsEnabled="False" />
+            
+            <DataGrid  x:Name ="GridStructures" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+			AutoGenerateColumns="False" Margin="5,65,0,0" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tones" 
+                                    Binding="{Binding ToneLevel}" IsReadOnly="True" 
+                                    Width="40"  />
+                <DataGridTextColumn Header="Beats" 
+                                    Binding="{Binding Level}" IsReadOnly="True" 
+                                    Width="40"  />
+                <!-- <DataGridTextColumn Header="Occurrence" 
+                                    Binding="{Binding Occurrence}" IsReadOnly="True" 
+                                    Width="40"  /> -->
+                <DataGridTextColumn Header="Schema" 
+                                    Binding="{Binding ElementSchema}" IsReadOnly="True" 
+                                    Width="*"  />
+                <DataGridTextColumn Header="Variance" 
+                                    Binding="{Binding FormalBehavior.Variance, StringFormat={}{0:n1}}" IsReadOnly="True"                                     
+                                    Width="60"  />
+            </DataGrid.Columns>
+        </DataGrid>
+        </Grid>
+        <!--
+        <Menu Margin="6,7,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Grid.Row="1" Grid.Column="0">
+
+            <MenuItem Header="Import" Width="76">
+
+            </MenuItem>
+            <Separator/>
+        </Menu>
+
+        <CheckBox x:Name="buttonShowAll" Content="Show all" HorizontalAlignment="Left" Margin="380,16,0,0" VerticalAlignment="Top" 
+            Checked="ButtonShowAll_Checked" Unchecked="ButtonShowAll_Unchecked" 
+                      Grid.Row="1" Grid.Column="0" />
+        -->
+        <!--
+        <Button Content="=&gt;" HorizontalAlignment="Left" Margin="227,1,0,0" FontSize="20" FontWeight="Bold" 
+            VerticalAlignment="Top" Width="36" Click="OrchestraToEditor" Height="32" 
+            Background="LightSkyBlue" Foreground="Black" Grid.Column="1" Grid.Row="1" /> -->
+    </Grid>
+</largoSupport:WinAbstract>

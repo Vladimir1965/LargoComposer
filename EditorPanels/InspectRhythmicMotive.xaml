@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="EditorPanels.InspectRhythmicMotive"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+             BorderThickness="0"
+             d:DesignHeight="450" d:DesignWidth="600" Width="600">
+    <Grid>
+        <DataGrid x:Name="DataGridStructures"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"
+					AlternatingRowBackground="Azure"
+					CanUserAddRows="False" CanUserDeleteRows="False"
+					CanUserSortColumns="False" CanUserReorderColumns="True"
+					CanUserResizeColumns="True" CanUserResizeRows="False" 
+					d:LayoutOverrides="GridBox"  Margin="0,0,0,0">
+            <DataGrid.Columns>
+                <!-- 
+                <DataGridTextColumn Binding="{Binding Path=BarNumber}" Header="Bar" IsReadOnly="True" 
+                                    Width="60" SortMemberPath="BarNumber" /> -->
+                <!-- {x:Static resx:BaseControls.Bar} -->
+
+                <DataGridTextColumn Header="Rhythm" IsReadOnly="True" Width="*" 
+                                    FontFamily="Consolas" FontSize="11" FontStyle="Normal" FontWeight="Normal" 
+                                    Binding="{Binding Path=ElementSchema}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="ToolTip" Value="{Binding ElementSchema}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                    <!--
+                <DataGridTemplateColumn Header="Rhythm" MinWidth="250">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                            <TextBlock FontFamily="Consolas"  FontStretch="Condensed" 
+                                            FontStyle="Normal" Text="{Binding Path=ElementSchema}" 
+                                       FontSize="12" >
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        -->
+                <DataGridTextColumn Header="Mobility" IsReadOnly="True" Width="70"
+						                    Binding="{Binding Path=Mobility, StringFormat=N2}" />
+                <DataGridTextColumn Header="Variance" IsReadOnly="True" Width="70"
+						            Binding="{Binding Path=Variance, StringFormat=N2}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
