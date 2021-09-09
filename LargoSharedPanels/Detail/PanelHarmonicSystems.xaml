@@ -1,0 +1,53 @@
+﻿<largoSupport:PanelAbstract
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="LargoSharedPanels.Detail.PanelHarmonicSystems"
+    d:DesignWidth="398" d:DesignHeight="429" 
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+    xmlns:largoControls="clr-namespace:LargoSharedControls;assembly=LargoSharedControls">
+
+    <largoSupport:PanelAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+             </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoSupport:PanelAbstract.Resources>
+
+    <Grid d:DataContext="{d:DesignInstance}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid VerticalAlignment="Top">
+            <Label Style="{StaticResource StTitleLabel}" Content="Harmonic systems"  
+               Margin="2,0,0,0"  Width="200" Height="29" />
+            <largoControls:ControlHarmonicSystem x:Name="ControlHarmonicSystem" HorizontalAlignment="Left" Margin="170,30,0,0" 
+                        VerticalAlignment="Top" Width="67" Height="24"  SelectionChanged="UCHarSystem_SelectionChanged" />
+            <Label Style="{StaticResource StSmallLabel}" Margin="1,56,0,0"
+                   Width="95" Content="Musical tones"/>
+            <TextBlock x:Name="TbTones" Margin="104,61,4,0" VerticalAlignment="Top" Height="43" TextWrapping="Wrap"></TextBlock>
+		    <Label Style="{StaticResource StSmallLabel}" Height="31" Width="119" Content="Musical intervals" Margin="1,27,0,0" />
+        </Grid>
+
+        <DataGrid x:Name="DataGridIntervals" IsSynchronizedWithCurrentItem="True" 
+			AutoGenerateColumns="False" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Row="1">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Length" IsReadOnly="True" Width="50"
+					Binding="{Binding Path=SystemLength}" ElementStyle="{StaticResource DgcStyleLeft}"  />
+				<DataGridTextColumn Header="Ratio" IsReadOnly="True" Width="50"
+					Binding="{Binding Path=Ratio, StringFormat=N4}" ElementStyle="{StaticResource DgcStyleLeft}"  />
+				<DataGridTextColumn Header="Name" IsReadOnly="True" Width="*"
+					Binding="{Binding Path=Name}" ElementStyle="{StaticResource DgcStyleLeftBold}"  />
+				<DataGridTextColumn Header="Continuity" IsReadOnly="True" Width="65"
+					Binding="{Binding Path=FormalContinuity, StringFormat=N2}" ElementStyle="{StaticResource DgcStyleLeft}"  />
+				<DataGridTextColumn Header="Impulse" IsReadOnly="True" Width="50"
+					Binding="{Binding Path=FormalImpulse, StringFormat=N2}" ElementStyle="{StaticResource DgcStyleLeft}"  />
+			</DataGrid.Columns>
+		</DataGrid>
+    </Grid>
+</largoSupport:PanelAbstract>

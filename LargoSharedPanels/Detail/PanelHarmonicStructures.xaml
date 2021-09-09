@@ -1,0 +1,46 @@
+﻿<largoSupport:PanelAbstract
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="LargoSharedPanels.Detail.PanelHarmonicStructures"
+    d:DesignHeight="401" 
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+   xmlns:largoControls="clr-namespace:LargoSharedControls;assembly=LargoSharedControls"
+	Width="473"
+    >
+
+    <largoSupport:PanelAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoSupport:PanelAbstract.Resources>
+
+    <Grid d:DataContext="{d:DesignInstance}">
+
+        <largoControls:ControlHarmonicSystem x:Name="ControlHarmonicSystem" HorizontalAlignment="Left" Margin="0,35,0,0" Width="60" Height="24"
+                                             VerticalAlignment="Top"  IsEnabled="False" />
+        <!-- SelectionChanged="UCHarSystem_SelectionChanged" -->
+        <!--	<LargoSharedControls:ControlHarmonicModality x:Name="ControlHarmonicModality" Margin="0,91,0,0" VerticalAlignment="Top" Height="24" LostFocus="UserControl_LostFocus" d:LayoutOverrides="HorizontalAlignment" HorizontalAlignment="Left" Width="128" />
+        <LargoSharedControls:UCHarQualifier x:Name="UCHarQualifier" d:LayoutOverrides="HorizontalAlignment" Margin="0,63,348,0" 
+        LostFocus="UserControl_LostFocus_1" Height="22" VerticalAlignment="Top" /> -->
+
+        <DataGrid AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" Margin="0,65,0,4" 
+                      x:Name="DataGridStructure" >
+            <!-- SelectionChanged="DataGridStructure_SelectionChanged" -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Level}" Header="Level" IsReadOnly="True" Width="40" />
+                <DataGridTextColumn Binding="{Binding Path=Tones}" Header="Tones" IsReadOnly="True" Width="140" />
+                <DataGridTextColumn Binding="{Binding Path=Root}" Header="Root" IsReadOnly="True" Width="40" />
+                <DataGridTextColumn Binding="{Binding Path=ModalityName}" Header="Modality" IsReadOnly="True" Width="140" />
+                <DataGridTextColumn Binding="{Binding Path=ChordName}" Header="Chord" IsReadOnly="True" Width="120" />
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Style="{StaticResource StTitleLabel}" Content="Harmonic structures"  
+        	Margin="2,0,0,0"  Width="200" Height="29" />
+    </Grid>
+</largoSupport:PanelAbstract>

@@ -1,0 +1,36 @@
+﻿<largoSupport:PanelAbstract
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+    mc:Ignorable="d"
+	x:Class="LargoSharedPanels.BlockProperties"
+    d:DesignHeight="600" d:DesignWidth="544" >
+    <!-- KeyDown="EditorBlockPanel_KeyDown" KeyUp="EditorBlockPanel_KeyUp"-->
+
+    <largoSupport:PanelAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoSupport:PanelAbstract.Resources>
+
+    <Grid MinWidth="200" Background="LightGoldenrodYellow" >
+
+        <DataGrid Grid.Row="0" AutoGenerateColumns="False" Name="DataGridIdentification" HorizontalAlignment="Stretch"  
+                        VerticalAlignment="Stretch"
+            x:FieldModifier="private">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Property" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" 
+                Binding="{Binding Path=Key}" ElementStyle="{StaticResource DgcStyleLeft}" 
+                            IsReadOnly="False" Width="240" />
+                <DataGridTextColumn Header="Value" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}"
+                Binding="{Binding Path=Value}" ElementStyle="{StaticResource DgcStyleLeft}" 
+                            IsReadOnly="True" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</largoSupport:PanelAbstract>
+

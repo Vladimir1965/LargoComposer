@@ -1,0 +1,46 @@
+﻿<largoSupport:PanelAbstract
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+    mc:Ignorable="d"
+	x:Class="LargoSharedPanels.Support.PanelInfoAbout"
+    Height="141.635">
+
+    <largoSupport:PanelAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoSupport:PanelAbstract.Resources>
+
+    <Grid>
+        <!-- www.largosoftware.eu -->
+        <TextBlock Height="20" HorizontalAlignment="Left" Margin="10,10,0,0"
+                   Text="" 
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top" Width="279">
+        </TextBlock>
+
+        <TextBlock Height="30" HorizontalAlignment="Left" Margin="79,35,0,0"
+                   Text="Largo 2020" VerticalAlignment="Top" Width="113" FontWeight="Bold"
+                   FontSize="20">
+        </TextBlock>
+
+        <TextBlock Height="43" HorizontalAlignment="Left" Margin="6,70,0,0"
+                   Text="Program for musical analysis and composition." 
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top" Width="279">
+        </TextBlock>
+
+        <!-- largosoftware@hotmail.com -->
+        <TextBlock Height="22" HorizontalAlignment="Left" Margin="9,111,0,0"
+                   Text=""
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top" Width="279">
+        </TextBlock>
+    </Grid>
+
+</largoSupport:PanelAbstract>

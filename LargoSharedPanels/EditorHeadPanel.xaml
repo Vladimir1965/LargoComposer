@@ -1,0 +1,133 @@
+﻿<largoSupport:PanelAbstract
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+    mc:Ignorable="d"
+	x:Class="LargoSharedPanels.EditorHeadPanel"
+    d:DesignWidth="544" Height="283.796" BorderBrush="#FF2D3134" >
+    <!-- KeyDown="EditorBlockPanel_KeyDown" KeyUp="EditorBlockPanel_KeyUp"-->
+
+    <largoSupport:PanelAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoSupport:PanelAbstract.Resources>
+
+    <Grid Background="White" Margin="0,0,0,0">
+
+
+        <Grid Grid.Row="0" Background="GhostWhite" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="#FFCEDCEC" BorderThickness="1" Height="5" HorizontalAlignment="Left" Margin="0,0,0,0"
+                    VerticalAlignment="Top" Width="1048" />
+
+            <TextBox Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Height="24" Name="TbRow1" 
+                  Text="" VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Margin="0,5,40,0"   />
+
+            <Button Grid.Column="1" Name="ButtonSave" Style="{StaticResource StButtonRemove}" Click="SaveChanges" ToolTip="Save list of musical documents"
+                         Width="28" Height="28" Margin="0,2,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                <Image Source="/LargoSharedControls;component/Images/save.png" Width="24" Height="24"  />
+            </Button>
+            
+            <Grid Grid.Column ="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition> 
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Grid.Row="2" Height="24" Margin="0,0,0,0" Name="TbLab2" Text="TextBlock" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="GhostWhite" />
+                <TextBlock Grid.Row="4" Height="24" Margin="0,0,0,0" Name="TbLab3" Text="TextBlock" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="GhostWhite" />
+                <TextBlock Grid.Row="6" Height="24" Margin="0,0,0,0" Name="TbLab4" Text="TextBlock" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="GhostWhite" />
+                <TextBlock Grid.Row="8" Height="24" Margin="0,0,0,0" Name="TbLab5" Text="TextBlock" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="GhostWhite" />
+                <TextBlock Grid.Row="10" Height="24" Margin="0,0,0,0" Name="TbLab6" Text="TextBlock" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="GhostWhite" />
+                <TextBlock Grid.Row="12" Height="24" Margin="0,0,0,0" Name="TbLab7" Text="TextBlock" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="GhostWhite" />
+                <TextBlock Grid.Row="14" Height="24" Margin="0,0,0,0" Name="TbLab8" Text="TextBlock" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="GhostWhite" />
+                <TextBlock Grid.Row="16" Height="24" Margin="0,0,0,0" Name="TbLab9" Text="TextBlock" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="GhostWhite" />
+                <TextBlock Grid.Row="18" Height="24" Margin="0,0,0,0" Name="TbLab10" Text="TextBlock" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="GhostWhite" /> 
+            </Grid>
+
+            <Grid Grid.Column ="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+                <TextBox Grid.Row="2" Height="24" Margin="0,0,0,0" x:Name="TbRow2" Text="TextBox" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="White" Foreground="Black"/>
+                <TextBox Grid.Row="4" Height="24" Margin="0,0,0,0" x:Name="TbRow3" Text="TextBox" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="White" Foreground="Black"/>
+                <TextBox Grid.Row="6" Height="24" Margin="0,0,0,0" x:Name="TbRow4" Text="TextBox" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="White" Foreground="Black"/>
+                <TextBox Grid.Row="8" Height="24" Margin="0,0,0,0" x:Name="TbRow5" Text="TextBox" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="White" Foreground="Black"/>
+                <TextBox Grid.Row="10" Height="24" Margin="0,0,0,0" x:Name="TbRow6" Text="TextBox" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="White" Foreground="Black"/>
+                <TextBox Grid.Row="12" Height="24" Margin="0,0,0,0" x:Name="TbRow7" Text="TextBox" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="White" Foreground="Black"/>
+                <TextBox Grid.Row="14" Height="24" Margin="0,0,0,0" x:Name="TbRow8" Text="TextBox" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="White" Foreground="Black"/>
+                <TextBox Grid.Row="16" Height="24" Margin="0,0,0,0" x:Name="TbRow9" Text="TextBox" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="White" Foreground="Black"/>
+                <TextBox Grid.Row="18" Height="24" Margin="0,0,0,0" x:Name="TbRow10" Text="TextBox" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Background="White" Foreground="Black"/>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</largoSupport:PanelAbstract>
+
