@@ -53,7 +53,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="JetBrains.Annotations">
-      <HintPath>..\..\..\..\SOLUTIONS-2020\PrivateWPF\Largo2020\ExternalLibs\JetBrains.Annotations.dll</HintPath>
+      <HintPath>..\..\..\SOLUTIONS-2020\PrivateWPF\Largo2020\ExternalLibs\JetBrains.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
