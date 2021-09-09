@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!--  Microsoft ResX Schema Version 2.0  -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Checked 2019 -->
+  <!-- Master -->  
+  <data name="Import music"	xml:space="preserve">	<value>Import hudby</value>	</data>
+  <data name="from MIFI"	xml:space="preserve">	<value>z MIFI</value>	</data>
+  <data name="from MIDI"	xml:space="preserve">	<value>z MIDI</value>	</data>
+  <data name="from Music Xml"	xml:space="preserve">	<value>z Music Xml</value>	</data>
+  <data name="from Music Mxl"	xml:space="preserve">	<value>z Music Mxl</value>	</data>
+
+  <data name="Export music"	xml:space="preserve">	<value>Export hudby</value>	</data>
+  <data name="as MIFI"	xml:space="preserve">	<value>do MIFI</value>	</data>
+  <data name="as MIDI"	xml:space="preserve">	<value>do MIDI</value>	</data>
+  <data name="as Music Xml"	xml:space="preserve">	<value>do Music Xml</value>	</data>
+  <data name="as Music Mxl"	xml:space="preserve">	<value>do Music Mxl</value>	</data>
+
+  <!-- Editor -->
+  <data name="Compose"	xml:space="preserve">	<value>Komponovat</value>	</data>
+  <data name="Play" xml:space="preserve">	<value>Přehrát</value></data>
+  <data name="Heading" xml:space="preserve">	<value>Záhlaví</value></data>
+  <data name="Properties" xml:space="preserve">	<value>Vlastnosti</value></data>
+
+  <!-- Context menus -->
+  <data name="Mark all" xml:space="preserve">	<value>Označit vše</value></data>
+  <data name="All lines as composed" xml:space="preserve">	<value>Všechny linie jako komponované</value></data>
+  <data name="All lines as fixed" xml:space="preserve">	<value>Všechny linie jako dané</value></data>
+  <data name="All lines as muted" xml:space="preserve">	<value>Všechny linie jako vypnuté</value></data>
+ 
+  <data name="Add melodic line" xml:space="preserve">	<value>Přidat melodickou linii</value></data>
+  <data name="Add rhythmic line" xml:space="preserve">	<value>Přidat rytmickou linii</value></data>
+  <data name="Add pack of lines" xml:space="preserve">	<value>Přidat svazek linií</value></data>
+  <data name="Eliminate melodic dependencies" xml:space="preserve">	<value>Eliminovat melodické závislosti</value></data>
+  <data name="Eliminate rhythmic dependencies" xml:space="preserve">	<value>Eliminovat rytmické závislosti</value></data>
+  <data name="Delete unused lines" xml:space="preserve">	<value>Smazat nepoužívané linie</value></data>
+
+  <data name="Clone line" xml:space="preserve">	<value>Klonovat linii</value></data>
+  <data name="Convert line to melodic" xml:space="preserve">	<value>Převést linii na melodickou</value></data>
+  <data name="Convert line to rhythmic" xml:space="preserve">	<value>Převést linii na rytmickou</value></data>
+  <data name="Delete line" xml:space="preserve">	<value>Smazat linii</value></data>
+
+  <data name="Shift content right" xml:space="preserve"> <value>Posunout obsah vpravo</value></data>
+  <data name="Shift content left" xml:space="preserve">	<value>Posunout obsah vlevo</value></data>
+  <data name="Shift octave above" xml:space="preserve">	<value>Posunout o oktávu výše</value></data>
+  <data name="Shift octave below" xml:space="preserve">	<value>Posunout o oktávu níže</value></data>
+
+
+  <data name="Largo" xml:space="preserve">	<value>Largo(cz)</value></data>
+  <data name="About Largo" xml:space="preserve">	<value>O programu Largo</value></data>
+  <data name="About program" xml:space="preserve">	<value>O programu</value></data>
+  
+  <!-- Textboxes -->
+  <data name="tbChanges" xml:space="preserve">	<value>Změny</value></data>
+  <data name="tbPerformation" xml:space="preserve">	<value>Úprava</value></data>
+  <data name="tbInfo" xml:space="preserve">	<value>Popis</value></data>
+  <data name="tbMotives" xml:space="preserve">	<value>Motivy</value></data>
+  <data name="tbTransformation" xml:space="preserve">	<value>Transformace</value></data>
+
+  <!-- Lastly added - unsorted -->
+  <data name="Outlines" xml:space="preserve">	<value>Přehledy</value></data>
+  <data name="Occurrence" xml:space="preserve">	<value>Výskyt</value></data>
+  <data name="First Bar" xml:space="preserve">	<value>První takt</value></data>
+  <data name="Changes" xml:space="preserve">	<value>Změny</value></data>
+  <data name="Tone energy" xml:space="preserve">	<value>Energie tónů</value></data>
+  <data name="Tone pitch" xml:space="preserve">	<value>Výška tónů</value></data>
+  <data name="Select all" xml:space="preserve">	<value>Označit vše</value></data>
+  <data name="Unselect" xml:space="preserve">	<value>Odoznačit</value></data>
+  <data name="Energy" xml:space="preserve">	<value>Energie</value></data>
+  <data name="Musical motives" xml:space="preserve">	<value>Hudební motivy</value></data>
+  <data name="Musical material" xml:space="preserve">	<value>Hudební materiál</value></data>
+  <data name="New tectonic" xml:space="preserve">	<value>Nová tektonika</value></data>
+  <data name="New style" xml:space="preserve">	<value>Nový styl</value></data>
+  <data name="Lists" xml:space="preserve">	<value>Seznamy</value></data>
+  <data name="Functions" xml:space="preserve">	<value>Funkce</value></data>
+  <data name="Theory" xml:space="preserve">	<value>Teorie</value></data>
+  <data name="Tone tracer" xml:space="preserve">	<value>Sledování tónů</value></data>
+  <data name="Score" xml:space="preserve">	<value>Partitura</value></data>
+  <data name="Progress" xml:space="preserve">	<value>Postup</value></data>
+  <data name="Function" xml:space="preserve">	<value>Funkce</value></data>
+  <data name="Shape" xml:space="preserve">	<value>Tvar</value></data>
+  <data name="Melody" xml:space="preserve">	<value>Melodie</value></data>
+
+  <data name="Arrange" xml:space="preserve">	<value>Aranžovat</value></data>
+  <data name="Display score" xml:space="preserve">	<value>Zobrazit</value></data>
+
+  <!-- Main menu -->
+  <data name="Panels" xml:space="preserve">	<value>Panely</value></data>
+
+  
+  <!-- Others on main window -->
+  <data name="Load into editor" xml:space="preserve">	<value>Nahrát do editoru</value></data>
+  <data name="Arrangement type" xml:space="preserve">	<value>Typ aranže</value></data>
+  
+  <!-- Group panels -->
+  <data name="Load template" xml:space="preserve">	<value>Načíst předlohu</value></data>
+  <data name="MusicXML files" xml:space="preserve">	<value>Soubory Music-XML</value></data>
+  <data name="MusicMXL files" xml:space="preserve">	<value>Soubory Music-MXL</value></data>
+  <data name="All in folder" xml:space="preserve">	<value>Vše z adresáře</value></data>
+  
+  <!-- Menu items -->
+  <data name="Load file" xml:space="preserve">	<value>Načíst soubor</value></data>
+  <data name="Directory" xml:space="preserve">	<value>Celý adresář</value></data>  
+  
+  <data name="Musical changes" xml:space="preserve">	<value>Hudební změny</value></data>
+  
+  <data name="Musical arranger" xml:space="preserve">	<value>Aranžování</value></data>
+  <data name="Musical generation" xml:space="preserve">	<value>Generování</value></data>
+  <data name="Folders" xml:space="preserve">	<value>Složky</value></data>
+  
+  <data name="Main panels" xml:space="preserve">	<value>Panely</value></data>
+  <data name="Support" xml:space="preserve">	<value>Podpora</value></data>
+
+
+  <!-- Expander -->
+  <data name="Transformation" xml:space="preserve">	<value>Transformace</value></data>
+  <data name="Export" xml:space="preserve">	        <value>Export</value></data>
+
+  <data name="Tectonic" xml:space="preserve">	<value>Tektonika</value></data>
+  <data name="Details" xml:space="preserve">	<value>Detaily</value></data>
+
+  <data name="Octaves" xml:space="preserve">	<value>Oktávy</value></data>
+  
+  <!-- Labels -->
+  <data name="Display" xml:space="preserve">	<value>Zobrazit</value></data>
+  
+  <data name="Main settings" xml:space="preserve">	<value>Hlavní nastavení</value></data>
+  <data name="Multitasking" xml:space="preserve">	<value>Více vláken</value></data>
+  <data name="Long tones" xml:space="preserve">	<value>Dlouhé tóny</value></data>
+  <data name="Lowest tone" xml:space="preserve">	<value>Nejnižší tón</value></data>
+  <data name="Highest tone" xml:space="preserve">	<value>Nejvyšší tón</value></data>
+  <data name="Analyze after load" xml:space="preserve">	<value>Analyzovat po načtení</value></data>
+  <data name="Language" xml:space="preserve">	<value>Jazyk</value></data>
+  <data name="Split imported files" xml:space="preserve">	<value>Vstupní soubory členit</value></data>
+  <data name="Transform" xml:space="preserve">	<value>Transformovat</value></data>
+  <data name="Correct octaves" xml:space="preserve">	<value>Upravit oktávy</value></data>
+
+  <data name="Parameters of engine" xml:space="preserve">	<value>Parametry skladby</value></data>
+  <data name="Musical rules" xml:space="preserve">	<value>Hudební pravidla</value></data>
+  <data name="Individualize melodic voices" xml:space="preserve">	<value>Individualizovat melodické hlasy</value></data>
+  <data name="Highlight melodic voices" xml:space="preserve">	<value>Zvýraznit melodické hlasy</value></data>
+
+  <!-- Checkboxes -->
+  <data name="Total horizontal inversion" xml:space="preserve">	<value>Úplná horizontální inverze</value></data>
+  <data name="Total vertical inversion" xml:space="preserve">	<value>Úplná vertikální inverze</value></data>
+  <data name="Bar horizontal inversion" xml:space="preserve">	<value>Taktová horizontální inverze</value></data>
+  <data name="Modular deformation" xml:space="preserve">	<value>Modulární deformace</value></data>
+  <data name="Vertical reduction" xml:space="preserve">	<value>Vertikální nivelizace</value></data>
+  <data name="Vertical extension" xml:space="preserve">	<value>Vertikální rozšíření</value></data>
+  <data name="Octave Up" xml:space="preserve">	<value>O oktávu výše</value></data>
+  <data name="Octave Down" xml:space="preserve">	<value>O oktávu níže</value></data>
+  <data name="Play mode" xml:space="preserve">	<value>Mód přehrávání</value></data>
+
+  <!-- Buttons -->
+
+  <data name="Save changes" xml:space="preserve">	<value>Uložit změny</value></data>
+  
+  <!-- Header texts - Harmony -->
+  <data name="Musical tones" xml:space="preserve"><value>Tóny</value></data>
+  <data name="Musical intervals" xml:space="preserve"><value>Intervaly</value></data>
+  <data name="Fingerings" xml:space="preserve"><value>Prstoklady</value></data>
+  <data name="Harmonize score" xml:space="preserve"><value>Harmonizovat party</value></data>
+
+  <!-- Comboboxes -->
+  <data name="Play template" xml:space="preserve">	<value>Přehrát předlohu</value></data>
+
+  <data name="Number of tones" xml:space="preserve">	<value>Počet tónů</value></data>
+  <data name="Octave number" xml:space="preserve">	<value>Číslo oktávy</value></data>
+  
+  <!-- Actions -->
+  <data name="Please wait a moment..." xml:space="preserve">	<value>Prosím chvíli strpení...</value></data>
+  <data name="Finished." xml:space="preserve">	<value>Dokončeno.</value></data>
+  <data name="Composing..." xml:space="preserve">	<value>Komponuji...</value></data>
+  <data name="Extracting material..." xml:space="preserve">	<value>Vybírám materiál...</value></data>
+  <data name="Analyzing harmony..." xml:space="preserve">	<value>Analyzuji harmonii...</value></data>
+  <data name="Analyzing musical lines..." xml:space="preserve">	<value>Analyzuji hudební linie...</value></data>
+  <data name="Scores and instrumentation..." xml:space="preserve">	<value>Scores and instrumentace...</value></data>
+  <data name="Preparing file..." xml:space="preserve">	<value>Příprava souboru...</value></data>
+  <data name="Extracting model..." xml:space="preserve">	<value>Sestavení modelu...</value></data>
+  <data name="Loading model..." xml:space="preserve">	<value>Zavádění modelu...</value></data>
+  <data name="Fill with melodic pattern" xml:space="preserve">	<value>Vyplnit melodickým vzorem</value></data>
+  <data name="Fill with rhythmic pattern" xml:space="preserve">	<value>Vyplnit rytmickým vzorem</value></data>
+  <data name="Put harmony" xml:space="preserve">	<value>Dosadit harmonii</value></data>
+  <data name="Change melody" xml:space="preserve">	<value>Změnit melodii</value></data>
+  <data name="Change rhythmic" xml:space="preserve">	<value>Změnit rytmiku</value></data>
+  <data name="Change orchestration" xml:space="preserve">	<value>Změnit instrumentaci</value></data>
+  <data name="Change tempo" xml:space="preserve">	<value>Změnit tempo</value></data>
+  <data name="Set harmony" xml:space="preserve">	<value>Dosadit harmonii</value></data>
+  <data name="Modify selection" xml:space="preserve">	<value>Změnit označené</value></data>
+  <data name="Play selection" xml:space="preserve">	<value>Přehrát označené</value></data>
+  <data name="Current line" xml:space="preserve">	<value>Aktuální linie</value></data>
+  <data name="Lines" xml:space="preserve">	<value>Line</value></data>
+  <data name="Set line rhythm" xml:space="preserve">	<value>Nastavit rytmus linie</value></data>
+  <data name="Simple rhythm" xml:space="preserve">	<value>Prostý rytmus</value></data>
+  <data name="Simple rhythm to even bars" xml:space="preserve">	<value>Prostý rytmus do sudých taktů</value></data>
+  <data name="Random rhythm" xml:space="preserve">	<value>Náhodný rytmus</value></data>
+  <data name="Reorder" xml:space="preserve">	<value>Přeskupit</value></data>
+  <data name="Reorder line rhythmic" xml:space="preserve">	<value>Přeskupit rytmiku linie</value></data>
+  <data name="Reorder line melodic" xml:space="preserve">	<value>Přeskupit melodiku linie</value></data>
+  <data name="Reorder line harmonic" xml:space="preserve">	<value>Přeskupit harmonii linie</value></data>
+  <data name="Shift line" xml:space="preserve">	<value>Posunout linii</value></data>
+  <data name="Alter octaves" xml:space="preserve">	<value>Upravit oktávy</value></data>
+  <data name="Invert octaves" xml:space="preserve">	<value>Invertovat oktávy</value></data>
+  <data name="Invert music score" xml:space="preserve">	<value>Invertovat partituru</value></data>
+
+  
+  <!-- Checks -->
+  <data name="Load of settings failed!" xml:space="preserve">	<value>Načítání nastavení selhalo!</value></data>
+  <data name="Invalid musical file type." xml:space="preserve">	<value>Chybný typ hudebního souboru.</value></data>
+  <data name="No panel selected" xml:space="preserve">	<value>Není vybrán panel.</value></data>
+  <data name="Define musical style!" xml:space="preserve">	<value>Definujte hudební styl!</value></data>
+  <data name="Define musical tectonics!" xml:space="preserve">	<value>Definujte hudební tektoniku!</value></data>
+  <data name="Define orchestration!" xml:space="preserve">	<value>Definujte orchestraci!</value></data>
+  <data name="Undefined musical header!?" xml:space="preserve">	<value>Nedefinovaná hudební záhlaví!?</value></data>
+  <data name="Select Base modality!" xml:space="preserve">	<value>Vyberte Základní modalitu!</value></data>
+  <data name="Import of musical file failed" xml:space="preserve">	<value>Načítání hudebního souboru selhalo.</value></data>
+
+  <!-- Questions -->
+  <data name="Do you want to save the document?" xml:space="preserve">	<value>Přejete si dokument uložit?</value></data>
+  <data name="Do you want to close the program?" xml:space="preserve">	<value>Chcete zavřít program?</value></data>
+  <data name="DeleteConfirmation" xml:space="preserve">	<value>Opravdu chcete smazat tento záznam?;</value></data>
+  <data name="Panel" xml:space="preserve">
+    <value>Panel</value>
+  </data>
+  <data name="Element" xml:space="preserve">
+    <value>Element</value>
+  </data>
+  <data name="Musical editor" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="Header" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="Argument_cannot_be_null" xml:space="preserve">
+    <value>Argument cannot be null.</value>
+  </data>
+  <!-- Exclude -->
+  <!--
+
+-->
+</root>

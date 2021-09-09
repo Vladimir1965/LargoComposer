@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Import music" xml:space="preserve">
+    <value>Import music</value>
+  </data>
+  <data name="from MIFI" xml:space="preserve">
+    <value>from MIFI</value>
+  </data>
+  <data name="from MIDI" xml:space="preserve">
+    <value>from MIDI</value>
+  </data>
+  <data name="from Music Xml" xml:space="preserve">
+    <value>from Music Xml</value>
+  </data>
+  <data name="from Music Mxl" xml:space="preserve">
+    <value>from Music Mxl</value>
+  </data>
+  <data name="Export music" xml:space="preserve">
+    <value>Export music</value>
+  </data>
+  <data name="as MIFI" xml:space="preserve">
+    <value>as MIFI</value>
+  </data>
+  <data name="as MIDI" xml:space="preserve">
+    <value>as MIDI</value>
+  </data>
+  <data name="as Music Xml" xml:space="preserve">
+    <value>as Music Xml</value>
+  </data>
+  <data name="as Music Mxl" xml:space="preserve">
+    <value>as Music Mxl</value>
+  </data>
+  <data name="Compose" xml:space="preserve">
+    <value>Compose</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="Heading" xml:space="preserve">
+    <value>Heading</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="Mark all" xml:space="preserve">
+    <value>Mark all</value>
+  </data>
+  <data name="All lines as composed" xml:space="preserve">
+    <value>All lines as composed</value>
+  </data>
+  <data name="All lines as fixed" xml:space="preserve">
+    <value>All lines as fixed</value>
+  </data>
+  <data name="All lines as muted" xml:space="preserve">
+    <value>All lines as muted</value>
+  </data>
+  <data name="Add melodic line" xml:space="preserve">
+    <value>Add melodic line</value>
+  </data>
+  <data name="Add rhythmic line" xml:space="preserve">
+    <value>Add rhythmic line</value>
+  </data>
+  <data name="Add pack of lines" xml:space="preserve">
+    <value>Add pack of lines</value>
+  </data>
+  <data name="Eliminate melodic dependencies" xml:space="preserve">
+    <value>Eliminate melodic dependencies</value>
+  </data>
+  <data name="Eliminate rhythmic dependencies" xml:space="preserve">
+    <value>Eliminate rhythmic dependencies</value>
+  </data>
+  <data name="Delete unused lines" xml:space="preserve">
+    <value>Delete unused lines.</value>
+  </data>
+  <data name="Clone line" xml:space="preserve">
+    <value>Clone line</value>
+  </data>
+  <data name="Convert line to melodic" xml:space="preserve">
+    <value>Convert line to melodic</value>
+  </data>
+  <data name="Convert line to rhythmic" xml:space="preserve">
+    <value>Convert line to rhythmic</value>
+  </data>
+  <data name="Delete line" xml:space="preserve">
+    <value>Delete line</value>
+  </data>
+  <data name="Shift content right" xml:space="preserve">
+    <value>Shift content right</value>
+  </data>
+  <data name="Shift content left" xml:space="preserve">
+    <value>Shift content left</value>
+  </data>
+  <data name="Shift octave above" xml:space="preserve">
+    <value>Shift octave above</value>
+  </data>
+  <data name="Shift octave below" xml:space="preserve">
+    <value>Shift octave below</value>
+  </data>
+  <data name="Largo" xml:space="preserve">
+    <value>Largo</value>
+  </data>
+  <data name="About program" xml:space="preserve">
+    <value>About program</value>
+  </data>
+  <data name="About Largo" xml:space="preserve">
+    <value>About Largo</value>
+  </data>
+  <data name="tbChanges" xml:space="preserve">
+    <value>Changes</value>
+  </data>
+  <data name="tbPerformation" xml:space="preserve">
+    <value>Performation</value>
+  </data>
+  <data name="tbInfo" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="tbMotives" xml:space="preserve">
+    <value>Motives</value>
+  </data>
+  <data name="tbTransformation" xml:space="preserve">
+    <value>Transformation</value>
+  </data>
+  <data name="Outlines" xml:space="preserve">
+    <value>Outlines</value>
+  </data>
+  <data name="Occurrence" xml:space="preserve">
+    <value>Occurrence</value>
+  </data>
+  <data name="First Bar" xml:space="preserve">
+    <value>First Bar</value>
+  </data>
+  <data name="Changes" xml:space="preserve">
+    <value>Changes</value>
+  </data>
+  <data name="Tone energy" xml:space="preserve">
+    <value>Tone energy</value>
+  </data>
+  <data name="Tone pitch" xml:space="preserve">
+    <value>Tone pitch</value>
+  </data>
+  <data name="Select all" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="Unselect" xml:space="preserve">
+    <value>Unselect</value>
+  </data>
+  <data name="Energy" xml:space="preserve">
+    <value>Energy</value>
+  </data>
+  <data name="Musical motives" xml:space="preserve">
+    <value>Musical motives</value>
+  </data>
+  <data name="Musical material" xml:space="preserve">
+    <value>Musical material</value>
+  </data>
+  <data name="New tectonic" xml:space="preserve">
+    <value>New tectonic</value>
+  </data>
+  <data name="New style" xml:space="preserve">
+    <value>New style</value>
+  </data>
+  <data name="Lists" xml:space="preserve">
+    <value>Lists</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Functions</value>
+  </data>
+  <data name="Theory" xml:space="preserve">
+    <value>Theory</value>
+  </data>
+  <data name="Panel" xml:space="preserve">
+    <value>Panel</value>
+  </data>
+  <data name="Tone tracer" xml:space="preserve">
+    <value>Tone tracer</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Progress</value>
+  </data>
+  <data name="Function" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="Shape" xml:space="preserve">
+    <value>Shape</value>
+  </data>
+  <data name="Melody" xml:space="preserve">
+    <value>Melody</value>
+  </data>
+  <data name="Element" xml:space="preserve">
+    <value>Element</value>
+  </data>
+  <data name="Arrange" xml:space="preserve">
+    <value>Arrange</value>
+  </data>
+  <data name="Display score" xml:space="preserve">
+    <value>Display score</value>
+  </data>
+  <data name="Panels" xml:space="preserve">
+    <value>Panels</value>
+  </data>
+  <data name="Load into editor" xml:space="preserve">
+    <value>Load into editor</value>
+  </data>
+  <data name="Load template" xml:space="preserve">
+    <value>Load template</value>
+  </data>
+  <data name="MusicXML files" xml:space="preserve">
+    <value>Music-XML files</value>
+  </data>
+  <data name="MusicMXL files" xml:space="preserve">
+    <value>Music-MXL files</value>
+  </data>
+  <data name="All in folder" xml:space="preserve">
+    <value>All in folder</value>
+  </data>
+  <data name="Arrangement type" xml:space="preserve">
+    <value>Arrangement type</value>
+  </data>
+  <data name="Load file" xml:space="preserve">
+    <value>Load file</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>All from directory</value>
+  </data>
+  <data name="Musical changes" xml:space="preserve">
+    <value>Musical changes</value>
+  </data>
+  <data name="Musical arranger" xml:space="preserve">
+    <value>Arranger</value>
+  </data>
+  <data name="Musical generation" xml:space="preserve">
+    <value>Generation</value>
+  </data>
+  <data name="Folders" xml:space="preserve">
+    <value>Folders</value>
+  </data>
+  <data name="Main panels" xml:space="preserve">
+    <value>Panels</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="Transformation" xml:space="preserve">
+    <value>Transformation</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Musical editor" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="Header" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="Tectonic" xml:space="preserve">
+    <value>Tectonic</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Octaves" xml:space="preserve">
+    <value>Octaves</value>
+  </data>
+  <data name="Main settings" xml:space="preserve">
+    <value>Main settings</value>
+  </data>
+  <data name="Lowest tone" xml:space="preserve">
+    <value>Lowest tone</value>
+  </data>
+  <data name="Highest tone" xml:space="preserve">
+    <value>Highest tone</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Split imported files" xml:space="preserve">
+    <value>Input files split</value>
+  </data>
+  <data name="Transform" xml:space="preserve">
+    <value>Transform</value>
+  </data>
+  <data name="Correct octaves" xml:space="preserve">
+    <value>Correct octaves</value>
+  </data>
+  <data name="Parameters of engine" xml:space="preserve">
+    <value>Parameters of engine</value>
+  </data>
+  <data name="Musical rules" xml:space="preserve">
+    <value>Musical rules</value>
+  </data>
+  <data name="Individualize melodic voices" xml:space="preserve">
+    <value>Individualize melodic voices</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="Multitasking" xml:space="preserve">
+    <value>Multitasking</value>
+  </data>
+  <data name="Long tones" xml:space="preserve">
+    <value>Long tones</value>
+  </data>
+  <data name="Analyze after load" xml:space="preserve">
+    <value>Analyze after read</value>
+  </data>
+  <data name="Highlight melodic voices" xml:space="preserve">
+    <value>Highlight melodic voices</value>
+  </data>
+  <data name="Total horizontal inversion" xml:space="preserve">
+    <value>Total horizontal inversion</value>
+  </data>
+  <data name="Total vertical inversion" xml:space="preserve">
+    <value>Total vertical inversion</value>
+  </data>
+  <data name="Bar horizontal inversion" xml:space="preserve">
+    <value>Bar horizontal inversion</value>
+  </data>
+  <data name="Modular deformation" xml:space="preserve">
+    <value>Modular deformation</value>
+  </data>
+  <data name="Vertical reduction" xml:space="preserve">
+    <value>Vertical reduction</value>
+  </data>
+  <data name="Vertical extension" xml:space="preserve">
+    <value>Vertical extension</value>
+  </data>
+  <data name="Octave Up" xml:space="preserve">
+    <value>Octave Up</value>
+  </data>
+  <data name="Octave Down" xml:space="preserve">
+    <value>Octave Down</value>
+  </data>
+  <data name="Play mode" xml:space="preserve">
+    <value>Play mode</value>
+  </data>
+  <data name="Save changes" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="Musical tones" xml:space="preserve">
+    <value>Tones</value>
+  </data>
+  <data name="Musical intervals" xml:space="preserve">
+    <value>Intervals</value>
+  </data>
+  <data name="Fingerings" xml:space="preserve">
+    <value>Fingerings</value>
+  </data>
+  <data name="Harmonize score" xml:space="preserve">
+    <value>Harmonize parts</value>
+  </data>
+  <data name="Play template" xml:space="preserve">
+    <value>Play template</value>
+  </data>
+  <data name="Number of tones" xml:space="preserve">
+    <value>Number of tones</value>
+  </data>
+  <data name="Octave number" xml:space="preserve">
+    <value>Octave number</value>
+  </data>
+  <data name="Please wait a moment..." xml:space="preserve">
+    <value>Please wait a moment...</value>
+  </data>
+  <data name="Finished." xml:space="preserve">
+    <value>Finished.</value>
+  </data>
+  <data name="Composing..." xml:space="preserve">
+    <value>Composing...</value>
+  </data>
+  <data name="Extracting material..." xml:space="preserve">
+    <value>Extracting material...</value>
+  </data>
+  <data name="Analyzing harmony..." xml:space="preserve">
+    <value>Analyzing harmony...</value>
+  </data>
+  <data name="Scores and instrumentation..." xml:space="preserve">
+    <value>Scores and instrumentation...</value>
+  </data>
+  <data name="Preparing file..." xml:space="preserve">
+    <value>Preparing file...</value>
+  </data>
+  <data name="Extracting model..." xml:space="preserve">
+    <value>Extracting model...</value>
+  </data>
+  <data name="Loading model..." xml:space="preserve">
+    <value>Loading model...</value>
+  </data>
+  <data name="Fill with melodic pattern" xml:space="preserve">
+    <value>Fill with melodic pattern</value>
+  </data>
+  <data name="Fill with rhythmic pattern" xml:space="preserve">
+    <value>Fill with rhythmic pattern</value>
+  </data>
+  <data name="Put harmony" xml:space="preserve">
+    <value>Put harmony</value>
+  </data>
+  <data name="Change melody" xml:space="preserve">
+    <value>Change melody</value>
+  </data>
+  <data name="Change rhythmic" xml:space="preserve">
+    <value>Change rhythmic</value>
+  </data>
+  <data name="Change orchestration" xml:space="preserve">
+    <value>Change orchestration</value>
+  </data>
+  <data name="Change tempo" xml:space="preserve">
+    <value>Change tempo</value>
+  </data>
+  <data name="Set harmony" xml:space="preserve">
+    <value>Set harmony</value>
+  </data>
+  <data name="Modify selection" xml:space="preserve">
+    <value>Modify selection</value>
+  </data>
+  <data name="Play selection" xml:space="preserve">
+    <value>Play selection</value>
+  </data>
+  <data name="Current line" xml:space="preserve">
+    <value>Current line</value>
+  </data>
+  <data name="Lines" xml:space="preserve">
+    <value>Lines</value>
+  </data>
+  <data name="Set line rhythm" xml:space="preserve">
+    <value>Set line rhythm</value>
+  </data>
+  <data name="Simple rhythm" xml:space="preserve">
+    <value>Simple rhythm</value>
+  </data>
+  <data name="Simple rhythm to even bars" xml:space="preserve">
+    <value>Simple rhythm to even bars</value>
+  </data>
+  <data name="Random rhythm" xml:space="preserve">
+    <value>Random rhythm</value>
+  </data>
+  <data name="Reorder" xml:space="preserve">
+    <value>Reorder</value>
+  </data>
+  <data name="Reorder line rhythmic" xml:space="preserve">
+    <value>Reorder line rhythmic</value>
+  </data>
+  <data name="Reorder line melodic" xml:space="preserve">
+    <value>Reorder line melodic</value>
+  </data>
+  <data name="Reorder line harmonic" xml:space="preserve">
+    <value>Reorder line harmonic</value>
+  </data>
+  <data name="Shift line" xml:space="preserve">
+    <value>Shift line</value>
+  </data>
+  <data name="Alter octaves" xml:space="preserve">
+    <value>Alter octaves</value>
+  </data>
+  <data name="Invert octaves" xml:space="preserve">
+    <value>Invert octaves</value>
+  </data>
+  <data name="Invert music score" xml:space="preserve">
+    <value>Invert music score</value>
+  </data>
+  <data name="Analyzing musical lines..." xml:space="preserve">
+    <value>Analyzing musical lines...</value>
+  </data>
+  <data name="Load of settings failed!" xml:space="preserve">
+    <value>Load of settings failed!</value>
+  </data>
+  <data name="Invalid musical file type." xml:space="preserve">
+    <value>Invalid musical file type.</value>
+  </data>
+  <data name="No panel selected" xml:space="preserve">
+    <value>No panel selected</value>
+  </data>
+  <data name="Define musical style!" xml:space="preserve">
+    <value>Define musical style!</value>
+  </data>
+  <data name="Define musical tectonics!" xml:space="preserve">
+    <value>Define musical tectonics!</value>
+  </data>
+  <data name="Define orchestration!" xml:space="preserve">
+    <value>Define orchestration!</value>
+  </data>
+  <data name="Undefined musical header!?" xml:space="preserve">
+    <value>Undefined musical header!?</value>
+  </data>
+  <data name="Select Base modality!" xml:space="preserve">
+    <value>Select Base modality!</value>
+  </data>
+  <data name="Import of musical file failed" xml:space="preserve">
+    <value>Import of musical file failed</value>
+  </data>
+  <data name="Do you want to save the document?" xml:space="preserve">
+    <value>Do you want to save the document?</value>
+  </data>
+  <data name="Do you want to close the program?" xml:space="preserve">
+    <value>Do you want to close the program?</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>return confirm('Are you sure you want to delete this record?');</value>
+  </data>
+  <data name="Argument_cannot_be_null" xml:space="preserve">
+    <value>Argument cannot be null.</value>
+  </data>
+</root>

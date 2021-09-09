@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!--  Microsoft ResX Schema Version 2.0  -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Checked 2019 -->  
+  <data name="Loudness" xml:space="preserve">	<value>Hlasitost</value></data>
+  <data name="Octave" xml:space="preserve">	<value>Oktáva</value></data>
+  <data name="Band" xml:space="preserve">	<value>Pásmo</value></data>
+  <data name="Instrument" xml:space="preserve">	<value>Nástroj</value></data>
+  <data name="Beat level" xml:space="preserve">	<value>Rytmická úroveň</value></data>
+  <data name="Tone level" xml:space="preserve">	<value>Tónová úroveň</value></data>
+  <data name="Cells" xml:space="preserve">	<value>Buňky</value></data>
+  <data name="Melodic shape" xml:space="preserve">	<value>Tvar melodie</value></data>
+  <data name="Melodic function" xml:space="preserve">	<value>Melodický typ</value></data>
+  <data name="Priority"	xml:space="preserve">	<value>Priorita</value>	</data>
+  <data name="Purpose"	xml:space="preserve">	<value>Účel</value>	</data>
+
+  <data name="Rhythmic structure" xml:space="preserve">	<value>Rytmická struktura</value></data>
+  <data name="Melodic structure"	xml:space="preserve">	<value>Melodická struktura</value>	</data>
+  <data name="Rhythmic motives" xml:space="preserve">	<value>Rytmické motivy</value></data>
+  <data name="Melodic motives" xml:space="preserve">	<value>Melodické motivy</value></data>
+
+  <data name="Composed"	xml:space="preserve">	<value>Skládané</value>	</data>
+  <data name="Fixed"	xml:space="preserve">	<value>Dané</value>	</data>
+  <data name="Mute" xml:space="preserve">	<value>Vypnuté</value></data>
+  <data name="None" xml:space="preserve">	<value>Prázdné</value></data>
+
+  <data name="Staff" xml:space="preserve">	<value>Osnova</value></data>
+  <data name="Voice" xml:space="preserve">	<value>Hlas</value></data>
+
+  <!-- Context menus -->
+  <data name="Harmony" xml:space="preserve">	<value>Harmonie</value></data>
+  <data name="Rhythmics" xml:space="preserve">	<value>Rytmika</value></data>
+  <data name="Orchestration" xml:space="preserve">	<value>Orchestrace</value></data>
+  <data name="Melodics" xml:space="preserve">	<value>Melodika</value></data>
+  <data name="Instruments" xml:space="preserve">	<value>Nástroje</value></data>
+
+
+  <!-- 1. LANGUAGE THERMS  -->
+	<!-- Languages -->
+	<data name="UIEnglish" xml:space="preserve">	<value>Anglicky</value></data>
+	<data name="UICzech" xml:space="preserve">	<value>Česky</value></data>
+	<data name="UIGerman" xml:space="preserve">	<value>Německy</value></data>
+	<data name="UIItalian" xml:space="preserve">	<value>Italsky</value></data>
+	<data name="UIFrench" xml:space="preserve">	<value>Francouzsky</value></data>
+	<data name="UISpain" xml:space="preserve">	<value>Španělsky</value></data>
+  <data name="UIPolish" xml:space="preserve">	<value>Polsky</value></data>
+  <data name="UIOther" xml:space="preserve">	<value>Jinak</value></data>
+
+  <!-- 2. MUSICAL LISTS  --> 
+  <!-- Octaves -->
+  <data name="Octave9"	xml:space="preserve">	<value>9Pětičárkovaná</value>	</data>
+  <data name="Octave8"	xml:space="preserve">	<value>8Čtyřčárkovaná</value>	</data>
+  <data name="Octave7"	xml:space="preserve">	<value>7Tříčárkovaná</value>		</data>
+  <data name="Octave6"	xml:space="preserve">	<value>6Dvoučárkovaná</value>	</data>
+  <data name="Octave5"	xml:space="preserve">	<value>5Čárkovaná</value>		</data>
+  <data name="Octave4"	xml:space="preserve">	<value>4Malá</value>				</data>
+  <data name="Octave3"	xml:space="preserve">	<value>3Velká</value>			</data>
+  <data name="Octave2"	xml:space="preserve">	<value>2Kontra</value>			</data>
+  <data name="Octave1"	xml:space="preserve">	<value>1Subkontra</value>		</data>
+  <data name="Octave0"	xml:space="preserve">	<value> - </value>		</data>
+
+  <!-- Bands -->
+  <data name="Band0"	xml:space="preserve">	<value> - </value>	</data>
+  <data name="Band1"	xml:space="preserve">	<value>Basové tóny</value>	</data>
+  <data name="Band2"	xml:space="preserve">	<value>Basový beat</value>	</data>
+  <data name="Band3"	xml:space="preserve">	<value>Střední tóny</value>	</data>
+  <data name="Band4"	xml:space="preserve">	<value>Střední beat</value>	</data>
+  <data name="Band5"	xml:space="preserve">	<value>Vysoké tóny</value>	</data>
+  <data name="Band6"	xml:space="preserve">	<value>Vysoký beat</value>	</data>
+
+  <!-- Loudness -->
+  <data name="Loud0"		xml:space="preserve">	<value>Bez zvuku</value>		</data>
+  <data name="Loud1"		xml:space="preserve">	<value>ppp (nejtišeji)</value>	</data>
+  <data name="Loud2"		xml:space="preserve">	<value>pp  (velmi tiše)</value>	</data>
+  <data name="Loud3"		xml:space="preserve">	<value>p   (tiše)</value>		</data>
+  <data name="Loud4"		xml:space="preserve">	<value>mp  (poměrně tiše)</value></data>
+  <data name="Loud5"		xml:space="preserve">	<value>-   (střední hlasitost)	</value></data>
+  <data name="Loud6"		xml:space="preserve">	<value>mf  (poměrně silně)</value></data>
+  <data name="Loud7"		xml:space="preserve">	<value>f   (silně)</value>		</data>
+  <data name="Loud8"		xml:space="preserve">	<value>ff  (velmi silně)</value></data>
+  <data name="Loud9"		xml:space="preserve">	<value>fff (nejsilněji)</value>	</data>
+
+  <!-- Melodic function -->
+  <data name="MelodicFunction1" xml:space="preserve">	<value>Melodický pohyb</value></data>
+  <data name="MelodicFunction2" xml:space="preserve">	<value>Melodická výplň</value></data>
+  <data name="MelodicFunction3" xml:space="preserve"> <value>Harmonický pohyb</value></data>
+  <data name="MelodicFunction4" xml:space="preserve"> <value>Harmonická výplň</value></data>
+  <data name="MelodicFunction5" xml:space="preserve"> <value>Harmonický bas</value></data>
+  <data name="MelodicFunction6" xml:space="preserve"> <value>Melodický bas</value></data>
+
+  <!-- Melodic shape -->
+  <data name="MelodicShape1" xml:space="preserve"> <value>Minimální pohyb</value></data>
+  <data name="MelodicShape2" xml:space="preserve"> <value>Stupnice</value></data>
+  <data name="MelodicShape3" xml:space="preserve"> <value>Sinusoidy</value></data>
+  <data name="MelodicShape4" xml:space="preserve"> <value>Lámané linie</value></data>
+  <data name="MelodicShape5" xml:space="preserve"> <value>Originál</value></data>
+
+  <!-- Type of line -->
+  <!-- <data name="LineType0" xml:space="preserve">	 <value> - </value></data> -->
+  <!-- <data name="LineType1" xml:space="preserve">   <value> x </value></data> -->
+  <data name="LineType2" xml:space="preserve">   <value>Rytmika</value></data>
+  <data name="LineType3" xml:space="preserve">   <value>Melodie</value></data>
+  <data name="LineType4" xml:space="preserve">   <value>Harmonie</value></data>
+
+  <!-- Raw Tempo -->
+  <data name="RawTempo1" xml:space="preserve">	<value> Velmi pomalé</value>	</data>
+  <data name="RawTempo2" xml:space="preserve">	<value> Pomalé</value>	</data>
+  <data name="RawTempo3" xml:space="preserve">	<value> Střední</value>	</data>
+  <data name="RawTempo4" xml:space="preserve">	<value> Rychlé</value>	</data>
+  <data name="RawTempo5" xml:space="preserve">	<value> Velmi rychlé</value>	</data>
+  
+  <!-- Tempo -->
+  <data name="Tempo10" xml:space="preserve">	<value> Velmi pomalé (Gravissimo)</value>	</data>
+  <data name="Tempo20" xml:space="preserve">	<value> Velmi pomalé (Larghissimo)</value>	</data>
+  <data name="Tempo30" xml:space="preserve">	<value> Velmi pomalé (Lentissimo)</value>	</data>
+  <data name="Tempo40" xml:space="preserve">	<value> Velmi pomalé (Grave)</value>	</data>
+  <data name="Tempo45" xml:space="preserve">	<value> Velmi pomalé (Largo)</value>	</data>
+  <data name="Tempo50" xml:space="preserve">	<value> Velmi pomalé (Lento)</value>	</data>
+  <data name="Tempo55" xml:space="preserve">	<value> Velmi pomalé (Adagio)</value>	</data>
+  <data name="Tempo60" xml:space="preserve">	<value> Velmi pomalé (Larghetto)</value>	</data>
+  <data name="Tempo65" xml:space="preserve">	<value> Pomalé (Andante)</value>	</data>
+  <data name="Tempo70" xml:space="preserve">	<value> Pomalé (Andantino)</value>	</data>
+  <data name="Tempo75" xml:space="preserve">	<value> Pomalé (Sostenuto)</value>	</data>
+  <data name="Tempo80" xml:space="preserve">	<value> Pomalé (Commodo)</value>	</data>
+  <data name="Tempo85" xml:space="preserve">	<value> Pomalé (Maestoso)</value>	</data>
+  <data name="Tempo90" xml:space="preserve">	<value> Střední (Moderato)</value>	</data>
+  <data name="Tempo105" xml:space="preserve">	<value> Střední (Allegretto)</value>	</data>
+  <data name="Tempo110" xml:space="preserve">	<value> Střední (Animato)</value>	</data>
+  <data name="Tempo120" xml:space="preserve">	<value> Střední (Allegro moderato)</value>	</data>
+  <data name="Tempo125" xml:space="preserve">	<value> Střední (Allegro ma non troppo)</value>	</data>
+  <data name="Tempo130" xml:space="preserve">	<value> Rychlé (Allegro)</value>	</data>
+  <data name="Tempo140" xml:space="preserve">	<value> Rychlé (Allegro assai)</value>	</data>
+  <data name="Tempo150" xml:space="preserve">	<value> Rychlé (Allegro vivace)</value>	</data>
+  <data name="Tempo160" xml:space="preserve">	<value> Rychlé (Vivace)</value>	</data>
+  <data name="Tempo175" xml:space="preserve">	<value> Rychlé (Molto vivace)</value>	</data>
+  <data name="Tempo190" xml:space="preserve">	<value> Velmi rychlé (Vivacissimo)</value>	</data>
+  <data name="Tempo210" xml:space="preserve">	<value> Velmi rychlé (Presto)</value>	</data>
+  <data name="Tempo230" xml:space="preserve">	<value> Velmi rychlé (Molto Presto)</value>	</data>
+  <data name="Tempo250" xml:space="preserve">	<value> Velmi rychlé (Prestisimo)</value>	</data>
+  <data name="Tempo270" xml:space="preserve">	<value> Velmi rychlé (Molto Prestisimo)</value>	</data>
+  
+    <!-- Intervals -->	
+	<data name="Interval0"	xml:space="preserve">	<value>prima</value>			</data>
+	<data name="Interval1"	xml:space="preserve">	<value>zmenšená sekunda</value>	</data>
+	<data name="Interval2"	xml:space="preserve">	<value>malá sekunda</value>		</data>
+	<data name="Interval3"	xml:space="preserve">	<value>střední sekunda</value>	</data>
+	<data name="Interval4"	xml:space="preserve">	<value>velká sekunda</value>	</data>
+	<data name="Interval5"	xml:space="preserve">	<value>zvětšená sekunda</value>	</data>
+	<data name="Interval6"	xml:space="preserve">	<value>malá tercie</value>		</data>
+	<data name="Interval7"	xml:space="preserve">	<value>střední tercie</value>	</data>
+	<data name="Interval8"	xml:space="preserve">	<value>velká tercie</value>		</data>
+	<data name="Interval9"	xml:space="preserve">	<value>zmenšená kvarta</value>	</data>
+	<data name="Interval10"	xml:space="preserve">	<value>kvarta</value>			</data>
+	<data name="Interval11" xml:space="preserve">	<value>zvětšená kvarta</value>	</data>
+	<!-- <data name="Interval12" xml:space="preserve">	<value>triton</value>		</data> -->
+	<data name="Interval13" xml:space="preserve">	<value>zmenšená kvinta</value>	</data>
+	<data name="Interval14" xml:space="preserve">	<value>kvinta</value>			</data>
+	<data name="Interval15" xml:space="preserve">	<value>zvětšená kvinta</value>	</data>
+	<data name="Interval16" xml:space="preserve">	<value>malá sexta</value>		</data>
+	<data name="Interval17" xml:space="preserve">	<value>střední sexta</value>	</data>
+	<data name="Interval18" xml:space="preserve">	<value>velká sexta</value>		</data>
+	<data name="Interval19" xml:space="preserve">	<value>zmenšená septima</value></data>
+	<data name="Interval20" xml:space="preserve">	<value>malá septima</value>	</data>
+	<data name="Interval21" xml:space="preserve">	<value>střední septima</value>	</data>
+	<data name="Interval22" xml:space="preserve">	<value>velká septima</value>	</data>
+	<data name="Interval23" xml:space="preserve">	<value>zvětšená septima</value></data>
+  
+  <!-- 3. MUSICAL THERMS  -->
+  <!-- Player -->
+  <data name="Direct play"	xml:space="preserve">	<value>Přehrát přímo</value>	</data>
+  <data name="Normal play"	xml:space="preserve">	<value>Přehrát</value>	</data>
+  <data name="Stop playing"	xml:space="preserve">	<value>Zrušit přehrávání</value>	</data>
+  <data name="Pause playing"	xml:space="preserve">	<value>Zastavit přehrávání</value>	</data>
+      
+  <!-- Harmony -->
+  <data name="Harmonic material" xml:space="preserve">	<value>Harmonický materiál</value></data>
+  <data name="Harmonic motive" xml:space="preserve">	<value>Harmonický motiv</value></data>
+  <data name="Harmonic motives" xml:space="preserve">	<value>Harmonické motivy</value></data>
+  <data name="Harmonic order" xml:space="preserve">	<value>Harmonický řád</value></data>
+  <data name="Harmonic rhythm" xml:space="preserve">	<value>Harmonický rytmus</value></data>
+  <data name="Harmonic system" xml:space="preserve">	<value>Harmonický systém</value></data>
+  <data name="Harmonic systems" xml:space="preserve">	<value>Harmonické systémy</value></data>
+  <data name="Harmonic streams" xml:space="preserve">	<value>Harmonické proudy</value></data>
+  <data name="Harmonic structures" xml:space="preserve">	<value>Harmonické struktury</value></data>
+  <data name="Density Of Harmonic Motives"	xml:space="preserve">	<value>Hustota harmonických motivů</value>	</data>
+  <data name="Number Of Harmonic Motives"	xml:space="preserve">	<value>Počet harmonických motivů</value>	</data>
+  <data name="Total Length Of Harmonic Motives"	xml:space="preserve">	<value>Celková délka harmonických motivů</value>	</data>
+
+  <!-- Rhythm -->
+  <data name="Rhythm" xml:space="preserve">	<value>Rytmus</value></data>
+  <data name="Rhythmic" xml:space="preserve">	<value>Rytmika</value></data>
+  <data name="Rhythmic line" xml:space="preserve">	<value>Rytmická linie</value></data>
+  <data name="Rhythmic density" xml:space="preserve">	<value>Rytmická hustota</value></data>
+  <data name="Rhythmic material" xml:space="preserve">	<value>Rytmický materiál</value></data>
+  <data name="Rhythmic motive" xml:space="preserve">	<value>Rytmický motiv</value></data>
+  <data name="Rhythmic order" xml:space="preserve">	<value>Rytmický řád</value></data>
+  <data name="Rhythmic patterns" xml:space="preserve">	<value>Rytmické vzory</value></data>
+  <data name="Rhythmic structures" xml:space="preserve">	<value>Rytmické struktury</value></data>
+  <data name="Density Of Rhythmic Motives"	xml:space="preserve">	<value>Hustota rytmických motivů</value>	</data>
+  <data name="Number Of Rhythmic Motives"	xml:space="preserve">	<value>Počet rytmických motivů</value>	</data>
+  <data name="Total Length Of Rhythmic Motives"	xml:space="preserve">	<value>Celková délka rytmických motivů</value>	</data>
+
+  <!-- Melody -->
+  <data name="Melodic line" xml:space="preserve">	<value>Melodická linie</value></data>
+  <data name="Melodic motive" xml:space="preserve">	<value>Melodický motiv</value></data>
+  <data name="Melodic patterns" xml:space="preserve">	<value>Melodické vzory</value></data>
+  <data name="Melodic material" xml:space="preserve">	<value>Melodický materiál</value></data>
+  <data name="Density Of Melodic Motives"	xml:space="preserve">	<value>Hustota melodických motivů</value>	</data>
+  <data name="Number Of Melodic Motives"	xml:space="preserve">	<value>Počet melodických motivů</value>	</data>
+  <data name="Total Length Of Melodic Motives"	xml:space="preserve">	<value>Celková délka melodických motivů</value>	</data>
+
+  <!-- MIDI -->
+  <data name="MidiChannel" xml:space="preserve">	<value>Kanál</value></data>
+  <data name="Midi track" xml:space="preserve">	<value>Midi stopa</value></data>
+  <data name="Midi channel" xml:space="preserve">	<value>Midi kanál</value></data>
+  <data name="MIDI files" xml:space="preserve">	<value>Soubory MIDI</value></data>
+  <data name="Midi devices" xml:space="preserve">	<value>Midi zařízení</value></data>
+  <data name="Midi tones" xml:space="preserve">	<value>Tóny (MIDI)</value></data>
+
+  <!-- Objects -->
+  <data name="Elements" xml:space="preserve">	<value>Prvky</value></data>
+  <data name="Note" xml:space="preserve">	<value>Nota</value></data>
+  <data name="Line" xml:space="preserve">	<value>Line</value></data>
+  <data name="Structures" xml:space="preserve">	<value>Struktury</value></data>
+  <data name="Tones" xml:space="preserve">	<value>Tóny</value></data>
+  <data name="Tracks" xml:space="preserve">	<value>Hlasy</value></data>
+  <data name="tbTracks" xml:space="preserve">	<value>Hlasy</value></data>
+  <data name="Voices" xml:space="preserve">	<value>Hlasů</value></data>
+
+  <!-- Basic music terms -->
+  <data name="Bar" xml:space="preserve">	<value>Takt</value></data>
+  <data name="Bars" xml:space="preserve">	<value>Taktů</value></data>
+  <data name="Has template" xml:space="preserve">	<value>S předlohou</value></data>
+  <data name="Inserted" xml:space="preserve">	<value>Vloženo</value></data>
+  <data name="Material" xml:space="preserve">	<value>Materiál</value></data>
+  <data name="Motive" xml:space="preserve">	<value>Motiv</value></data>
+  <data name="Motives" xml:space="preserve">	<value>Motivy</value></data>
+  <data name="Metre" xml:space="preserve">	<value>Metrum</value></data>
+  <data name="Metric" xml:space="preserve">	<value>Metrum</value></data>
+  <data name="Number of bars" xml:space="preserve">	<value>Počet taktů</value></data>
+  <data name="Density Of Changes"	xml:space="preserve">	<value>Hustota změn</value>	</data>
+  <data name="Number Of Changes"	xml:space="preserve">	<value>Počet změn</value>	</data>
+  <data name="Number of lines"	xml:space="preserve">	<value>Počet linií</value>	</data>
+  <data name="Order" xml:space="preserve">	<value>Řád</value></data>
+  <data name="Original file name" xml:space="preserve">	<value>Jméno souboru zdroje</value></data>
+  <data name="Original division" xml:space="preserve">	<value>Členění zdroje</value></data>
+  <data name="Scores" xml:space="preserve">	<value>Party</value></data>
+  <data name="Selected" xml:space="preserve">	<value>Označený</value></data>
+  <data name="SelectedShe" xml:space="preserve">	<value>Označená</value></data>
+  <data name="OriginType" xml:space="preserve">	<value>Typ modelu</value></data>
+  <data name="Type" xml:space="preserve">	<value>Typ</value></data>
+  <data name="Value" xml:space="preserve">	<value>Hodnota</value></data>
+
+  <!-- Composition -->
+  <data name="tbComposition" xml:space="preserve">	<value>Skladba</value></data>
+  <data name="New composition" xml:space="preserve">	<value>Nová skladba</value></data>
+  <data name="Musical composition" xml:space="preserve">	<value>Skládání hudby</value></data>
+
+  <!-- Structures -->
+  <data name="All structures" xml:space="preserve">	<value>Všechny struktury</value></data>
+  <data name="Common structures" xml:space="preserve">	<value>Obvyklé struktury</value></data>
+  <data name="Mean structures" xml:space="preserve">	<value>Středně časté</value></data>
+  <data name="Rare structures" xml:space="preserve">	<value>Zřídka se vyskytující</value></data>
+  <data name="Regular structures" xml:space="preserve">	<value>Pravidelné struktury</value></data>
+  <data name="Musical structures" xml:space="preserve">	<value>Hudební struktury</value></data>
+
+  <!-- Orchestration -->
+  <data name="Instrument/channel" xml:space="preserve">	<value>Nástroj/kanál</value></data>
+  <data name="Musical instrument" xml:space="preserve">	<value>Hudební nástroj</value></data>
+
+  <!-- Files -->
+  <data name="Main folder" xml:space="preserve">	<value>Hlavní složka</value></data>
+  <data name="Source" xml:space="preserve">	<value>Zdroj</value></data>
+  <data name="Sources" xml:space="preserve">	<value>Zdroje</value></data>
+  <data name="Blocks" xml:space="preserve">	<value>Bloky</value></data>
+
+  <!-- Templates -->
+  <data name="Templates" xml:space="preserve">	<value>Předlohy</value></data>
+  <data name="Template" xml:space="preserve">	<value>Předloha</value></data>
+  <data name="Template properties" xml:space="preserve">	<value>Vlastnosti předlohy</value></data>
+  <data name="Musical templates" xml:space="preserve">	<value>Hudební předlohy</value></data>
+  <data name="Musical template" xml:space="preserve">	<value>Hudební předloha</value></data>
+  <data name="Template part" xml:space="preserve">	<value>Část předlohy</value></data>
+
+  <!-- Tracks -->
+  <data name="Selection of tracks" xml:space="preserve">	<value>Označení stop</value></data>
+  <data name="Unselect all" xml:space="preserve">	<value>Všechny odoznačit</value></data>
+  <data name="Compose all tracks" xml:space="preserve">	<value>Komponovat všechny</value></data>
+  <data name="No track to compose" xml:space="preserve">	<value>Žádnou nekomponovat</value></data>
+  <data name="Change of tracks" xml:space="preserve">	<value>Změna stop</value></data>
+  <data name="Clone track" xml:space="preserve">	<value>Kopíruj stopu</value></data>
+
+  <!-- Properties -->
+  <data name="Property" xml:space="preserve">	<value>Vlastnost</value></data>
+  <data name="Variance" xml:space="preserve">	<value>Odchylka</value></data>
+  <data name="Level" xml:space="preserve">	<value>Úroveň</value></data>
+  <data name="Balance" xml:space="preserve">	<value>Vyrovnanost</value></data>
+  <data name="Drift" xml:space="preserve">	<value>Zdvih</value></data>
+  <data name="Degree" xml:space="preserve">	<value>Stupeň</value></data>
+  <data name="Length" xml:space="preserve">	<value>Délka</value></data>
+  <data name="Duration" xml:space="preserve">	<value>Trvání</value></data>
+  <data name="Filling" xml:space="preserve">	<value>Výplň</value></data>
+  <data name="Continuity" xml:space="preserve">	<value>Spojitost</value></data>
+  <data name="Impulse" xml:space="preserve">	<value>Impulz</value></data>
+  <data name="Mobility" xml:space="preserve">	<value>Pohyblivost</value></data>
+  <data name="Time" xml:space="preserve">	<value>Čas</value></data>
+  <data name="Velocity" xml:space="preserve">	<value>Síla</value></data>
+  <data name="Tension" xml:space="preserve">	<value>Napětí</value></data>
+  <data name="Consonance" xml:space="preserve">	<value>Konsonance</value></data>
+
+  <!-- Blocks -->
+  <data name="Block" xml:space="preserve">	<value>Blok</value></data>
+  <data name="Blocks2" xml:space="preserve">	<value>Bloků</value></data>
+  <data name="Musical file" xml:space="preserve">	<value>Hudební soubor</value></data>
+  <data name="Musical block" xml:space="preserve">	<value>Hudební blok</value></data>
+  <data name="Musical model" xml:space="preserve">	<value>Hudební model</value></data>
+  <data name="Musical source" xml:space="preserve">	<value>Hudební zdroj</value></data>
+  <data name="Musical file model" xml:space="preserve">	<value>Model souboru</value></data>
+  <data name="Musical block model" xml:space="preserve">	<value>Model bloku</value></data>
+  <data name="BlockModel" xml:space="preserve">	<value>Model bloku</value></data>
+  <data name="MusicalTemplate" xml:space="preserve">	<value>Předloha</value></data>
+  <data name="FileTemplate" xml:space="preserve">	<value>Soubor předlohy</value></data>
+  <data name="BlockTemplate" xml:space="preserve">	<value>Blok předlohy</value></data>
+
+  <!-- Files -->
+  <data name="Work title"	xml:space="preserve">	<value>Název díla</value>	</data>
+  <data name="Work number"	xml:space="preserve">	<value>Číslo díla</value>	</data>
+  <data name="Encoding date"	xml:space="preserve">	<value>Datum zápisu</value>	</data>
+  <data name="Encoder"	xml:space="preserve">	<value>Zapsal</value>	</data>
+  <data name="Encoding description"	xml:space="preserve">	<value>Popis</value>	</data>
+  <data name="Creator"	xml:space="preserve">	<value>Tvůrce</value>	</data>
+  <data name="Composer"	xml:space="preserve">	<value>Skladatel</value>	</data>
+  <data name="Rights"	xml:space="preserve">	<value>Práva</value>	</data>
+
+ 
+  <!-- File split -->
+  <data name="FileSplit0"	xml:space="preserve">	<value>-</value>	</data>
+  <data name="FileSplit1"	xml:space="preserve">	<value>Automaticky</value>	</data>
+  <data name="FileSplit2"	xml:space="preserve">	<value>Vše</value>	</data>
+
+  <!-- Engine -->
+  <data name="RandomEffect" xml:space="preserve"> <value>Náhodný efekt</value></data>
+  <data name="RuleHarmonicCover" xml:space="preserve"> <value>Pravidlo harmonického krytí</value></data>
+  <data name="RuleFreeBand" xml:space="preserve"> <value>Pravidlo volného pásma</value></data>
+  <data name="RuleImpulseCollisions" xml:space="preserve"> <value>Pravidlo impulzních kolizí</value></data>
+  <data name="RuleParallelConnections" xml:space="preserve"> <value>Pravidlo paralelních spojů</value></data>
+  <data name="RuleAmbitChange" xml:space="preserve"> <value>Pravidlo změny ambitu</value></data>
+  <data name="RuleMelodicCollisions" xml:space="preserve"> <value>Pravidlo neharmonických kolizí</value></data>
+  <data name="RuleTrackPotential" xml:space="preserve"> <value>Pravidlo sledování potenciálu</value></data>
+  <data name="RuleSensitivePotential" xml:space="preserve"> <value>Pravidlo citlivých tónů</value></data>
+
+  <!-- Rules -->
+  <data name="Standard rules"	xml:space="preserve">	<value>Základní pravidla</value>	</data>
+  <data name="Harmonic rules"	xml:space="preserve">	<value>Harmonická pravidla</value>	</data>
+  <data name="Impulse rules"	xml:space="preserve">	<value>Impulsní pravidla</value>	</data>
+
+  <!-- Modalization Types -->
+  <data name="Modalization0"	xml:space="preserve">	<value>Chromatická</value>	</data>
+  <data name="Modalization1"	xml:space="preserve">	<value>Motivická</value>	</data>
+  <data name="Modalization2"	xml:space="preserve">	<value>Postupná</value>	</data>
+  <data name="Modalization3"	xml:space="preserve">	<value>Strukturální</value>	</data>
+  <data name="Modalization4"	xml:space="preserve">	<value>Vnucená</value>	</data>
+
+  <data name="TempoNumber"	xml:space="preserve">	<value>Hodnota tempa</value>	</data>
+
+  
+  <!-- 3. ABSTRACT LISTS  -->
+  <!-- Values -->
+  <data name="MusicalValue1"	xml:space="preserve">	<value>Velmi malá</value>	</data>
+  <data name="MusicalValue2"	xml:space="preserve">	<value>Nízká</value>	</data>
+  <data name="MusicalValue3"	xml:space="preserve">	<value>Mírně nižší</value>	</data>
+  <data name="MusicalValue4"	xml:space="preserve">	<value>Střední</value>	</data>
+  <data name="MusicalValue5"	xml:space="preserve">	<value>Mírně vyšší</value>	</data>
+  <data name="MusicalValue6"	xml:space="preserve">	<value>Vysoká</value>	</data>
+  <data name="MusicalValue7"	xml:space="preserve">	<value>Nejvyšší</value>	</data>
+
+  <!-- Type of course shape -->
+  <data name="CourseShape0" xml:space="preserve"> <value>Nedefinovaný</value></data>
+  <data name="CourseShape1" xml:space="preserve"> <value>Konstantní</value></data>
+  <data name="CourseShape2" xml:space="preserve"> <value>Klesající</value></data>
+  <data name="CourseShape3" xml:space="preserve"> <value>Rostoucí</value></data>
+  <data name="CourseShape4" xml:space="preserve"> <value>Standardní</value></data>
+  <data name="CourseShape5" xml:space="preserve"> <value>Zlomový</value></data>
+  <data name="CourseShape6" xml:space="preserve"> <value>Kontrastní</value></data>
+  <data name="CourseShape7" xml:space="preserve"> <value>Inverzní kontrast</value></data>
+
+  <!-- 4. ABSTRACT THERMS  -->
+
+  <!-- Abstract terms -->
+  <data name="Name" xml:space="preserve">	<value>Název</value></data>
+  <data name="Number" xml:space="preserve">	<value>Číslo</value></data>
+  <data name="Start" xml:space="preserve">	<value>Začátek</value></data>
+
+  <data name="New" xml:space="preserve">	<value>Nový</value></data>
+  <data name="Open" xml:space="preserve">	<value>Otevřít</value></data>
+  <data name="Close" xml:space="preserve">	<value>Zavřít</value></data>
+  <data name="Save" xml:space="preserve">	<value>Uložit</value></data>
+  <data name="Save as" xml:space="preserve">	<value>Uložit jako</value></data>
+  <data name="Recently saved" xml:space="preserve">	<value>Naposledy uložené</value></data>
+  <data name="Recently autosaved" xml:space="preserve">	<value>Automaticky uložené</value></data>
+  
+  <data name="Outline"	xml:space="preserve">	<value>Přehled</value>	</data>
+  <data name="Notation"	xml:space="preserve">	<value>Notace</value>	</data>
+
+  <data name="HarmonicModality"	xml:space="preserve">	<value>Harmonická modality</value>	</data>
+  <data name="RhythmicTension"	xml:space="preserve">	<value>Rytmické napětí</value>	</data>
+  <data name="MelodicDirection"	xml:space="preserve">	<value>Melodický směr</value>	</data>
+  <data name="MelodicGenus"	xml:space="preserve">	<value>Melodický genus</value>	</data>
+
+  <data name="LineType"	xml:space="preserve">	<value>Typ linie</value>	</data>
+  <data name="Common settings"	xml:space="preserve">	<value>Obecné</value>	</data>
+  <data name="Composition"	xml:space="preserve">	<value>Skladba</value>	</data>
+  <data name="Trace values"	xml:space="preserve">	<value>Sledovat hodnoty</value>	</data>
+  
+
+
+  <!-- 9. INSTRUMENTS  -->
+
+  <!-- Melodic sections -->
+	<data name="MelSection0" xml:space="preserve">	<value>Klavíry</value>			</data>
+	<data name="MelSection1" xml:space="preserve">	<value>Chromatické bicí</value></data>
+	<data name="MelSection2" xml:space="preserve">	<value>Varhany</value>		</data>
+	<data name="MelSection3" xml:space="preserve">	<value>Kytary</value>			</data>
+	<data name="MelSection4" xml:space="preserve">	<value>Basy</value>			</data>
+	<data name="MelSection5" xml:space="preserve">	<value>Smyčce</value>			</data>
+	<data name="MelSection6" xml:space="preserve">	<value>Souborové zvuky</value>			</data>
+	<data name="MelSection7" xml:space="preserve">	<value>Žestě</value>			</data>
+	<data name="MelSection8" xml:space="preserve">	<value>Jazýčkové nástroje</value>		</data>
+	<data name="MelSection9" xml:space="preserve">	<value>Píšťalové nástroje</value>		</data>
+	<data name="MelSection10" xml:space="preserve">	<value>Sólové syntetické</value></data>
+	<data name="MelSection11" xml:space="preserve">	<value>Doprovodné syntetické</value></data>
+	<data name="MelSection12" xml:space="preserve">	<value>Syntetické efekty</value></data>
+	<data name="MelSection13" xml:space="preserve">	<value>Etnické nástroje</value>		</data>
+	<data name="MelSection14" xml:space="preserve">	<value>Perkusivní nástroje</value>			</data>
+	<data name="MelSection15" xml:space="preserve">	<value>Zvukové efekty</value>		</data>
+
+	<!-- Melodic instruments -->
+	<data name="MelInstr0" xml:space="preserve">	<value>Klavír - křídlo</value></data>
+	<data name="MelInstr1" xml:space="preserve">	<value>Otevřené piano</value>	</data>
+	<data name="MelInstr2" xml:space="preserve">	<value>Elektrický klavír - křídlo</value></data>
+	<data name="MelInstr3" xml:space="preserve">	<value>Honky-tonk Piano</value>	</data>
+	<data name="MelInstr4" xml:space="preserve">	<value>Rhodes piano</value></data>
+	<data name="MelInstr5" xml:space="preserve">	<value>Piano chorused</value></data>
+	<data name="MelInstr6" xml:space="preserve">	<value>Cemballo</value></data>
+	<data name="MelInstr7" xml:space="preserve">	<value>Spinet</value></data>
+  <!-- <data name="MelInstr8" xml:space="preserve">	<value>Celesta</value></data> -->
+	<data name="MelInstr9" xml:space="preserve">	<value>Zvonkohra</value></data>
+	<data name="MelInstr10" xml:space="preserve">	<value>Hrací skřínka</value>	</data>
+	<data name="MelInstr11" xml:space="preserve">	<value>Vibrafon</value>	</data>
+	<!-- <data name="MelInstr12" xml:space="preserve">	<value>Marimba</value>	</data> -->
+	<data name="MelInstr13" xml:space="preserve">	<value>Xylofon</value>	</data>
+	<data name="MelInstr14" xml:space="preserve">	<value>Koncertní zvony</value>	</data>
+	<!-- <data name="MelInstr15" xml:space="preserve">	<value>Dulcimer</value>	</data> -->
+	<data name="MelInstr16" xml:space="preserve">	<value>Hammondovy varhany</value>	</data>
+	<data name="MelInstr17" xml:space="preserve">	<value>Perkusivní varhany</value>	</data>
+	<data name="MelInstr18" xml:space="preserve">	<value>Rockové varhany</value>	</data>
+	<data name="MelInstr19" xml:space="preserve">	<value>Kostelní varhany</value>	</data>
+	<data name="MelInstr20" xml:space="preserve">	<value>Harmonium</value>	</data>
+	<data name="MelInstr21" xml:space="preserve">	<value>Akordeon</value>	</data>
+	<data name="MelInstr22" xml:space="preserve">	<value>Foukací harmonika</value>	</data>
+	<data name="MelInstr23" xml:space="preserve">	<value>Tango akordeon</value>	</data>
+	<data name="MelInstr24" xml:space="preserve">	<value>Akustická kytara (nylonové struny)</value>	</data>
+	<data name="MelInstr25" xml:space="preserve">	<value>Akustická kytara (ocelové struny)</value>	</data>
+	<data name="MelInstr26" xml:space="preserve">	<value>Elektrická kytara (jazz)</value>	</data>
+	<data name="MelInstr27" xml:space="preserve">	<value>Elektrická kytara (čistá)</value>	</data>
+	<data name="MelInstr28" xml:space="preserve">	<value>Elektrická kytara tlumená</value>	</data>
+	<data name="MelInstr29" xml:space="preserve">	<value>Přebuzená el. kytara</value>	</data>
+	<data name="MelInstr30" xml:space="preserve">	<value>Zkreslená el. kytara</value>	</data>
+	<data name="MelInstr31" xml:space="preserve">	<value>El. kytara - harmonické kmitočty</value>	</data>
+	<data name="MelInstr32" xml:space="preserve">	<value>Kontrabas (prsty - pizzicato)</value>	</data>
+	<data name="MelInstr33" xml:space="preserve">	<value>Elektrická baskytara (prsty)</value>	</data>
+	<data name="MelInstr34" xml:space="preserve">	<value>Elektrická baskytara (picked)</value>	</data>
+	<data name="MelInstr35" xml:space="preserve">	<value>Bezpražcová baskytara</value>	</data>
+	<data name="MelInstr36" xml:space="preserve">	<value>Slap baskytara 1</value>	</data>
+	<data name="MelInstr37" xml:space="preserve">	<value>Slap baskytara 2</value>	</data>
+	<data name="MelInstr38" xml:space="preserve">	<value>Syntetická baskytara 1</value>	</data>
+	<data name="MelInstr39" xml:space="preserve">	<value>Syntetická baskytara 2</value>	</data>
+	<data name="MelInstr40" xml:space="preserve">	<value>Housle</value>	</data>
+  <!-- <data name="MelInstr41" xml:space="preserve">	<value>Viola</value>	</data> -->
+	<data name="MelInstr42" xml:space="preserve">	<value>Violoncello</value>	</data>
+	<data name="MelInstr43" xml:space="preserve">	<value>Kontrabas (smyčcem - arco)</value>	</data>
+	<data name="MelInstr44" xml:space="preserve">	<value>Tremola smyčců</value>	</data>
+	<data name="MelInstr45" xml:space="preserve">	<value>Pizzikáta smyčců</value>	</data>
+	<data name="MelInstr46" xml:space="preserve">	<value>Orchestrální harfa</value>	</data>
+	<data name="MelInstr47" xml:space="preserve">	<value>Tympány</value>	</data>
+	<data name="MelInstr48" xml:space="preserve">	<value>Smyčcový sbor</value>	</data>
+	<data name="MelInstr49" xml:space="preserve">	<value>Slow smyčce</value>	</data>
+	<data name="MelInstr50" xml:space="preserve">	<value>Syntetické smyčce1</value>	</data>
+	<data name="MelInstr51" xml:space="preserve">	<value>Syntetické smyčce2</value>	</data>
+	<data name="MelInstr52" xml:space="preserve">	<value>Chór Aah</value>	</data>
+	<data name="MelInstr53" xml:space="preserve">	<value>Chór Ooh</value>	</data>
+	<data name="MelInstr54" xml:space="preserve">	<value>Syntetický Chór</value></data>
+  <!-- <data name="MelInstr55" xml:space="preserve">	<value>Orchestra Hit</value>	</data> -->
+	<data name="MelInstr56" xml:space="preserve">	<value>Trubka</value>	</data>
+	<data name="MelInstr57" xml:space="preserve">	<value>Pozoun</value>	</data>
+  <!-- <data name="MelInstr58" xml:space="preserve">	<value>Tuba</value>	</data> -->
+	<data name="MelInstr59" xml:space="preserve">	<value>Muted trubka</value>	</data>
+	<data name="MelInstr60" xml:space="preserve">	<value>Francouzský roh</value>	</data>
+	<data name="MelInstr61" xml:space="preserve">	<value>Skupina žesťů</value>	</data>
+	<data name="MelInstr62" xml:space="preserve">	<value>Syntetické žestě1</value>	</data>
+	<data name="MelInstr63" xml:space="preserve">	<value>Syntetické žestě2</value>	</data>
+	<data name="MelInstr64" xml:space="preserve">	<value>Sopránový saxofon</value>	</data>
+	<data name="MelInstr65" xml:space="preserve">	<value>Altoový saxofon</value>	</data>
+	<data name="MelInstr66" xml:space="preserve">	<value>Tenorový saxofon</value>	</data>
+	<data name="MelInstr67" xml:space="preserve">	<value>Baritonový saxofon</value>	</data>
+	<data name="MelInstr68" xml:space="preserve">	<value>Hoboj</value>	</data>
+	<data name="MelInstr69" xml:space="preserve">	<value>Anglický roh</value>	</data>
+	<data name="MelInstr70" xml:space="preserve">	<value>Fagot</value>	</data>
+	<data name="MelInstr71" xml:space="preserve">	<value>Klarinet</value></data>
+	<data name="MelInstr72" xml:space="preserve">	<value>Pikola</value>	</data>
+	<data name="MelInstr73" xml:space="preserve">	<value>Flétna</value>	</data>
+  <!-- <data name="MelInstr74" xml:space="preserve">	<value>Recorder</value>	</data>  -->
+	<data name="MelInstr75" xml:space="preserve">	<value>Pan flétna</value>	</data>
+	<data name="MelInstr76" xml:space="preserve">	<value>Bottle flétna</value>	</data>
+	<!-- <data name="MelInstr77" xml:space="preserve">	<value>Shakuhachi</value>	</data> -->
+	<!-- <data name="MelInstr78" xml:space="preserve">	<value>Whistle</value>	</data> -->
+  <!-- <data name="MelInstr79" xml:space="preserve">	<value>Ocarina</value>	</data> -->
+	<data name="MelInstr80" xml:space="preserve">	<value>Syntetické sólo 1 - Obdélník</value>	</data>
+	<data name="MelInstr81" xml:space="preserve">	<value>Syntetické sólo 2 - Trojúhelník</value>	</data>
+	<data name="MelInstr82" xml:space="preserve">	<value>Syntetické sólo 3 - Calliope</value>	</data>
+	<data name="MelInstr83" xml:space="preserve">	<value>Syntetické sólo 4 - Chiff</value>	</data>
+	<data name="MelInstr84" xml:space="preserve">	<value>Syntetické sólo 5 - Charang</value>	</data>
+	<data name="MelInstr85" xml:space="preserve">	<value>Syntetické sólo 6 - Hlas</value>	</data>
+	<data name="MelInstr86" xml:space="preserve">	<value>Syntetické sólo 7 - Trojúhelníková kvinta</value>	</data>
+	<data name="MelInstr87" xml:space="preserve">	<value>Syntetické sólo 8 - Bas a sólo</value>	</data>
+	<data name="MelInstr88" xml:space="preserve">	<value>Vycpávka 1 - Fantazie</value>	</data>
+	<data name="MelInstr89" xml:space="preserve">	<value>Vycpávka 2 - Teplá</value>	</data>
+	<data name="MelInstr90" xml:space="preserve">	<value>Vycpávka 3 - Poly syntetizér</value>	</data>
+	<data name="MelInstr91" xml:space="preserve">	<value>Vycpávka 4 - Prostorový hlas</value>	</data>
+	<data name="MelInstr92" xml:space="preserve">	<value>Vycpávka 5 - Skleněná harmonika</value>	</data>
+	<data name="MelInstr93" xml:space="preserve">	<value>Vycpávka 6 - Kovový zvuk</value>	</data>
+	<data name="MelInstr94" xml:space="preserve">	<value>Vycpávka 7 - Halo</value>	</data>
+	<data name="MelInstr95" xml:space="preserve">	<value>Vycpávka 8 - Sweep</value>	</data>
+	<data name="MelInstr96" xml:space="preserve">	<value>Ledový déšť</value>	</data>
+	<data name="MelInstr97" xml:space="preserve">	<value>Zvuková stopa</value>	</data>
+	<data name="MelInstr98" xml:space="preserve">	<value>Krystal</value>	</data>
+	<data name="MelInstr99" xml:space="preserve">	<value>Atmosféra</value>	</data>
+	<data name="MelInstr100" xml:space="preserve">	<value>Jas</value>	</data>
+	<data name="MelInstr101" xml:space="preserve">	<value>Goblins</value>	</data>
+	<data name="MelInstr102" xml:space="preserve">	<value>Echos</value>	</data>
+	<data name="MelInstr103" xml:space="preserve">	<value>Sci-fi</value>	</data>
+  <!-- <data name="MelInstr104" xml:space="preserve">	<value>Sitar</value>	</data> -->
+	<data name="MelInstr105" xml:space="preserve">	<value>Bendžo</value>	</data>
+	<data name="MelInstr106" xml:space="preserve">	<value>Šamisen</value>	</data>
+	<!-- <data name="MelInstr107" xml:space="preserve">	<value>Koto</value>	</data> -->
+	<!-- <data name="MelInstr108" xml:space="preserve">	<value>Kalimba</value>	</data> -->
+	<data name="MelInstr109" xml:space="preserve">	<value>Dudy</value>	</data>
+	<data name="MelInstr110" xml:space="preserve">	<value>Středověké housle (fidula)</value>	</data>
+	<data name="MelInstr111" xml:space="preserve">	<value>Šanai</value>	</data>
+	<data name="MelInstr112" xml:space="preserve">	<value>Rolničky</value>	</data>
+	<!-- <data name="MelInstr113" xml:space="preserve">	<value>Agogo</value>	</data> -->
+	<data name="MelInstr114" xml:space="preserve">	<value>Plechový bubínek</value>	</data>	
+	<data name="MelInstr115" xml:space="preserve">	<value>Kus dřeva</value>	</data>
+	<data name="MelInstr116" xml:space="preserve">	<value>Buben taiko</value>	</data>
+	<data name="MelInstr117" xml:space="preserve">	<value>Melodický velký buben</value>	</data>
+	<data name="MelInstr118" xml:space="preserve">	<value>Syntetický buben</value>	</data>
+	<data name="MelInstr119" xml:space="preserve">	<value>Obrácený zvuk činele</value>	</data>
+	<data name="MelInstr120" xml:space="preserve">	<value>Hluk kytarového pražce</value>	</data>
+	<data name="MelInstr121" xml:space="preserve">	<value>Dech</value>	</data>
+	<data name="MelInstr122" xml:space="preserve">	<value>Mmořský příboj</value>	</data>
+	<data name="MelInstr123" xml:space="preserve">	<value>Ptačí zpěv</value>	</data>
+	<data name="MelInstr124" xml:space="preserve">	<value>Telefonní zvonek</value>	</data>
+	<data name="MelInstr125" xml:space="preserve">	<value>Vrtulník</value>	</data>
+	<data name="MelInstr126" xml:space="preserve">	<value>Potlesk</value>	</data>
+	<data name="MelInstr127" xml:space="preserve">	<value>Není</value>	</data>
+
+	<!-- Rhythmic sections -->
+	<data name="RhySection0" xml:space="preserve">	<value>Bubny</value>	</data>
+	<data name="RhySection1" xml:space="preserve">	<value>Činely</value>	</data>
+	<data name="RhySection2" xml:space="preserve">	<value>Bubínky</value>	</data>
+	<data name="RhySection3" xml:space="preserve">	<value>Tomy</value>	</data>
+	<data name="RhySection4" xml:space="preserve">	<value>Hi-Hat</value>	</data>
+	<data name="RhySection5" xml:space="preserve">	<value>Triangly</value>	</data>
+	<data name="RhySection6" xml:space="preserve">	<value>Dřeva</value>	</data>
+	<data name="RhySection7" xml:space="preserve">	<value>Konga</value>	</data>
+  <!-- <data name="RhySection8" xml:space="preserve">	<value>Bonga</value>	</data> -->
+	<!-- <data name="RhySection9" xml:space="preserve">	<value>Guiro</value>	</data> -->
+	<!-- <data name="RhySection10" xml:space="preserve">	<value>Cuica</value>	</data> -->
+	<!-- <data name="RhySection11" xml:space="preserve">	<value>Timbale</value>	</data> -->
+  <!-- <data name="RhySection12" xml:space="preserve">	<value>Agogo</value>	</data> -->
+  <!-- <data name="RhySection13" xml:space="preserve">	<value>Taiko</value>	</data> -->
+	<data name="RhySection14" xml:space="preserve">	<value>Metronom</value>	</data>
+	<data name="RhySection15" xml:space="preserve">	<value>Jiné</value>	</data>
+
+	<!-- Rhythmic instruments -->
+  <!--  <data name="RhyInstr0" xml:space="preserve">	<value>-</value>	</data> -->
+  <!--  <data name="RhyInstr29" xml:space="preserve">	<value>Scratch Push</value>	</data> -->
+	<!--  <data name="RhyInstr30" xml:space="preserve">	<value>Scratch Pull</value>	</data> -->
+	<!--  <data name="RhyInstr31" xml:space="preserve">	<value>Stick</value>	</data> -->
+	<data name="RhyInstr32" xml:space="preserve">	<value>Metronom nízký (tik)</value>	</data>
+	<data name="RhyInstr33" xml:space="preserve">	<value>Metronom střední (tik)</value>	</data>
+	<data name="RhyInstr34" xml:space="preserve">	<value>Metronom vysoký (zvonek)</value>	</data>
+	<data name="RhyInstr35" xml:space="preserve">	<value>Akustický velký buben</value>	</data>
+	<data name="RhyInstr36" xml:space="preserve">	<value>Velký buben1</value>	</data>
+	<data name="RhyInstr37" xml:space="preserve">	<value>Rimshot</value>	</data>
+	<data name="RhyInstr38" xml:space="preserve">	<value>Akustický malý bubínek</value>	</data>
+	<data name="RhyInstr39" xml:space="preserve">	<value>Tlesknutí</value>	</data>
+	<data name="RhyInstr40" xml:space="preserve">	<value>Elektrický malý bubínek</value>	</data>
+	<data name="RhyInstr41" xml:space="preserve">	<value>Nízký hluboký tom</value>	</data>
+	<data name="RhyInstr42" xml:space="preserve">	<value>Zavřená Hi-Hat</value>	</data>
+	<data name="RhyInstr43" xml:space="preserve">	<value>Vyšší hluboký tom</value>	</data>
+	<data name="RhyInstr44" xml:space="preserve">	<value>Hi-hat zavřená pedálem</value>	</data>
+	<data name="RhyInstr45" xml:space="preserve">	<value>Nízký tom</value>	</data>
+	<data name="RhyInstr46" xml:space="preserve">	<value>Otevřená hi-hat</value>	</data>
+	<data name="RhyInstr47" xml:space="preserve">	<value>Nízký střední tom</value>	</data>
+	<data name="RhyInstr48" xml:space="preserve">	<value>Vysoký střední tom</value>	</data>
+	<data name="RhyInstr49" xml:space="preserve">	<value>Činel Crash1</value>	</data>
+	<data name="RhyInstr50" xml:space="preserve">	<value>Vysoký tom</value>	</data>
+	<data name="RhyInstr51" xml:space="preserve">	<value>Činel Ride1</value>	</data>
+	<data name="RhyInstr52" xml:space="preserve">	<value>Čínský činel</value>	</data>
+	<data name="RhyInstr53" xml:space="preserve">	<value>Klobouček činelu</value>	</data>
+	<data name="RhyInstr54" xml:space="preserve">	<value>Tambourína</value>	</data>
+	<data name="RhyInstr55" xml:space="preserve">	<value>Činel Splash</value>	</data>
+	<data name="RhyInstr56" xml:space="preserve">	<value>Kravský zvonec</value>	</data>
+	<data name="RhyInstr57" xml:space="preserve">	<value>Činel Crash2</value>	</data>
+  <!--  <data name="RhyInstr58" xml:space="preserve">	<value>Vibraslap</value>	</data> -->
+	<data name="RhyInstr59" xml:space="preserve">	<value>Činel Ride2</value>	</data>
+	<data name="RhyInstr60" xml:space="preserve">	<value>Vysoké bongo</value>	</data>
+	<data name="RhyInstr61" xml:space="preserve">	<value>Nízké bongo</value>	</data>
+	<data name="RhyInstr62" xml:space="preserve">	<value>Tlumené vysoké conga</value>	</data>
+	<data name="RhyInstr63" xml:space="preserve">	<value>Otevřené vysoké conga</value>	</data>
+	<data name="RhyInstr64" xml:space="preserve">	<value>Nízké conga</value>	</data>
+	<data name="RhyInstr65" xml:space="preserve">	<value>Vysoké timbale</value>	</data>
+	<data name="RhyInstr66" xml:space="preserve">	<value>Nízké timbale</value>	</data>
+	<data name="RhyInstr67" xml:space="preserve">	<value>Vysoké agogo</value>	</data>
+	<data name="RhyInstr68" xml:space="preserve">	<value>Nízké agogo</value>	</data>
+  <!--  <data name="RhyInstr69" xml:space="preserve">	<value>Cabasa</value>	</data> -->
+	<!--  <data name="RhyInstr70" xml:space="preserve">	<value>Maracas</value>	</data> -->
+	<data name="RhyInstr71" xml:space="preserve">	<value>Krátký hvizd</value>	</data>
+	<data name="RhyInstr72" xml:space="preserve">	<value>Dlouhý hvizd</value>	</data>
+	<data name="RhyInstr73" xml:space="preserve">	<value>Krátké guiro</value>	</data>
+	<data name="RhyInstr74" xml:space="preserve">	<value>Dlouhé guiro</value>	</data>
+  <!--  <data name="RhyInstr75" xml:space="preserve">	<value>Claves</value>	</data> -->
+	<data name="RhyInstr76" xml:space="preserve">	<value>Vysoký dřevěný blok</value>	</data>
+	<data name="RhyInstr77" xml:space="preserve">	<value>Nízký dřevěný blok</value>	</data>
+	<data name="RhyInstr78" xml:space="preserve">	<value>Tlumené cuica</value>	</data>
+	<data name="RhyInstr79" xml:space="preserve">	<value>Otevřené cuica</value>	</data>
+	<data name="RhyInstr80" xml:space="preserve">	<value>Tlumený triangl</value>	</data>
+	<data name="RhyInstr81" xml:space="preserve">	<value>Netlumený triangl</value>	</data>
+  <!--  <data name="RhyInstr82" xml:space="preserve">	<value>Shaker</value>	</data> -->
+	<data name="RhyInstr85" xml:space="preserve">	<value>Kastaněty</value>	</data>
+	<data name="RhyInstr86" xml:space="preserve">	<value>Vysoké taiko</value>	</data>
+	<data name="RhyInstr87" xml:space="preserve">	<value>Nízké taiko</value>	</data>
+
+  <!-- Instrumentation classes -->
+  <!-- <data name="InstrClass0" xml:space="preserve">    <value>-</value>  </data> -->
+  <data name="InstrClass1" xml:space="preserve">    <value>Klávesy</value>  </data>
+  <data name="InstrClass2" xml:space="preserve">    <value>Smyčce</value>  </data>
+  <data name="InstrClass3" xml:space="preserve">    <value>Dřeva</value>  </data>
+  <data name="InstrClass4" xml:space="preserve">    <value>Žestě</value>  </data>
+  <data name="InstrClass5" xml:space="preserve">    <value>Kytary</value>  </data>
+  <data name="InstrClass6" xml:space="preserve">    <value>Vokální</value>  </data>
+  <data name="InstrClass7" xml:space="preserve">    <value>Syntetické</value>  </data>
+  <data name="InstrClass8" xml:space="preserve">    <value>Melodické bicí</value>  </data>
+  <data name="InstrClass9" xml:space="preserve">	<value>Bubny</value>	</data>
+  <data name="InstrClass10" xml:space="preserve">	<value>Činely</value>	</data>
+  <data name="InstrClass11" xml:space="preserve">	<value>Bubínky</value>	</data>
+  <data name="InstrClass12" xml:space="preserve">	<value>Tomy</value>	</data>
+  <!-- <data name="InstrClass13" xml:space="preserve">	<value>Hi-Hat</value>	</data> -->
+  <data name="InstrClass14" xml:space="preserve">	<value>Triangly</value>	</data>
+  <data name="InstrClass15" xml:space="preserve">	<value>Dřeva</value>	</data>
+  <data name="InstrClass16" xml:space="preserve">	<value>Konga</value>	</data>
+  <!-- <data name="InstrClass17" xml:space="preserve">	<value>Bonga</value>	</data> -->
+  <!-- <data name="InstrClass18" xml:space="preserve">	<value>Guiro</value>	</data> -->
+  <!-- <data name="InstrClass19" xml:space="preserve">	<value>Cuica</value>	</data> -->
+  <!-- <data name="InstrClass20" xml:space="preserve">	<value>Timbale</value>	</data> -->
+  <!-- <data name="InstrClass21" xml:space="preserve">	<value>Agogo</value>	</data> -->
+  <!-- <data name="InstrClass22" xml:space="preserve">	<value>Taiko</value>	</data> -->
+  <data name="InstrClass23" xml:space="preserve">	<value>Metronom</value>	</data>
+  <data name="InstrClass24" xml:space="preserve">	<value>Jiné</value>	</data>
+  <data name="InstrClass0" xml:space="preserve">    <value>-</value>  </data>
+
+
+  <data name="Schema" xml:space="preserve">	<value>Schéma</value></data>
+
+  <!-- Exclude -->
+  <!--
+  <data name="Open file" xml:space="preserve">	<value>Otevřít soubor</value></data>
+  
+  <data name="Orchestra" xml:space="preserve">	<value>Orchestr</value></data>
+  <data name="Orchestrate" xml:space="preserve">	<value>Orchestrovat</value></data>
+  <data name="Beat" xml:space="preserve">	<value>Beat</value></data>
+  <data name="Tempo" xml:space="preserve">	<value>Tempo</value></data>
+  <data name="Software"	xml:space="preserve">	<value>Software</value>	</data>
+  <data name="File" xml:space="preserve">	<value>Soubor</value></data>
+  <data name="Detail" xml:space="preserve">	<value>Detail</value></data>
+  <data name="Save layout" xml:space="preserve">	<value>Uložit rozložení.</value></data>
+  <data name="Restore layout" xml:space="preserve">	<value>Obnovit rozložení.</value></data>
+  <data name="Exit program" xml:space="preserve">	<value>Ukončit program</value></data>
+  -->
+</root>
