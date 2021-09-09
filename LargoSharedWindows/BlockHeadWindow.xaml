@@ -1,0 +1,51 @@
+﻿<largoSupport:WinAbstract x:Class="LargoSharedWindows.BlockHeadWindow"
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+                          xmlns:sharedPanels="clr-namespace:LargoSharedPanels;assembly=LargoSharedPanels"
+                          mc:Ignorable="d"
+        Title="Block" 
+        Height="640" Width="988" Closing="Window_Closing" >
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <sharedPanels:EditorHeadPanel Grid.Column="0" Grid.Row ="0" Grid.RowSpan="3" Name="EditorHeadPanel" 
+                       HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
+                       Background="#80284B7E" x:FieldModifier="private"  
+                       HorizontalAlignment="Stretch" Margin="0,2,0,0"  VerticalAlignment="Top" Height="297"  />
+
+        <sharedPanels:BlockProperties Grid.Column="1" Grid.Row="0" Name="BlockProperties" 
+                       HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
+                       Background="#80284B7E" x:FieldModifier="private"  
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0"  />
+
+        <DataGrid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" x:Name ="GridTracks" VerticalAlignment="Stretch" 
+            AutoGenerateColumns="False" 
+            SelectionChanged="GridTracks_SelectionChanged" 
+            Margin="0,0,0,10" HorizontalAlignment="Stretch"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Number" Binding="{Binding LineNumber}" IsReadOnly="True" Width="60"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding FirstStatus.LineType}" IsReadOnly="True" Width="100"/>
+                <DataGridTextColumn Header="Instrument" Binding="{Binding FirstStatus.Instrument}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Octave" Binding="{Binding FirstStatus.Octave}" IsReadOnly="True" Width="100"/>
+                <DataGridTextColumn Header="Tones" Binding="{Binding NumberOfTones}" IsReadOnly="True" Width="60"/>
+                <DataGridTextColumn Header="Channel" Binding="{Binding MainVoice.Channel}" IsReadOnly="True" Width="70"/>
+                <DataGridTextColumn Header="Staff" Binding="{Binding FirstStatus.Staff}" IsReadOnly="True" Width="40"/>
+                <DataGridTextColumn Header="Voice" Binding="{Binding FirstStatus.Voice}" IsReadOnly="True" Width="40"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding FirstStatus.Name}" IsReadOnly="True" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</largoSupport:WinAbstract>

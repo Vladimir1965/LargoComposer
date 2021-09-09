@@ -1,0 +1,32 @@
+﻿<largoCommon:WinMainAbstract x:Class="LargoSharedWindows.InherentStartup" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+        Title="" Closing="WindowClosing" mc:Ignorable="d" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:largoCommon="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+        Icon="/LargoSharedControls;component/Images/Largo.jpg"  
+        Topmost="True" IsEnabled="False"  ShowInTaskbar="False" 
+        WindowStartupLocation="CenterScreen"   WindowStyle="None"
+        HorizontalContentAlignment="Left" VerticalContentAlignment="Top" 
+        d:DesignHeight="170" d:DesignWidth="374" ResizeMode="NoResize" 
+        HorizontalAlignment="Left" VerticalAlignment="Top" 
+        BorderThickness="5" BorderBrush="LightGray" 
+        Height="146" Width="297">
+
+    <largoCommon:WinMainAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoCommon:WinMainAbstract.Resources>
+
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" 
+               Source="/LargoSharedControls;component/Images/Largo.jpg" />
+    </Grid>
+    
+    
+</largoCommon:WinMainAbstract>
+

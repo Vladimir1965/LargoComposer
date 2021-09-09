@@ -1,0 +1,23 @@
+﻿<largoSupport:WinAbstract x:Class="LargoSharedWindows.InherentLogger"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Progress"
+        xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+        Topmost="True" 
+        ResizeMode="NoResize" 
+        Closing="WindowClosing"  
+        mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:support="clr-namespace:LargoSharedPanels.Support;assembly=LargoSharedPanels"
+        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="False" IsEnabled="False" 
+        SizeToContent="Manual" 
+        d:DesignWidth="500" d:DesignHeight="100"
+        Width="400" Height="110">
+    <Grid>
+        <support:PanelDisplayMessage
+            HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch" Background="#FF284B7E"
+            Margin="0,0,0,0" />
+    </Grid>
+</largoSupport:WinAbstract>
