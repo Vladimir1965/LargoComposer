@@ -1,0 +1,57 @@
+﻿<largoSupport:WinAbstract x:Class="LargoManager.TemplatesUserTectonic"
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+                          mc:Ignorable="d"
+        Title="Tectonic Templates" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <DataGrid Grid.Row="1" x:Name="GridTemplates" HorizontalAlignment="Left" Margin="1,1,1,1" VerticalAlignment="Stretch" 
+                    AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="GridTemplates_SelectionChanged"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Template" Binding="{Binding Header.FileName}" IsReadOnly="True" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="1" Grid.Column ="1" >
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="7,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="462"
+                     Text="{Binding Header.FileName}" FontWeight="Bold" />
+
+            <TextBlock HorizontalAlignment="Left" Margin="7,39,0,0" TextWrapping="Wrap" Text="System:" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="132,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174"
+                    Text="{Binding Header.SystemString, Mode=OneWay}" IsEnabled="False" />
+
+            <TextBlock HorizontalAlignment="Left" Margin="7,69,0,0" TextWrapping="Wrap" Text="Metric:" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="132,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174"
+                     Text="{Binding Header.MetricString, Mode=OneWay}" IsEnabled="False" />
+
+            <TextBlock HorizontalAlignment="Left" Margin="7,100,0,0" TextWrapping="Wrap" Text="Number  of lines:" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="132,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174"
+                     Text="{Binding Header.NumberOfLines}" IsEnabled="False" />
+
+            <DataGrid x:Name="GridLines" Margin="5,133,1,1" VerticalAlignment="Stretch"
+                AutoGenerateColumns="False" CanUserAddRows="False" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Index" Binding="{Binding LineIndex}" IsReadOnly="True" Width="40" />
+                    <DataGridTextColumn Header="Type" Binding="{Binding Status.Linetype}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Instrument" Binding="{Binding Status.Instrument}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Octave" Binding="{Binding Status.Octave}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Loudness" Binding="{Binding Status.Loudness}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Function" Binding="{Binding Status.MelodicFunction}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Shape" Binding="{Binding Status.MelodicShape}" IsReadOnly="True" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</largoSupport:WinAbstract>

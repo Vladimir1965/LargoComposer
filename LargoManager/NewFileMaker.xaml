@@ -1,0 +1,88 @@
+﻿<largoSupport:WinAbstract x:Class="LargoManager.NewFileMaker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+        mc:Ignorable="d"
+        Title="New musical file" Height="517" Width="455">
+
+    <Window.Resources>
+
+        <Style x:Key="StButtonRemove" TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Width" Value="28"/>
+            <Setter Property="Height" Value="28"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Margin="0,3,0,0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row ="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Name="ButtonNew" HorizontalAlignment="Right" Style="{StaticResource StButtonRemove}" Click="NewFile" 
+                        Width="28" Height="28" Margin="0,3,0,0" VerticalAlignment="Top" ToolTip="New music file" >
+                <Image Source="/LargoSharedControls;component/Images/button_right.png" Width="24" Height="24"  />
+            </Button>
+            <Button Grid.Row="0" HorizontalAlignment="Left" Margin="3,3,0,0" 
+                    Width="28" Height="28" VerticalAlignment="Top"  Click="TectonicTemplates"
+                    ToolTip="Editor of tectonic templates">
+                <Image Source="/LargoSharedControls;component/Images/tectonic_template.png" Width="24" Height="24"  />
+            </Button>
+            <Button Grid.Row="0" HorizontalAlignment="Left" Margin="36,3,0,0" 
+                    Width="28" Height="28" VerticalAlignment="Top"  Click="TemplatesUserHarmonic"
+                    ToolTip="Editor of harmonic templates">
+                <Image Source="/LargoSharedControls;component/Images/harmonic_template.png" Width="24" Height="24"  />
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row ="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="18"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Templates" Margin="5,0,0,0" FontWeight="Bold"/>
+        </Grid>
+
+        <Grid x:Name="LayoutBody" Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,0,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <DataGrid Grid.Column="0" x:Name ="GridTemplates" VerticalAlignment="Stretch" AutoGenerateColumns="False" 
+            MouseDoubleClick="GridTemplates_MouseDoubleClick" 
+            SelectionChanged="GridTemplates_SelectionChanged" Margin="0,0,0,0" UnloadingRow="GridTemplates_UnloadingRow" Grid.ColumnSpan="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Tectonic templates" Binding="{Binding Header.FileName}" IsReadOnly="True" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid Grid.Column="2" x:Name ="GridStreams" VerticalAlignment="Stretch" AutoGenerateColumns="False" 
+            MouseDoubleClick="GridStreams_MouseDoubleClick" 
+            SelectionChanged="GridStreams_SelectionChanged" Margin="0,0,0,0" UnloadingRow="GridStreams_UnloadingRow" Grid.ColumnSpan="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Harmonic templates" Binding="{Binding Header.FileName}" IsReadOnly="True" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</largoSupport:WinAbstract>

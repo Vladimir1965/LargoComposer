@@ -1,0 +1,114 @@
+﻿<largoSupport:WinAbstract
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:music="clr-namespace:LargoSharedClasses.Music;assembly=LargoSharedClasses"
+    xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+    x:Class="LargoManager.MainWindow"
+        mc:Ignorable="d"
+        Title="Music manager"  Closing="Window_Closing" 
+        Width="680" Height="514" MaxWidth="1024" MaxHeight="640" 
+          >
+    <!-- "CanMinimize"-->
+    <Window.Resources>
+        <Style x:Key="StButtonRemove" TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Width" Value="28"/>
+            <Setter Property="Height" Value="28"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid HorizontalAlignment="Left">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="LayoutHeader" Grid.Row="0" Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Name="MainImage" Source="/LargoSharedControls;component/Images/Largo.jpg" 
+                   MouseDown="LargoImage_MouseDown" HorizontalAlignment="Stretch" Stretch="Fill" Margin="0,0,0,0" />
+
+
+            <StackPanel Grid.Row ="0" Grid.Column="1"  IsEnabled="True" Visibility="Visible" Name="Top1"  
+                        Orientation="Horizontal" Height="36" Margin="0,20,0,0" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <Button Grid.Row="1" Name="ButtonLoadFile" Style="{StaticResource StButtonRemove}" Click="LoadFile" 
+                        ToolTip="Load music file"
+                        Width="28" Height="28" Margin="3,0,0,0" VerticalAlignment="Top"  >
+                    <Image Source="/LargoSharedControls;component/Images/icon_openfile48.png" Width="24" Height="24"  />
+                    <!-- button_right.png -->
+                </Button>
+                <Button Grid.Row="1" Name="ButtonNewFile" Style="{StaticResource StButtonRemove}" Click="NewFile" 
+                        ToolTip="New music file"
+                        Width="28" Height="28" Margin="3,0,0,0" VerticalAlignment="Top"  >
+                    <Image Source="/LargoSharedControls;component/Images/button_new.png" Width="24" Height="24"  />
+                    <!-- button_right.png -->
+                </Button>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row ="0" Grid.Column="3"  IsEnabled="True" Visibility="Visible" Name="Top2"  
+                        Orientation="Horizontal" Height="36" Margin="0,20,0,0" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top" >
+
+                <Button HorizontalAlignment="Left" Margin="8,3,0,0" VerticalAlignment="Top" 
+                        Width="28" Height="28"  Click="BlockInspector" ToolTip="Detail of musical block">
+                    <Image Source="/LargoSharedControls;component/Images/button_props.png" Width="24" Height="24" />
+                </Button>
+
+                <!--    
+                <Button  Name="ButtonSave" Style="{StaticResource StButtonRemove}" Click="Save" ToolTip="Save list of musical documents"
+                         Width="28" Height="28" Margin="3,3,0,0" VerticalAlignment="Top"  >
+                    <Image Source="/LargoSharedControls;component/Images/save.png" Width="24" Height="24"  />
+                </Button> -->
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="LayoutBody" Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="143*"/>
+                <ColumnDefinition Width="529*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <DataGrid Grid.Column="0" x:Name ="GridBlocks"  
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False" 
+                      MouseDoubleClick="GridBlocks_MouseDoubleClick" 
+                      SelectionChanged="GridBlocks_SelectionChanged" Margin="0,0,5,0" UnloadingRow="GridBlocks_UnloadingRow" Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Open" IsReadOnly="True" Width="*">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid  d:DataContext="{d:DesignInstance music:MusicalBlock}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding Header.FileName}" FontWeight="Bold" FontSize="11" 
+                                             ToolTip="{Binding Header}"  />
+                                    <TextBlock Text="{Binding Header.FullSpecification}"  Grid.Row="1" FontSize="11" 
+                                             ToolTip="{Binding Header}"  />
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Changed" Binding="{Binding Header.Changed}" IsReadOnly="True" Width="120" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</largoSupport:WinAbstract>
