@@ -37,12 +37,12 @@
             <Button Grid.Row="0" HorizontalAlignment="Left" Margin="3,3,0,0" 
                     Width="28" Height="28" VerticalAlignment="Top"  Click="TectonicTemplates"
                     ToolTip="Editor of tectonic templates">
-                <Image Source="/LargoSharedControls;component/Images/tectonic_template.png" Width="24" Height="24"  />
+                <Image Source="/LargoSharedControls;component/Images/icon_tect_template.png" Width="24" Height="24"  />
             </Button>
             <Button Grid.Row="0" HorizontalAlignment="Left" Margin="36,3,0,0" 
                     Width="28" Height="28" VerticalAlignment="Top"  Click="TemplatesUserHarmonic"
                     ToolTip="Editor of harmonic templates">
-                <Image Source="/LargoSharedControls;component/Images/harmonic_template.png" Width="24" Height="24"  />
+                <Image Source="/LargoSharedControls;component/Images/icon_harm_template.png" Width="24" Height="24"  />
             </Button>
         </Grid>
 

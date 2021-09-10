@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Detail="clr-namespace:ConductorPanels;assembly=ConductorPanels"
     xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
-    xmlns:ConductorControls="clr-namespace:ConductorControls;assembly=ConductorControls"
+    xmlns:LargoSharedControls="clr-namespace:LargoSharedControls;assembly=LargoSharedControls"
     x:Class="LargoConductor.ConductorWindow"
         mc:Ignorable="d"
         Title="Conductor" Height="969" Width="918">
@@ -18,8 +18,8 @@
 
         <Grid Grid.Column="0" HorizontalAlignment="Left" Width="910" Height="936" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <TextBlock x:Name="StatusText" HorizontalAlignment="Left" Margin="793,10,0,0" TextWrapping="Wrap" Text="Status Text" VerticalAlignment="Top" Width="97"/>
-            <ConductorControls:ControlHarmonicSystem x:Name="controlHarmonicSystem" HorizontalAlignment="Left" Height="29" Margin="137,3,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.5,0.172"/>
-            <ConductorControls:ControlRhythmicSystem x:Name="controlRhythmicSystem" HorizontalAlignment="Left" Height="29" Margin="137,33,0,0" VerticalAlignment="Top" Width="93"/>
+            <LargoSharedControls:ControlHarmonicSystem x:Name="controlHarmonicSystem" HorizontalAlignment="Left" Height="29" Margin="137,3,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.5,0.172"/>
+            <LargoSharedControls:ControlRhythmicSystem x:Name="controlRhythmicSystem" HorizontalAlignment="Left" Height="29" Margin="137,33,0,0" VerticalAlignment="Top" Width="93"/>
             <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Harmonic system:" VerticalAlignment="Top" Width="103"/>
             <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Rhythmic system:" VerticalAlignment="Top" Width="103"/>
             <Detail:PanelMusicalHarmony x:Name="PanelMusicalHarmony" HorizontalAlignment="Left" Height="49" Margin="352,11,0,0" VerticalAlignment="Top" Width="406"/>

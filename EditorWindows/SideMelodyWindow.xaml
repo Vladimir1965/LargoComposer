@@ -26,7 +26,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Name="img1" Height="18" Width="18" AllowDrop="True" Tag="MelodicFunction"
-                                   Source="/LargoSharedControls;component/Images/dragdot.png"                                 
+                                   Source="/LargoSharedControls;component/Images/icon_dragdot.png "                                 
                                    PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
                                    MouseMove="List_MouseMove">
                             </Image>
@@ -46,7 +46,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Name="img1" Height="18" Width="18" AllowDrop="True" Tag="MelodicShape"
-                                   Source="/LargoSharedControls;component/Images/dragdot.png"                                 
+                                   Source="/LargoSharedControls;component/Images/icon_dragdot.png "                                 
                                    PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
                                    MouseMove="List_MouseMove">
                             </Image>
@@ -67,7 +67,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Name="img1" Height="18" Width="18" AllowDrop="True"
-                                   Source="/LargoSharedControls;component/Images/dragdot.png"                                 
+                                   Source="/LargoSharedControls;component/Images/icon_dragdot.png "                                 
                                    PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
                                    MouseMove="List_MouseMove">
                             </Image>

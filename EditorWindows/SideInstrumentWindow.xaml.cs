@@ -14,6 +14,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using EditorPanels;
+using LargoSharedWindows;
+using LargoSharedClasses.Settings;
 
 namespace EditorWindows
 {
@@ -35,9 +37,9 @@ namespace EditorWindows
             this.InitializeComponent();
 
             WindowManager.Singleton.LoadPosition(this);
-            UserWindows.Singleton.LoadTheme(this.Resources.MergedDictionaries);
+            SharedWindows.Singleton.LoadTheme(this.Resources.MergedDictionaries);
             this.Show();
-            EditorSettings.Singleton.SidePanels.PanelOpen("SideInstrument");
+            SidePanels.Singleton.PanelOpen("SideInstrument");
             //// this.Localize();
 
             this.RefreshGridOctave();
@@ -169,7 +171,7 @@ namespace EditorWindows
         /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
             WindowManager.Singleton.SavePosition(this);
-            EditorSettings.Singleton.SidePanels.PanelClose("SideInstrument");
+            SidePanels.Singleton.PanelClose("SideInstrument");
         }
 
         #endregion

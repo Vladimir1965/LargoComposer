@@ -76,14 +76,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SideHarmonicModalityWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="SideHarmonicStructuresWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
     <Page Include="SideInstrumentWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,14 +88,6 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="SideRhythmicModalityWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="SideRhythmicStructuresWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="SideRhythmWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -113,14 +97,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="SideVoicesWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SmartHarmonyWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SmartRhythmWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -153,12 +129,6 @@
     <Compile Include="InspectorWindow.xaml.cs">
       <DependentUpon>InspectorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SideHarmonicModalityWindow.xaml.cs">
-      <DependentUpon>SideHarmonicModalityWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SideHarmonicStructuresWindow.xaml.cs">
-      <DependentUpon>SideHarmonicStructuresWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SideInstrumentWindow.xaml.cs">
       <DependentUpon>SideInstrumentWindow.xaml</DependentUpon>
     </Compile>
@@ -168,12 +138,6 @@
     <Compile Include="SideOrchestraWindow.xaml.cs">
       <DependentUpon>SideOrchestraWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SideRhythmicModalityWindow.xaml.cs">
-      <DependentUpon>SideRhythmicModalityWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SideRhythmicStructuresWindow.xaml.cs">
-      <DependentUpon>SideRhythmicStructuresWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SideRhythmWindow.xaml.cs">
       <DependentUpon>SideRhythmWindow.xaml</DependentUpon>
     </Compile>
@@ -182,12 +146,6 @@
     </Compile>
     <Compile Include="SideVoicesWindow.xaml.cs">
       <DependentUpon>SideVoicesWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SmartHarmonyWindow.xaml.cs">
-      <DependentUpon>SmartHarmonyWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SmartRhythmWindow.xaml.cs">
-      <DependentUpon>SmartRhythmWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TemplatesSavedHarmonic.xaml.cs">
       <DependentUpon>TemplatesSavedHarmonic.xaml</DependentUpon>

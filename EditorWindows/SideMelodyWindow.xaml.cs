@@ -15,6 +15,7 @@ namespace EditorWindows
     using LargoSharedClasses.Music;
     using LargoSharedClasses.Settings;
     using LargoSharedClasses.Support;
+    using LargoSharedWindows;
     using System;
     using System.Diagnostics.Contracts;
     using System.Windows;
@@ -49,9 +50,9 @@ namespace EditorWindows
             this.InitializeComponent();
 
             WindowManager.Singleton.LoadPosition(this);
-            UserWindows.Singleton.LoadTheme(this.Resources.MergedDictionaries);
+            SharedWindows.Singleton.LoadTheme(this.Resources.MergedDictionaries);
             this.Show();
-            EditorSettings.Singleton.SidePanels.PanelOpen("SideMelody");
+            SidePanels.Singleton.PanelOpen("SideMelody");
 
             //// this.Localize();
             this.RefreshGridMelodicType();
@@ -187,7 +188,7 @@ namespace EditorWindows
         /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
             WindowManager.Singleton.SavePosition(this);
-            EditorSettings.Singleton.SidePanels.PanelClose("SideMelody");
+            SidePanels.Singleton.PanelClose("SideMelody");
         }
 
         #endregion

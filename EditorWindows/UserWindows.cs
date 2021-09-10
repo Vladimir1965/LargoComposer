@@ -12,6 +12,8 @@ using System.Collections.ObjectModel;
 using System.Diagnostics.Contracts;
 using System.Windows;
 using EditorPanels;
+using LargoSharedWindows;
+using LargoSharedClasses.Settings;
 
 namespace EditorWindows
 {
@@ -29,24 +31,6 @@ namespace EditorWindows
 
         /// <summary> The tools (means/instrument) window. </summary>
         private WinAbstract sideInstrumentWindow;
-
-        /// <summary> The harmony window. </summary>
-        private WinAbstract sideHarmonicStructuresWindow;
-
-        /// <summary>
-        /// The side rhythmic structures window
-        /// </summary>
-        private WinAbstract sideRhythmicStructuresWindow;
-
-        /// <summary>
-        /// The saved harmony window.
-        /// </summary>
-        private WinAbstract sideHarmonicModalityWindow;
-
-        /// <summary>
-        /// The side rhythmic modality window
-        /// </summary>
-        private WinAbstract sideRhythmicModalityWindow;
 
         /// <summary> The melody window. </summary>
         private WinAbstract sideMelodyWindow;
@@ -88,24 +72,6 @@ namespace EditorWindows
         }
         #endregion
 
-        #region Public methods - Tools
-        /// <summary> Adds resource dictionary. </summary>
-        /// <param name="directories">  The directories. </param>
-        /// <param name="resourcePath"> Full pathname of the resource file. </param>
-        public void AddResourceDictionary(Collection<ResourceDictionary> directories, string resourcePath) {
-            directories.Add(new ResourceDictionary() { Source = new Uri(resourcePath, UriKind.Absolute) });
-            //// Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(src, UriKind.Relative) });
-        }
-
-        /// <summary> Loads a theme. </summary>
-        /// <param name="directories">  The directories. </param>
-        public void LoadTheme(Collection<ResourceDictionary> directories) {
-            //// string src = "pack://application:,,,/LargoSharedWindows;component/BlueTheme/Office2010Blue.MSControls.Core.Implicit.xaml";
-            //// this.AddResourceDictionary(dirs, src);
-            string resource = "pack://application:,,,/LargoSharedControls;component/SharedTheme.xaml";
-            this.AddResourceDictionary(directories, resource);
-        }
-
         #region Site Windows - Inspector
         /// <summary> Open Window - Inspector. </summary>
         /// <param name="sender"> The sender. </param>
@@ -132,70 +98,6 @@ namespace EditorWindows
 
             this.sideInstrumentWindow = WindowManager.OpenWindow("EditorWindows", "SideInstrumentWindow", null);
             ///// WindowManager.OpenWindow("XLargo", "DetailInstrumentWindow", null);
-        }
-
-        /// <summary> Open Window - Harmonies. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">      Routed event information. </param>
-        public void SideHarmonicStructures(object sender, RoutedEventArgs e) {
-            if (this.sideHarmonicStructuresWindow != null && this.sideHarmonicStructuresWindow.IsVisible) {
-                this.sideHarmonicStructuresWindow.Close();
-                return;
-            }
-
-            this.sideHarmonicStructuresWindow = WindowManager.OpenWindow("EditorWindows", "SideHarmonicStructuresWindow", null);
-            if (SideHarmonicStructuresWindow.Singleton != null) {
-                ////  DetailHarmonicWindow.Singleton.LoadData(this.HarmonicModel);
-            }
-        }
-
-        /// <summary>
-        /// Sides the rhythmic structures.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        public void SideRhythmicStructures(object sender, RoutedEventArgs e) {
-            if (this.sideRhythmicStructuresWindow != null && this.sideRhythmicStructuresWindow.IsVisible) {
-                this.sideRhythmicStructuresWindow.Close();
-                return;
-            }
-
-            this.sideRhythmicStructuresWindow = WindowManager.OpenWindow("EditorWindows", "SideRhythmicStructuresWindow", null);
-            if (SideRhythmicStructuresWindow.Singleton != null) {
-                ////  DetailHarmonicWindow.Singleton.LoadData(this.HarmonicModel);
-            }
-        }
-
-        /// <summary> Open Window - Harmonies. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> Routed event information. </param>
-        public void SideHarmonicModality(object sender, RoutedEventArgs e) {
-            if (this.sideHarmonicModalityWindow != null && this.sideHarmonicModalityWindow.IsVisible) {
-                this.sideHarmonicModalityWindow.Close();
-                return;
-            }
-
-            this.sideHarmonicModalityWindow = WindowManager.OpenWindow("EditorWindows", "SideHarmonicModalityWindow", null);
-            if (SideHarmonicModalityWindow.Singleton != null) {
-                ////  DetailHarmonicWindow.Singleton.LoadData(this.HarmonicModel);
-            }
-        }
-
-        /// <summary>
-        /// Sides the rhythmic modality.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        public void SideRhythmicModality(object sender, RoutedEventArgs e) {
-            if (this.sideRhythmicModalityWindow != null && this.sideRhythmicModalityWindow.IsVisible) {
-                this.sideRhythmicModalityWindow.Close();
-                return;
-            }
-
-            this.sideRhythmicModalityWindow = WindowManager.OpenWindow("EditorWindows", "SideRhythmicModalityWindow", null);
-            if (SideRhythmicModalityWindow.Singleton != null) {
-                ////  DetailHarmonicWindow.Singleton.LoadData(this.HarmonicModel);
-            }
         }
 
         /// <summary>
@@ -314,25 +216,25 @@ namespace EditorWindows
         /// Basic windows.
         /// </summary>
         public void UserSidePanels() {
-            var setting = EditorSettings.Singleton;
-            if (setting.SidePanels.IsOpen("SideInstrument")) {
+            var sp = SidePanels.Singleton;
+            if (sp.IsOpen("SideInstrument")) {
                 UserWindows.Singleton.SideInstrument(null, null);
             }
 
-            if (setting.SidePanels.IsOpen("SideHarmonicStructures")) {
-                UserWindows.Singleton.SideHarmonicStructures(null, null);
+            if (sp.IsOpen("SideHarmonicStructures")) {
+                SharedWindows.Singleton.SideHarmonicStructures(null, null);
             }
 
-            if (setting.SidePanels.IsOpen("SideRhythmicStructures")) {
-                UserWindows.Singleton.SideRhythmicStructures(null, null);
+            if (sp.IsOpen("SideRhythmicStructures")) {
+                SharedWindows.Singleton.SideRhythmicStructures(null, null);
             }
 
-            if (setting.SidePanels.IsOpen("SideHarmonicModality")) {
-                UserWindows.Singleton.SideHarmonicModality(null, null);
+            if (sp.IsOpen("SideHarmonicModality")) {
+                SharedWindows.Singleton.SideHarmonicModality(null, null);
             }
 
-            if (setting.SidePanels.IsOpen("SideRhythmicModality")) {
-                UserWindows.Singleton.SideHarmonicModality(null, null);
+            if (sp.IsOpen("SideRhythmicModality")) {
+                SharedWindows.Singleton.SideHarmonicModality(null, null);
             }
 
             /*
@@ -340,15 +242,15 @@ namespace EditorWindows
                 UserFileLoader.Singleton.SideRhythm(null, null);
             }*/
 
-            if (setting.SidePanels.IsOpen("SideMelody")) {
+            if (sp.IsOpen("SideMelody")) {
                 UserWindows.Singleton.SideMelody(null, null);
             }
 
-            if (setting.SidePanels.IsOpen("SideTempo")) {
+            if (sp.IsOpen("SideTempo")) {
                 UserWindows.Singleton.SideTempo(null, null);
             }
 
-            if (setting.SidePanels.IsOpen("SideVoices")) {
+            if (sp.IsOpen("SideVoices")) {
                 UserWindows.Singleton.SideVoices(null, null);
             }
         }
@@ -376,18 +278,12 @@ namespace EditorWindows
         /// <returns> Returns value. </returns>
         public WinAbstract GetPanel(int intTag)
         {
-            WinAbstract w = null;
+            WinAbstract w = SharedWindows.Singleton.GetPanel(intTag);
+            if (w != null) {
+                return w;
+            }
+
             switch (intTag) {
-                //// Harmony
-                case 1: {
-                        w = this.sideHarmonicStructuresWindow;
-                        break;
-                    }
-                //// Rhythm
-                case 2: {
-                        w = this.sideRhythmicStructuresWindow;
-                        break;
-                    }
                 //// Melody
                 case 3: {
                         w = this.sideMelodyWindow;
@@ -409,18 +305,6 @@ namespace EditorWindows
                         break;
                     }
 
-                //// Harmonic Modality
-                case 7: {
-                        w = this.sideHarmonicModalityWindow;
-                        break;
-                    }
-
-                //// Rhythmic Modality
-                case 8: {
-                        w = this.sideRhythmicModalityWindow;
-                        break;
-                    }
-
                 case 9: {
                         w = this.sideOrchestraWindow;
                         break;
@@ -438,12 +322,12 @@ namespace EditorWindows
             switch (intTag) {
                 //// Harmony
                 case 1: {
-                        this.SideHarmonicStructures(null, null);
+                        SharedWindows.Singleton.SideHarmonicStructures(null, null);
                         break;
                     }
                 //// Rhythm
                 case 2: {
-                        this.SideRhythmicStructures(null, null);
+                        SharedWindows.Singleton.SideRhythmicStructures(null, null);
                         break;
                     }
                 //// Melody
@@ -469,13 +353,13 @@ namespace EditorWindows
 
                 //// Harmonic Modality
                 case 7: {
-                        this.SideHarmonicModality(null, null);
+                        SharedWindows.Singleton.SideHarmonicModality(null, null);
                         break;
                     }
 
                 //// Rhythmic Modality
                 case 8: {
-                        this.SideRhythmicModality(null, null);
+                        SharedWindows.Singleton.SideRhythmicModality(null, null);
                         break;
                     }
 
@@ -485,7 +369,5 @@ namespace EditorWindows
                     }
             }
         }
-
-        #endregion
     }
 }

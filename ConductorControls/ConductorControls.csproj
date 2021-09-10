@@ -67,29 +67,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlHarmonicSystem.xaml.cs">
-      <DependentUpon>ControlHarmonicSystem.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ControlPeriodicFunction.xaml.cs">
       <DependentUpon>ControlPeriodicFunction.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ControlRhythmicSystem.xaml.cs">
-      <DependentUpon>ControlRhythmicSystem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ControlHarmonicSystem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
     <Page Include="ControlPeriodicFunction.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ControlRhythmicSystem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="SharedResources.xaml">
       <Generator>MSBuild:Compile</Generator>

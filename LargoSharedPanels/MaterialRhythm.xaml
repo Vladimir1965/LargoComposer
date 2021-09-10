@@ -1,0 +1,63 @@
+﻿<largoSupport:PanelAbstract
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="LargoSharedPanels.MaterialRhythm" d:DesignHeight="300" 
+   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+    d:DesignWidth="800">
+
+    <largoSupport:PanelAbstract.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </largoSupport:PanelAbstract.Resources>
+
+    <Grid d:DataContext="{d:DesignInstance}">
+        <DataGrid x:Name="DataGridRhyBars" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False" 
+                  IsSynchronizedWithCurrentItem="True" AlternatingRowBackground="Azure" CanUserAddRows="True" CanUserDeleteRows="True" 
+                  CanUserSortColumns="True" CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserResizeRows="True" d:LayoutOverrides="GridBox" 
+                  SelectionChanged="DataGridRhyBars_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="img1" Height="18" Width="18" AllowDrop="True"
+                                   Source="/LargoSharedControls;component/Images/icon_dragdot.png "                                 
+                                   PreviewMouseLeftButtonDown="List_PreviewMouseLeftButtonDown"
+                                   MouseMove="List_MouseMove">
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Occurrence" IsReadOnly="True" Width="70" SortMemberPath="Occurrence" Binding="{Binding Path=Occurrence}" />
+                <DataGridTextColumn Header="Rhythm" IsReadOnly="True" Width="*" 
+                                    FontFamily="Consolas" FontSize="12" FontStyle="Normal" FontWeight="Normal" 
+                                    Binding="{Binding Path=ElementSchema}" />
+                <DataGridTextColumn Header="Count" IsReadOnly="True" Width="80" Binding="{Binding Path=LevelOutline}" />
+                <DataGridTextColumn Header="Beat" IsReadOnly="True" Width="70" Binding="{Binding Path=RhythmicBehavior.Beat, StringFormat=N0}" />
+                <DataGridTextColumn Header="Variance" IsReadOnly="True" Width="60" Binding="{Binding Path=FormalBehavior.Variance, StringFormat=N0}" />
+                <DataGridTextColumn Header="Complexity" IsReadOnly="True" Width="70" Binding="{Binding Path=RhythmicBehavior.Complexity, StringFormat=N2}" />
+                <!--
+                <DataGridTextColumn Header="Code" IsReadOnly="True" Width="80" Binding="{Binding Path=CodeMark}" />
+                <DataGridTextColumn Header="Ticks" IsReadOnly="True" Width="60" Binding="{Binding Path=ToneLevel, StringFormat=N0}" />
+                <DataGridTextColumn Header="Level" IsReadOnly="True" Width="60" Binding="{Binding Path=Level, StringFormat=N0}" />
+                        <DataGridComboBoxColumn Header="RhyMetre" 
+							x:Name="CBRhythmicMotiveBarRhyMetre"
+							SelectedValueBinding="{Binding Path=MetricNumber}"
+							DisplayMemberPath="ElementSchema"
+							SelectedValuePath="MetricNumber" >
+							<DataGridComboBoxColumn.EditingElementStyle>
+								<Style TargetType="{x:Type ComboBox}" >
+									<EventSetter Event="Selector.SelectionChanged" Handler="RhythmicMotiveBarMetre_SelectionChanged" />
+								</Style>
+							</DataGridComboBoxColumn.EditingElementStyle>
+						</DataGridComboBoxColumn>
+                        -->
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</largoSupport:PanelAbstract>

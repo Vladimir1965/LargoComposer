@@ -7,6 +7,7 @@
 // <summary>Part of Largo Composer</summary>
 
 using LargoSharedClasses.Support;
+using LargoSharedWindows;
 
 namespace EditorWindows
 {
@@ -21,7 +22,7 @@ namespace EditorWindows
         public InspectorWindow() {
             this.InitializeComponent();
             WindowManager.Singleton.LoadPosition(this);
-            UserWindows.Singleton.LoadTheme(this.Resources.MergedDictionaries);
+            SharedWindows.Singleton.LoadTheme(this.Resources.MergedDictionaries);
             this.Show();
         }
 

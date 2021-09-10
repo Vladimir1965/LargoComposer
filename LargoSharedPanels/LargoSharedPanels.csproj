@@ -82,6 +82,24 @@
     <Compile Include="EditorHeadPanel.xaml.cs">
       <DependentUpon>EditorHeadPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MaterialHarmonicBars.xaml.cs">
+      <DependentUpon>MaterialHarmonicBars.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialHarmonicModality.xaml.cs">
+      <DependentUpon>MaterialHarmonicModality.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialHarmony.xaml.cs">
+      <DependentUpon>MaterialHarmony.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialMelody.xaml.cs">
+      <DependentUpon>MaterialMelody.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialRhythm.xaml.cs">
+      <DependentUpon>MaterialRhythm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialRhythmicModality.xaml.cs">
+      <DependentUpon>MaterialRhythmicModality.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MultimediaCommands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -133,6 +151,30 @@
     <Page Include="EditorHeadPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MaterialHarmonicBars.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="MaterialHarmonicModality.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="MaterialHarmony.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="MaterialMelody.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="MaterialRhythm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="MaterialRhythmicModality.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Support\PanelDocumentViewer.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -10,6 +10,7 @@ using LargoSharedClasses.Abstract;
 using LargoSharedClasses.Music;
 using LargoSharedClasses.Settings;
 using LargoSharedClasses.Support;
+using LargoSharedWindows;
 using System.IO;
 using System.Windows;
 

@@ -70,7 +70,7 @@
                 <!--    
                 <Button  Name="ButtonSave" Style="{StaticResource StButtonRemove}" Click="Save" ToolTip="Save list of musical documents"
                          Width="28" Height="28" Margin="3,3,0,0" VerticalAlignment="Top"  >
-                    <Image Source="/LargoSharedControls;component/Images/save.png" Width="24" Height="24"  />
+                    <Image Source="/LargoSharedControls;component/Images/button_save.png" Width="24" Height="24"  />
                 </Button> -->
             </StackPanel>
         </Grid>

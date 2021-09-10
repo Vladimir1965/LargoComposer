@@ -15,6 +15,7 @@ using LargoSharedClasses.Music;
 using LargoSharedClasses.Port;
 using LargoSharedClasses.Settings;
 using LargoSharedClasses.Support;
+using LargoSharedWindows;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -75,8 +76,8 @@ namespace LargoConductor
             list2.Add(new KeyValuePair(12, "12-Ticks"));
             this.controlRhythmicSystem.LoadData(list2);
 
-            UserFileLoader.Singleton.SideHarmonicModality(null, null);
-            UserFileLoader.Singleton.SideRhythmicModality(null, null);
+            SharedWindows.Singleton.SideHarmonicModality(null, null);
+            SharedWindows.Singleton.SideRhythmicModality(null, null);
 
             this.AllowDrop = true;
             //// this.Drop += this.DropImage;

@@ -77,12 +77,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SideHarmonicModalityWindow.xaml.cs">
-      <DependentUpon>SideHarmonicModalityWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SideRhythmicModalityWindow.xaml.cs">
-      <DependentUpon>SideRhythmicModalityWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserFileLoader.cs" />
     <Compile Include="UserSettings.xaml.cs">
       <DependentUpon>UserSettings.xaml</DependentUpon>
@@ -98,14 +92,6 @@
     <Compile Include="ConductorWindow.xaml.cs">
       <DependentUpon>ConductorWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="SideHarmonicModalityWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SideRhythmicModalityWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UserSettings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -133,9 +119,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConductorControls\ConductorControls.csproj">

@@ -87,24 +87,6 @@
     <Compile Include="Detail\EditorCells.xaml.cs">
       <DependentUpon>EditorCells.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Detail\MaterialHarmonicBars.xaml.cs">
-      <DependentUpon>MaterialHarmonicBars.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Detail\MaterialHarmonicModality.xaml.cs">
-      <DependentUpon>MaterialHarmonicModality.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Detail\MaterialHarmony.xaml.cs">
-      <DependentUpon>MaterialHarmony.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Detail\MaterialMelody.xaml.cs">
-      <DependentUpon>MaterialMelody.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Detail\MaterialRhythm.xaml.cs">
-      <DependentUpon>MaterialRhythm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Detail\MaterialRhythmicModality.xaml.cs">
-      <DependentUpon>MaterialRhythmicModality.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Detail\MotivesHarmony.xaml.cs">
       <DependentUpon>MotivesHarmony.xaml</DependentUpon>
     </Compile>
@@ -151,30 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Detail\EditorCells.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Detail\MaterialHarmonicBars.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Detail\MaterialHarmonicModality.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Detail\MaterialHarmony.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Detail\MaterialMelody.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Detail\MaterialRhythm.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Detail\MaterialRhythmicModality.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

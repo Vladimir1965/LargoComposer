@@ -110,7 +110,7 @@
     <Compile Include="MidiFile\CompactMidiTrack.cs" />
     <Compile Include="Models\MusicalBlockWrap.cs" />
     <Compile Include="Orchestra\OrchestraUnit.cs" />
-    <Compile Include="Settings\EditorSidePanels.cs" />
+    <Compile Include="Settings\SidePanels.cs" />
     <Compile Include="Templates\BarScope.cs" />
     <Compile Include="Music\MusicalContent.cs" />
     <Compile Include="Music\MusicalVoice.cs" />

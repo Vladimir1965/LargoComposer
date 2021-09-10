@@ -184,8 +184,11 @@ namespace ConductorPanels
             var s = new StringBuilder();
             s.Append(this.Name);
             s.AppendFormat("{0,4},{1,4},{2,4}", this.Mobility, this.Lines, this.Varia);
-            foreach (var e in this.Elements) {
-                s.Append("=>" + e.ToString());
+
+            if (this.Elements != null) {
+                foreach (var e in this.Elements) {
+                    s.Append("=>" + e.ToString());
+                }
             }
 
             return s.ToString();

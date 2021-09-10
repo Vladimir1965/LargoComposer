@@ -26,7 +26,7 @@
 
         <Button Click="SaveChanges"   Width="25" Height="25"  
                 HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,42,20,0">
-            <Image Source="/LargoSharedControls;component/Images/save.png" VerticalAlignment="Top" HorizontalAlignment="Right" RenderTransformOrigin="0.491,2.363"></Image>
+            <Image Source="/LargoSharedControls;component/Images/button_save.png" VerticalAlignment="Top" HorizontalAlignment="Right" RenderTransformOrigin="0.491,2.363"></Image>
         </Button>
     </Grid>
 </largoSupport:PanelAbstract>

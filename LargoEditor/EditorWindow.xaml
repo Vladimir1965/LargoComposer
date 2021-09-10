@@ -73,7 +73,7 @@
                     <!--
                     <Button  Name="ButtonSettings" Style="{StaticResource StButtonRemove}" Click="MainSettings" ToolTip="Main Settings"
                          Width="28" Height="28" Margin="16,0,0,0" VerticalAlignment="Top"  >
-                        <Image Source="/LargoSharedControls;component/Images/settingsmain.png" Width="24" Height="24"  />
+                        <Image Source="/LargoSharedControls;component/Images/icon_main_settings.png" Width="24" Height="24"  />
                     </Button>
                     -->
                 </StackPanel>
@@ -98,7 +98,7 @@
                     <!--
                     <Button HorizontalAlignment="Left" Margin="8,3,0,0" VerticalAlignment="Top" 
                             Width="28" Height="28"  Click="CompositionSettings" ToolTip="Settings for composition">
-                        <Image Source="/LargoSharedControls;component/Images/settingscompose.png" Width="24" Height="24" />
+                        <Image Source="/LargoSharedControls;component/Images/icon_comp_settings.png" Width="24" Height="24" />
                     </Button>
                     -->
 
@@ -132,7 +132,7 @@
                     <Button x:Name="ButtonHarmony" Grid.Row="0" HorizontalAlignment="Left" Margin="12,0,0,0" 
                         Width="28" Height="28" VerticalAlignment="Top"  Click="HarmonicTemplates"
                         ToolTip="Harmonic templates"  >
-                        <Image Source="/LargoSharedControls;component/Images/harmonic_template.png" Width="24" Height="24"  />
+                        <Image Source="/LargoSharedControls;component/Images/icon_harm_template.png" Width="24" Height="24"  />
                     </Button>
 
                     <Button x:Name="ButtonRhythm" Grid.Row="0" HorizontalAlignment="Left" Margin="4,0,0,0" 
@@ -145,7 +145,7 @@
                     <Button Grid.Row="0" HorizontalAlignment="Left" Margin="16,0,0,0" 
                         Width="28" Height="28" VerticalAlignment="Top"  Click="SavedOrchestrations" 
                         ToolTip="Saved orchestrations" >
-                        <Image Source="/LargoSharedControls;component/Images/orchestra24.png" Width="24" Height="24"  />
+                        <Image Source="/LargoSharedControls;component/Images/icon_orchestra24.png" Width="24" Height="24"  />
                     </Button>
                 </StackPanel>
             </Grid>
@@ -193,7 +193,7 @@
                         </MenuItem>
                         <MenuItem Header="Orchestra" Click="ViewPanel" Tag="9" >
                             <MenuItem.Icon>
-                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/orchestra.png" />
+                                <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_orchestra.png" />
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="Voices" Click="ViewPanel" Tag="6" >
@@ -262,7 +262,7 @@
                     </MenuItem>
                     <MenuItem Header="Orchestra" Click="ViewPanel" Tag="9" >
                         <MenuItem.Icon>
-                            <Image Source="pack://application:,,,/LargoSharedControls;component/Images/orchestra.png" />
+                            <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_orchestra.png" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Voices" Click="ViewPanel" Tag="6" >
@@ -319,7 +319,7 @@
                     -->
                     <Button  Name="ButtonSave" Style="{StaticResource StButtonRemove}" Click="Save" ToolTip="Save musical block"
                          Width="28" Height="28" Margin="3,4,0,0" VerticalAlignment="Top"  >
-                        <Image Source="/LargoSharedControls;component/Images/save.png" Width="24" Height="24"  />
+                        <Image Source="/LargoSharedControls;component/Images/button_save.png" Width="24" Height="24"  />
                     </Button>
 
                 </StackPanel>

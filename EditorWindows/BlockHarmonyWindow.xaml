@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-   xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
-                          xmlns:detail="clr-namespace:EditorPanels.Detail;assembly=EditorPanels"
+        xmlns:largoSupport="clr-namespace:LargoSharedClasses.Support;assembly=LargoSharedClasses"
+        xmlns:detail="clr-namespace:LargoSharedPanels;assembly=LargoSharedPanels"
         mc:Ignorable="d"
         Title="Block Harmony" Height="440" Width="806" >
     <Grid>

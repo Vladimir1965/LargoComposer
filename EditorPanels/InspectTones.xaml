@@ -54,10 +54,10 @@
         </DataGrid>
 
         <Button Margin="6,4,0,0" Style="{StaticResource StButtonRemove}" Click="Play">
-            <Image Source="/LargoSharedControls;component/Images/play.png" />
+            <Image Source="/LargoSharedControls;component/Images/button_play.png" />
         </Button>
         <Button Margin="34,4,0,0" Style="{StaticResource StButtonRemove}" Click="StopPlaying">
-            <Image Source="/LargoSharedControls;component/Images/stop.png" />
+            <Image Source="/LargoSharedControls;component/Images/button_stop.png" />
         </Button>
         <!--
         <LargoNotation:PanelStave Height="122" HorizontalAlignment="Left" Margin="0,46,0,0" 

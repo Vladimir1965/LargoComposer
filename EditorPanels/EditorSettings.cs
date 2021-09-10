@@ -31,7 +31,6 @@ namespace EditorPanels
         /// Initializes a new instance of the <see cref="EditorSettings"/> class.
         /// </summary>
         public EditorSettings() {
-            this.SidePanels = new EditorSidePanels();
             this.PathSettings = MusicalSettings.Singleton.Folders.GetFolder(MusicalFolder.InternalSettings);
             this.PathToMusicList = MusicalSettings.Singleton.Folders.GetFolder(MusicalFolder.InternalMusic);
         }
@@ -68,7 +67,7 @@ namespace EditorPanels
         /// <value>
         /// The settings import.
         /// </value>
-        public EditorSidePanels SidePanels { get; set; }
+        public SidePanels SidePanels { get; set; }
 
         /// <summary>
         /// Gets or sets the path settings.

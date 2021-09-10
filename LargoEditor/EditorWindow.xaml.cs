@@ -97,7 +97,7 @@ namespace LargoEditor
             WindowManager.Singleton.LoadPosition(this);
             //// Load window coordinates
             WindowManager.Singleton.LoadPosition(this);
-            UserWindows.Singleton.LoadTheme(this.Resources.MergedDictionaries);
+            SharedWindows.Singleton.LoadTheme(this.Resources.MergedDictionaries);
             this.Show();
             this.Focusable = true;
             this.ChartCanvas.Focusable = true;
@@ -746,8 +746,8 @@ namespace LargoEditor
                         UserWindows.Singleton.ViewPanel(5);
                         break;
                     case Key.K: //// Keys
-                        UserWindows.Singleton.SideHarmonicModality(null, null);
-                        UserWindows.Singleton.SideRhythmicModality(null, null);
+                        SharedWindows.Singleton.SideHarmonicModality(null, null);
+                        SharedWindows.Singleton.SideRhythmicModality(null, null);
                         break;
                 }
             }
@@ -866,7 +866,7 @@ namespace LargoEditor
                 
                 //// WindowManager.OpenWindow("LargoEditor", "SideVoicesWindow", null);
                 if (SideVoicesWindow.Singleton != null) {
-                    if (this.CurrentCell.GetType() == typeof(LineCell)) {
+                    if (this.CurrentCell != null && this.CurrentCell.GetType() == typeof(LineCell)) {
                         LineCell lineCell = this.CurrentCell as LineCell;
                         if (lineCell?.Line != null) {
                             //// var block = this.EditorSpace.MusicalContent as MusicalBlock;

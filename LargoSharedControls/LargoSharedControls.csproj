@@ -233,7 +233,39 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Resource Include="Images\Largo.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button_add_bar.png" />
+    <Resource Include="Images\button_add_line.png" />
+    <Resource Include="Images\button_edit.png" />
+    <Resource Include="Images\button_inspector.png" />
+    <Resource Include="Images\button_new.png" />
+    <Resource Include="Images\button_new_rhythm.png" />
+    <Resource Include="Images\button_pause.png" />
+    <Resource Include="Images\button_play.png" />
+    <Resource Include="Images\button_playmp3.png" />
+    <Resource Include="Images\button_props.png" />
+    <Resource Include="Images\button_right.png" />
+    <Resource Include="Images\button_save.png" />
+    <Resource Include="Images\button_score.png" />
+    <Resource Include="Images\button_stop.png" />
+    <Resource Include="Images\icon_comp_settings.png" />
+    <Resource Include="Images\icon_dragdot.png" />
+    <Resource Include="Images\icon_harmony.png" />
+    <Resource Include="Images\icon_harm_template.png" />
+    <Resource Include="Images\icon_instrument.png" />
+    <Resource Include="Images\icon_melody.png" />
+    <Resource Include="Images\icon_openfile48.png" />
+    <Resource Include="Images\icon_orchestra.png" />
+    <Resource Include="Images\icon_orchestra24.png" />
+    <Resource Include="Images\icon_rhythm.png" />
+    <Resource Include="Images\icon_tect_template.png" />
+    <Resource Include="Images\icon_tempo.png" />
+    <Resource Include="Images\icon_voices.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_emptygray.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

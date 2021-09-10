@@ -34,7 +34,7 @@
 
             <Button Grid.Column="1" Name="ButtonSave" Style="{StaticResource StButtonRemove}" Click="SaveChanges" ToolTip="Save list of musical documents"
                          Width="28" Height="28" Margin="0,2,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" >
-                <Image Source="/LargoSharedControls;component/Images/save.png" Width="24" Height="24"  />
+                <Image Source="/LargoSharedControls;component/Images/button_save.png" Width="24" Height="24"  />
             </Button>
             
             <Grid Grid.Column ="0">

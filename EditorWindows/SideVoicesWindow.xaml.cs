@@ -12,8 +12,10 @@ using EditorPanels.Cells;
 using LargoSharedClasses.Melody;
 using LargoSharedClasses.Music;
 using LargoSharedClasses.Rhythm;
+using LargoSharedClasses.Settings;
 using LargoSharedClasses.Support;
 using LargoSharedControls.Abstract;
+using LargoSharedWindows;
 using System.Diagnostics.Contracts;
 using System.Windows;
 using System.Windows.Controls;
@@ -59,7 +61,7 @@ namespace EditorWindows
             this.InitializeComponent();
 
             WindowManager.Singleton.LoadPosition(this);
-            UserWindows.Singleton.LoadTheme(this.Resources.MergedDictionaries);
+            SharedWindows.Singleton.LoadTheme(this.Resources.MergedDictionaries);
             this.Show();
             //// this.Localize();
 
@@ -69,7 +71,7 @@ namespace EditorWindows
             //// this.ContextMenu = this.ContextMenuOfTheWindow;
             //// this.editorSpace = null; ////  EditorWindow.Singleton.EditorSpace;
             this.ContextMenu = this.ContextMenuOfVoice;
-            EditorSettings.Singleton.SidePanels.PanelOpen("SideVoices");
+            SidePanels.Singleton.PanelOpen("SideVoices");
         }
 
         #region Static properties
@@ -219,7 +221,7 @@ namespace EditorWindows
         /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
             WindowManager.Singleton.SavePosition(this);
-            EditorSettings.Singleton.SidePanels.PanelClose("SideVoices");
+            SidePanels.Singleton.PanelClose("SideVoices");
             SideVoicesWindow.Singleton = null;
         }
 

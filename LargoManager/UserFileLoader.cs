@@ -116,7 +116,7 @@ namespace LargoManager
                 return;
             }
 
-            this.sideHarmonicModalityWindow = WindowManager.OpenWindow("LargoConductor", "SideHarmonicModalityWindow", null);
+            this.sideHarmonicModalityWindow = WindowManager.OpenWindow("LargoSharedWindows", "SideHarmonicModalityWindow", null);
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace LargoManager
                 return;
             }
 
-            this.sideRhythmicModalityWindow = WindowManager.OpenWindow("LargoConductor", "SideRhythmicModalityWindow", null);
+            this.sideRhythmicModalityWindow = WindowManager.OpenWindow("LargoSharedWindows", "SideRhythmicModalityWindow", null);
         }
 
         #endregion

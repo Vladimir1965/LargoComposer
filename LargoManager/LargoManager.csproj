@@ -84,10 +84,6 @@
     <Compile Include="NewFileMaker.xaml.cs">
       <DependentUpon>NewFileMaker.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SideHarmonicModalityWindow.xaml.cs" />
-    <Compile Include="SideRhythmicModalityWindow.xaml.cs" />
-    <Compile Include="SmartHarmonyWindow.xaml.cs" />
-    <Compile Include="SmartRhythmWindow.xaml.cs" />
     <Compile Include="TemplatesUserHarmonic.xaml.cs" />
     <Compile Include="TemplatesUserRhythmic.xaml.cs" />
     <Compile Include="TemplatesUserTectonic.xaml.cs" />
@@ -119,22 +115,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SideHarmonicModalityWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SideRhythmicModalityWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SmartHarmonyWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="SmartRhythmWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
     <Page Include="TemplatesUserHarmonic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -166,6 +146,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

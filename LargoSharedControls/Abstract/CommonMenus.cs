@@ -117,7 +117,7 @@ namespace LargoSharedControls.Abstract
                     Icon = UserInterfaceHelper.DefaultIcon
                 };
 
-                //// AbstractText.LoadImage("dragdot.png");
+                //// AbstractText.LoadImage("icon_dragdot.png ");
                 //// new Icon(@"C:\Private\SOLUTIONS-2020\PrivateWPF\Largo2020\LargoSharedControls\Images\button_play.png");
                 item.Click += CommonActions.Singleton.Play;
                 //// item.Icon = UserInterfaceHelper.DefaultIcon;

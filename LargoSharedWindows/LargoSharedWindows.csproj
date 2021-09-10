@@ -97,6 +97,25 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SharedWindows.cs" />
+    <Compile Include="SideHarmonicModalityWindow.xaml.cs">
+      <DependentUpon>SideHarmonicModalityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideHarmonicStructuresWindow.xaml.cs">
+      <DependentUpon>SideHarmonicStructuresWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideRhythmicModalityWindow.xaml.cs">
+      <DependentUpon>SideRhythmicModalityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SideRhythmicStructuresWindow.xaml.cs">
+      <DependentUpon>SideRhythmicStructuresWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SmartHarmonyWindow.xaml.cs">
+      <DependentUpon>SmartHarmonyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SmartRhythmWindow.xaml.cs">
+      <DependentUpon>SmartRhythmWindow.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -126,6 +145,30 @@
     <Page Include="InherentStartup.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="SideHarmonicModalityWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SideHarmonicStructuresWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SideRhythmicModalityWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SideRhythmicStructuresWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SmartHarmonyWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SmartRhythmWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

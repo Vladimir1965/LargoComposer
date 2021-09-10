@@ -114,9 +114,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ConductorControls\ConductorControls.csproj">
       <Project>{04c6b096-fdcb-4fbb-a54b-964930b1c6b1}</Project>
       <Name>ConductorControls</Name>

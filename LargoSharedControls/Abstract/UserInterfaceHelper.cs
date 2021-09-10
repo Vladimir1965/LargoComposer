@@ -25,7 +25,7 @@ namespace LargoSharedControls.Abstract
         /// The default icon.
         /// </summary>
         public static Image DefaultIcon = new Image {
-            Source = new BitmapImage(new Uri("pack://application:,,,/LargoSharedControls;component/Images/empty_gray.png"))
+            Source = new BitmapImage(new Uri("pack://application:,,,/LargoSharedControls;component/Images/icon_emptygray.png"))
         };
 
         /// <summary>

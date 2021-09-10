@@ -91,7 +91,7 @@
 
             <Button Name="ButtonSave" Style="{StaticResource StButtonRemove}" Click="Save" 
                          Width="28" Height="28" Margin="3,3,0,0" VerticalAlignment="Top" ToolTip="Save list of music files" >
-                <Image Source="/LargoSharedControls;component/Images/save.png" Width="24" Height="24"  />
+                <Image Source="/LargoSharedControls;component/Images/button_save.png" Width="24" Height="24"  />
             </Button>
         </StackPanel>
 

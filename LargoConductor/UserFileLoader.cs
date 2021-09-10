@@ -26,16 +26,6 @@ namespace LargoConductor
         /// </summary>
         private static UserFileLoader singleton = new UserFileLoader();
 
-        /// <summary>
-        /// The saved harmony window.
-        /// </summary>
-        private WinAbstract sideHarmonicModalityWindow;
-
-        /// <summary>
-        /// The side rhythmic modality window
-        /// </summary>
-        private WinAbstract sideRhythmicModalityWindow;
-
         #endregion
 
         #region Static properties
@@ -105,32 +95,5 @@ namespace LargoConductor
 
         #endregion
 
-        #region Public methods - Tools
-
-        /// <summary> Open Window - Harmonies. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> Routed event information. </param>
-        public void SideHarmonicModality(object sender, RoutedEventArgs e) {
-            if (this.sideHarmonicModalityWindow != null && this.sideHarmonicModalityWindow.IsVisible) {
-                return;
-            }
-
-            this.sideHarmonicModalityWindow = WindowManager.OpenWindow("LargoConductor", "SideHarmonicModalityWindow", null);
-        }
-
-        /// <summary>
-        /// Sides the rhythmic modality.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        public void SideRhythmicModality(object sender, RoutedEventArgs e) {
-            if (this.sideRhythmicModalityWindow != null && this.sideRhythmicModalityWindow.IsVisible) {
-                return;
-            }
-
-            this.sideRhythmicModalityWindow = WindowManager.OpenWindow("LargoConductor", "SideRhythmicModalityWindow", null);
-        }
-
-        #endregion
     }
 }
