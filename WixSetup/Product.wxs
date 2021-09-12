@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+   <!-- ====================================================================================
+      Defines - Fixed Variables
+   -->
+   <?define ManufacturerName="Indefinite Software" ?>
+   <?define ProductName="Largo 2022" ?>
+   <?define InfoURL="https://traced-ideas.eu/" ?> <!-- The URL for add/remove programs -->
+   <?define UpgradeCode="b53b3975-5fbd-44a9-9820-d3ce230240b6" ?> <!-- The same for all updates.  Once you've chosen it don't change it. -->
+
+
+   <!-- ====================================================================================
+      Defines - Variables
+   -->
+   <?define ApplicationName="Largo 2022" ?>
+   <!-- Full version number to display -->
+   <?define VersionNumber="1.0.0.0" ?>
+    
+   <!--  ====================================================================================
+      Product "1C9AB4C9-F3AA-42C6-AA46-66E62C464D9E" 
+   -->
+    <Product Id="*" 
+		      Language="1033"
+		      Name="$(var.ProductName)"  
+		      Version="$(var.VersionNumber)" 
+		      Manufacturer="$(var.ManufacturerName)" 
+		      UpgradeCode="$(var.UpgradeCode)">  
+
+   <!--  ====================================================================================
+      Package start
+   -->
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" 
+      Keywords='Installer' Description="Indefinite Software Installer"      
+  		Comments="Indefinite Software is a set of tools for music analysis and composition." 
+	  	Manufacturer="$(var.ManufacturerName)" Languages="1033"	SummaryCodepage='1252' />
+            
+	  <Condition Message="You need to be an administrator to install this product.">
+    		Privileged
+	  </Condition>
+
+	  <Condition Message='This application is designed for Windows 10'>
+		  VersionNT = 603
+	  </Condition>              
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <Media Id="1" Cabinet="simple.cab" EmbedCab="yes" /> 
+    
+      <!-- Define icons (ID should not be longer than 18 chars and must end with ".exe") -->
+      <Icon Id="composer.exe" SourceFile="c:\Private\SOLUTIONS-2020\PrivateWPF\Largo2020\WixSetup\Images\composer.ico" />
+    
+      <Property Id='DiskPrompt' Value="the man" />
+      <!-- Set properties for add/remove programs (=ARP) -->
+      <Property Id="ARPPRODUCTICON" Value="Icon.exe" />
+      <Property Id="ARPHELPLINK" Value="$(var.InfoURL)" />
+      <Property Id="ARPNOREPAIR" Value="yes" Secure="yes" />      <!-- Remove repair -->
+      <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />      <!-- Remove modify -->
+    
+      <!-- ******** DIRECTORIES ********* -->		
+      <!-- We start building our directory structure here -->
+      <!-- Outermost folder (kind of virtual). Fixed entry. -->
+      <!-- All folders from here on are relative to their parent. -->
+
+      <Directory Id="TARGETDIR" Name="SourceDir">
+          <Directory Id="ProgramFilesFolder">
+            <Directory Id="MANUFACTURERDIR" Name="$(var.ManufacturerName)">
+              <Directory Id="PRODUCTDIR" Name="$(var.ProductName)">      
+                    <Directory Id="BINARYDIR" Name="Binary">
+                          <Directory Id="CS" Name="cs">
+                          </Directory>
+                          <Directory Id="EN" Name="en">
+                          </Directory>
+                          <Directory Id="IT" Name="it">
+                          </Directory>
+                   </Directory>
+                    <Directory Id="INTERNALDATADIR" Name="InternalData">
+                   </Directory>
+                    <Directory Id="INTERNALMUSICDIR" Name="InternalMusic">
+                       <Directory Id="DEMODIR" Name="Demo">
+                       </Directory>
+                      <Directory Id="STREAMDIR" Name="Stream">
+                      </Directory>
+                      <Directory Id="TEMPDIR" Name="Temp">
+                      </Directory>
+                       <Directory Id="CONVERTERDIR" Name="Converter">
+                            <Directory Id="SOUNDFONTSDIR" Name="Soundfonts">
+                            </Directory>
+                        </Directory>
+                    </Directory>
+                    <Directory Id="INTERNALSETTINGSDIR" Name="InternalSettings">
+                    </Directory>
+                    <Directory Id="INTERNALTEMPLATESDIR" Name="InternalTemplates">
+                    </Directory>
+                    <Directory Id="LICENSESDIR" Name="Licenses">
+                    </Directory>
+                    <Directory Id="USERMUSICDIR" Name="UserMusic">
+                    </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+  
+          <Directory Id="ProgramMenuFolder">
+                  <Directory Id="ProgramMenuDir" Name="Indefinite Software"/>
+          </Directory>
+
+          <Directory Id="DesktopFolder" Name="Desktop"> 
+          </Directory> 
+      </Directory>
+    
+	    <DirectoryRef Id="BINARYDIR">        
+      		<!-- ******** INTERNAL DLLS ********* -->
+          <Component Id="JetBrains.Annotations.dll" DiskId="1" Guid="2e8c017f-429f-4346-850b-fbe0ac0f3cd2">
+            <File Id="JetBrains.Annotations.dll" Name="JetBrains.Annotations.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\JetBrains.Annotations.dll" />
+            <!--<RemoveFolder Id='BINARYDIR' Directory='BINARYDIR' On='uninstall' /> -->
+          </Component>
+
+         <Component Id="ConductorControls.dll" DiskId="1" Guid="c5417eee-7978-46c3-afe1-f9e31dacd666">
+          <File Id="ConductorControls.dll" Name="ConductorControls.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\ConductorControls.dll" />
+        </Component>
+        <Component Id="ConductorPanels.dll" DiskId="1" Guid="f9337ae8-5924-4f10-9f2c-db3997fd89d0">
+          <File Id="ConductorPanels.dll" Name="ConductorPanels.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\ConductorPanels.dll" />
+        </Component>
+        <Component Id="EditorControls.dll" DiskId="1" Guid="d5832d89-0732-41eb-accf-6892eac4c27b">
+          <File Id="EditorControls.dll" Name="EditorControls.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\EditorControls.dll" />
+        </Component>
+        <Component Id="EditorPanels.dll" DiskId="1" Guid="177e6241-c3ce-4446-91d9-3807d81c94e3">
+          <File Id="EditorPanels.dll" Name="EditorPanels.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\EditorPanels.dll" />
+        </Component>
+        <Component Id="EditorWindows.dll" DiskId="1" Guid="5962b72a-7a54-4948-8e82-00b01f5f9925">
+          <File Id="EditorWindows.dll" Name="EditorWindows.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\EditorWindows.dll" />
+        </Component>
+
+        <Component Id="SettingsPanels.dll" DiskId="1" Guid="04183fa4-270b-466e-9f77-7a7ecf93cedc">
+          <File Id="SettingsPanels.dll" Name="SettingsPanels.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\SettingsPanels.dll " />
+        </Component>
+
+        <Component Id="LargoSharedClasses.dll" DiskId="1" Guid="B347CD3F-C68E-435D-BAD1-C901A73BA351">
+          <File Id="LargoSharedClasses.dll" Name="LargoSharedClasses.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\LargoSharedClasses.dll " />
+        </Component>
+        
+        <Component Id="LargoSharedControls.dll" DiskId="1" Guid="2B45DAAB-59D4-4C61-91A4-0F3967CEB973">
+          <File Id="LargoSharedControls.dll" Name="LargoSharedControls.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\LargoSharedControls.dll " />
+        </Component>
+        <Component Id="LargoSharedPanels.dll" DiskId="1" Guid="BCD39CB9-D911-4B9B-A5B7-9A12845EF132">
+          <File Id="LargoSharedPanels.dll" Name="LargoSharedPanels.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\LargoSharedPanels.dll " />
+        </Component>
+        <Component Id="LargoSharedWindows.dll" DiskId="1" Guid="772fe9d3-7652-4da7-8a0d-056531f3d7cf">
+          <File Id="LargoSharedWindows.dll" Name="LargoSharedWindows.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\LargoSharedWindows.dll " />
+        </Component>
+
+        <Component Id="ManagerPanels.dll" DiskId="1" Guid="65f95e88-d6f1-4f93-9765-583942a07e68">
+          <File Id="ManagerPanels.dll" Name="ManagerPanels.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\ManagerPanels.dll" />
+        </Component>
+        <Component Id="PlayerControls.dll" DiskId="1" Guid="e8ec434c-d97c-4c67-bd75-28ea909090ee">
+          <File Id="PlayerControls.dll" Name="PlayerControls.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\PlayerControls.dll" />
+        </Component>
+        <Component Id="PlayerPanels.dll" DiskId="1" Guid="10b73d61-ae71-4ddf-998d-adff6390bb76">
+          <File Id="PlayerPanels.dll" Name="PlayerPanels.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\PlayerPanels.dll" />
+        </Component>        
+
+        <!-- ******** EXE FILES ********* -->
+        <Component Id="LargoManager.exe" DiskId="1" Guid="2F2F21AD-E39C-495B-AB65-C7C6BE8AFFC9">
+          <File Id="LargoManager.exe" Name="LargoManager.exe" Source="c:\Private\SOLUTIONS-2022\Install\Binary\LargoManager.exe"
+          KeyPath="yes" Checksum="yes"/>
+          <Shortcut Id="LargoComposerShortcut" Directory="ProgramMenuDir" Name="Largo Composer" Advertise="yes" Icon="composer.exe" IconIndex="0" /> 
+        </Component>
+        <Component Id="LargoEditor.exe" DiskId="1" Guid="905467A6-D639-4E13-8CAA-5D3BDF533C16">
+          <File Id="LargoEditor.exe" Name="LargoEditor.exe" Source="c:\Private\SOLUTIONS-2022\Install\Binary\LargoEditor.exe"
+          Checksum="yes"/>
+          <ProgId Id="LargoEditor.exe" Description="Music interchange format">
+            <Extension Id="MIF" ContentType="application/whatever">
+              <Verb Id="open" Command="open" TargetFile="LargoEditor.exe" Argument="&quot;%1&quot;"/>
+            </Extension>
+          </ProgId>
+        </Component>
+        <Component Id="LargoPlayer.exe" DiskId="1" Guid="DB3384EF-96DB-45C7-9132-A316F16486C3">
+          <File Id="LargoPlayer.exe" Name="LargoPlayer.exe" Source="c:\Private\SOLUTIONS-2022\Install\Binary\LargoPlayer.exe"
+          Checksum="yes"/>
+          <ProgId Id="LargoPlayer.MIF" Description="Music Interchange Format">
+            <Extension Id="MIF" ContentType="application/whatever">
+              <Verb Id="open" Command="open" TargetFile="LargoPlayer.exe" Argument="&quot;%1&quot;"/>
+            </Extension>
+          </ProgId>
+          <ProgId Id="LargoPlayer.MID" Description="Musical Instrument Digital Interface">
+            <Extension Id="MID" ContentType="application/whatever">
+              <Verb Id="open" Command="open" TargetFile="LargoPlayer.exe" Argument="&quot;%1&quot;"/>
+            </Extension>
+          </ProgId>
+          <ProgId Id="LargoPlayer.MXL" Description="Compressed Music XML">
+            <Extension Id="MXL" ContentType="application/whatever">
+              <Verb Id="open" Command="open" TargetFile="LargoPlayer.exe" Argument="&quot;%1&quot;"/>
+            </Extension>
+          </ProgId>
+        </Component>
+        <Component Id="LargoSettings.exe" DiskId="1" Guid="361FDF44-48F2-43F9-B499-3F1381F2B9B9">
+          <File Id="LargoSettings.exe" Name="LargoSettings.exe" Source="c:\Private\SOLUTIONS-2022\Install\Binary\LargoSettings.exe"
+          Checksum="yes"/>
+        </Component>
+
+          <Component Id="LargoPerformer.exe" DiskId="1" Guid="942d029e-5d72-4a25-8472-beca5f185339">
+            <File Id="LargoPerformer.exe" Name="LargoPerformer.exe" Source="c:\Private\SOLUTIONS-2022\Install\Binary\LargoPerformer.exe"
+                  Checksum="yes"/>
+          </Component>
+
+          <Component Id="LargoConductor.exe" DiskId="1" Guid="b9a12b07-2396-421c-858e-a078cdba4160">
+            <File Id="LargoConductor.exe" Name="LargoConductor.exe" Source="c:\Private\SOLUTIONS-2022\Install\Binary\LargoConductor.exe"
+                  Checksum="yes"/>
+          </Component>
+          
+      </DirectoryRef>
+      
+		  <!-- ******** FACTORY FILES ********* -->
+      <DirectoryRef Id="LICENSESDIR">
+        <Component Id="LICENSE.TXT" DiskId="1" Guid="F31BE33E-1E86-439C-9386-AF7C38A36177">
+          <File Id="LICENSE.TXT" Name="License.txt" Source="c:\Private\SOLUTIONS-2022\Install\Licenses\License.txt" />
+        </Component>
+      </DirectoryRef>
+
+      <DirectoryRef Id="INTERNALDATADIR">
+            <Component Id="HarmonicEssence.XML" DiskId="1" Guid="74fcb6cd-d7c7-49ea-a977-23a4e36dff89">
+              <File Id="HarmonicEssence.XML" Name="HarmonicEssence.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalData\HarmonicEssence.xml" />
+            </Component>
+            <Component Id="MelodicFaces.XML" DiskId="1" Guid="f0ff19dc-f56f-49a9-92b1-d277ff24759d">
+              <File Id="MelodicFaces.XML" Name="MelodicFaces.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalData\MelodicFaces.xml" />
+            </Component>
+            <Component Id="MelodicInstruments.XML" DiskId="1" Guid="3805699A-8833-4D79-9E3A-3144C6297451">
+                <File Id="MelodicInstruments.XML" Name="MelodicInstruments.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalData\MelodicInstruments.xml" />
+            </Component>
+            <Component Id="MusicalForms.XML" DiskId="1" Guid="E7657559-1DE6-47DF-AC70-C80767BEBEE8">
+                <File Id="MusicalForms.XML" Name="MusicalForms.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalData\MusicalForms.xml" />
+            </Component>
+
+            <Component Id="MusicalNotators.XML" DiskId="1" Guid="E3CCEA17-2636-4231-8026-D89E54635CCF">
+              <File Id="MusicalNotators.XML" Name="MusicalNotators.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalData\MusicalNotators.xml" />
+            </Component>
+            <Component Id="OrchestraEssence.XML" DiskId="1" Guid="14c37810-eb53-4e54-9141-a25417ac48fa">
+              <File Id="OrchestraEssence.XML" Name="OrchestraEssence.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalData\OrchestraEssence.xml" />
+            </Component>
+            <Component Id="RhythmicEssence.XML" DiskId="1" Guid="b981a436-a007-42aa-9de3-c239e76e26a2">
+              <File Id="RhythmicEssence.XML" Name="RhythmicEssence.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalData\RhythmicEssence.xml" />
+            </Component>
+
+            <Component Id="RhythmicFaces.XML" DiskId="1" Guid="23fcfb88-1097-452f-a900-775f7afa7b0e">
+              <File Id="RhythmicFaces.XML" Name="RhythmicFaces.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalData\HarmonicEssence.xml" />
+            </Component>
+            <Component Id="RhythmicInstruments.XML" DiskId="1" Guid="8AC9C790-39F9-4240-80B4-C44C107AF8C7">
+                <File Id="RhythmicInstruments.XML" Name="RhythmicInstruments.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalData\RhythmicInstruments.xml" />
+            </Component>
+            <Component Id="ToneStructures.XML" DiskId="1" Guid="570D3EEC-2BD2-4073-8374-59BD214044FF">
+                <File Id="ToneStructures.XML" Name="ToneStructures.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalData\HarmonicEssence.xml" />
+            </Component>
+      </DirectoryRef>
+
+      <DirectoryRef Id="DEMODIR">                 
+        <Component Id="Carulli_FiveRomances.mid" DiskId="1" Guid="0d07f54e-499a-45d2-b541-a3008de2b20b">
+                <File Id="Carulli_FiveRomances.mid" Name="Carulli_FiveRomances.mid" Source="c:\Private\SOLUTIONS-2022\Install\InternalMusic\Demo\Carulli_FiveRomances.mid" />
+            </Component>
+
+            <Component Id="Dvorak_SlavonicDance_No6.mid" DiskId="1" Guid="a22cbad1-e639-47d7-ae49-53a68567e45f">
+              <File Id="Dvorak_SlavonicDance_No6.mid" Name="Dvorak_SlavonicDance_No6.mid" Source="c:\Private\SOLUTIONS-2022\Install\InternalMusic\Demo\Dvorak_SlavonicDance_No6.mid" />
+            </Component>
+
+            <Component Id="Mozart_Jupiter_Menuetto.mid" DiskId="1" Guid="8e71aecd-20a9-42ce-b80f-a044ef8540b6">
+              <File Id="Mozart_Jupiter_Menuetto.mid" Name="Mozart_Jupiter_Menuetto.mid" Source="c:\Private\SOLUTIONS-2022\Install\InternalMusic\Demo\Mozart_Jupiter_Menuetto.mid" />
+            </Component>
+
+            <Component Id="Smetana_MyCountry_Vltava.mid" DiskId="1" Guid="21f26923-c2bf-40f9-9710-1c79c7cdd11f">
+              <File Id="Smetana_MyCountry_Vltava.mid" Name="Smetana_MyCountry_Vltava.mid" Source="c:\Private\SOLUTIONS-2022\Install\InternalMusic\Demo\Smetana_MyCountry_Vltava.mid" />
+            </Component>               
+      </DirectoryRef>
+
+      <DirectoryRef Id="CONVERTERDIR">
+        <Component Id="CONVERT.BAT" DiskId="1" Guid="D782F895-B8E9-43B1-8742-810652C73955">
+          <File Id="CONVERT.BAT" Name="convert.bat" Source="c:\Private\SOLUTIONS-2022\Install\InternalMusic\Converter\convert.bat" />
+        </Component>
+        <Component Id="LAME.EXE" DiskId="1" Guid="A580D698-9B47-4B22-BC6C-A5CE94AE0B2B">
+          <File Id="LAME.EXE" Name="lame.exe" Source="c:\Private\SOLUTIONS-2022\Install\InternalMusic\Converter\lame.exe" />
+        </Component>
+        <Component Id="LAME_ENC.DLL" DiskId="1" Guid="30F37775-FAA6-4367-A220-F3F816FADEE7">
+          <File Id="LAME_ENC.DLL" Name="lame_enc.dll" Source="c:\Private\SOLUTIONS-2022\Install\InternalMusic\Converter\lame_enc.dll" />
+        </Component>
+        <Component Id="TIMIDITY.EXE" DiskId="1" Guid="48FFD579-E387-4821-8EEC-CECF35DC7EC4">
+          <File Id="TIMIDITY.EXE" Name="timidity.exe" Source="c:\Private\SOLUTIONS-2022\Install\InternalMusic\Converter\timidity.exe" />
+        </Component>
+        <Component Id="MUSIC.CFG" DiskId="1" Guid="F00B7EDE-B1C3-4451-ABFB-99EF86D2692D">
+          <File Id="MUSIC.CFG" Name="music.cfg" Source="c:\Private\SOLUTIONS-2022\Install\InternalMusic\Converter\music.cfg" />
+        </Component>
+      </DirectoryRef>
+
+      <DirectoryRef Id="INTERNALSETTINGSDIR">
+            <Component Id="ManagerSettings.XML" DiskId="1" Guid="3333A2E6-531D-4BE7-9C22-21E7DDEAA08C">
+              <File Id="ManagerSettings.XML" Name="ManagerSettings.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalSettings\MusicalSettings.xml" />
+            </Component>
+            <Component Id="MusicalSettings.XML" DiskId="1" Guid="740ae742-4a8d-4b11-93f8-0d610c9231a2">
+              <File Id="MusicalSettings.XML" Name="MusicalSettings.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalSettings\MusicalSettings.xml" />
+            </Component>
+            <Component Id="SettingsFolders.XML" DiskId="1" Guid="00be46dc-0ba0-4048-9d73-6b6fc6a12231">
+              <File Id="SettingsFolders.XML" Name="SettingsFolders.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalSettings\MusicalSettings.xml" />
+            </Component>
+            <Component Id="LargoManagerWindows.XML" DiskId="1" Guid="38D1E358-F8DD-420B-94B5-2AF62D8EFA0E">
+                  <File Id="LargoManagerWindows.XML" Name="LargoManagerWindows.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalSettings\LargoManagerWindows.xml" />
+            </Component>
+            <Component Id="LargoEditorWindows.XML" DiskId="1" Guid="853f9e6c-919f-47a6-bd07-dcc995abf5aa">
+              <File Id="LargoEditorWindows.XML" Name="LargoEditorWindows.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalSettings\LargoEditorWindows.xml" />
+            </Component>
+          <Component Id="LargoPlayerWindows.XML" DiskId="1" Guid="b1cd2501-228f-48f4-a357-d26570932f04">
+            <File Id="LargoPlayerWindows.XML" Name="LargoPlayerWindows.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalSettings\LargoPlayerWindows.xml" />
+          </Component>
+          <Component Id="LargoConductorWindows.XML" DiskId="1" Guid="40d6eba0-9c63-4f27-ae4b-d61f6defa984">
+            <File Id="LargoConductorWindows.XML" Name="LargoConductorWindows.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalSettings\LargoConductorWindows.xml" />
+          </Component>
+      </DirectoryRef>
+
+      <DirectoryRef Id="INTERNALTEMPLATESDIR">
+            <Component Id="HarmonicTemplates.XML" DiskId="1" Guid="a4133889-f312-40d4-a28b-db56ac1531f1">
+              <File Id="HarmonicTemplates.XML" Name="HarmonicTemplates.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalTemplates\HarmonicTemplates.xml" />
+            </Component>
+            <Component Id="TectonicTemplates.XML" DiskId="1" Guid="b653245d-4727-49db-882e-ae7787690581">
+              <File Id="TectonicTemplates.XML" Name="TectonicTemplates.xml" Source="c:\Private\SOLUTIONS-2022\Install\InternalTemplates\TectonicTemplates.xml" />
+            </Component>
+      </DirectoryRef>
+
+      <!-- 
+	    <DirectoryRef Id="SOUNDFONTSDIR">
+                        <Component Id="SGMV2.01.SF2" DiskId="1" Guid="DAB6C6E4-4A93-440C-8C5F-6AD99579DCB5">
+                            <File Id="SGMV2.01.SF2" Name="SGM-V2.01.sf2" Source="c:\Users\ladma\OneDrive\Dokumenty\Largo Composer2018\Largo 2018\InternalConverter\Soundfonts\SGM-V2.01.sf2" />
+                        </Component>
+	    </DirectoryRef>
+	    -->
+  
+	    <!-- ******** RESOURCES ********* -->	
+	    <DirectoryRef Id="CS">
+            <Component Id="CS.LargoSharedClasses" DiskId="1" Guid="10EEBFA6-8D1B-47FB-8F03-0BE2E4B3C2E9">
+                <File Id="CS.LargoSharedClasses" Name="LargoSharedClasses.resources.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\cs\LargoSharedClasses.resources.dll" />
+            </Component>
+	    </DirectoryRef>
+
+	    <DirectoryRef Id="EN">
+            <Component Id="EN.LargoSharedClasses" DiskId="1" Guid="76A91306-F425-4659-93B3-B9440AB3A5FD">
+                <File Id="EN.LargoSharedClasses" Name="LargoSharedClasses.resources.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\en\LargoSharedClasses.resources.dll" />
+            </Component>
+	    </DirectoryRef>
+
+	    <DirectoryRef Id="IT">
+            <Component Id="IT.LargoSharedClasses" DiskId="1" Guid="93AD7C5A-AE93-4DE4-AE21-25A69DF0C647">
+                <File Id="IT.LargoSharedClasses" Name="LargoSharedClasses.resources.dll" Source="c:\Private\SOLUTIONS-2022\Install\Binary\it\LargoSharedClasses.resources.dll" />
+            </Component>
+	    </DirectoryRef>
+
+	    <!-- ******** WINDOWS MENU ********* -->	
+	    <DirectoryRef Id="ProgramMenuDir">
+            <Component Id="StartMenuShortcuts" Guid="4DFBD553-00DE-494C-A059-5DEB60D4402F">
+                <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+                <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" KeyPath="yes" />
+                <Shortcut Id="UninstallProduct" Name="Uninstall" Description="Uninstalls Largo Composer" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" />
+                <!-- <util:InternetShortcut Id="WebsiteShortcut" Name="Documentation" Target="http://www.traced-ideas.eu" /> --> 
+            </Component>
+	    </DirectoryRef>
+     
+      <Feature Id="DefaultFeature" Title="Main Feature" Level="1">
+	<!-- ******** INTERNAL DLLS ********* -->
+        <ComponentRef Id="JetBrains.Annotations.dll" />
+        <ComponentRef Id="LargoSharedClasses.dll" />
+        <ComponentRef Id="LargoSharedControls.dll" />
+        <ComponentRef Id="LargoSharedPanels.dll" />
+        <ComponentRef Id="LargoSharedWindows.dll" />
+
+        <ComponentRef Id="ConductorControls.dll" />
+        <ComponentRef Id="ConductorPanels.dll" />
+        <ComponentRef Id="EditorControls.dll" />
+        <ComponentRef Id="EditorPanels.dll" />
+        <ComponentRef Id="EditorWindows.dll" />
+        <ComponentRef Id="ManagerPanels.dll" />
+        <ComponentRef Id="PlayerControls.dll" />
+        <ComponentRef Id="PlayerPanels.dll" />
+        <ComponentRef Id="SettingsPanels.dll" />   
+
+        <!-- ******** EXE FILES ********* -->
+          <ComponentRef Id="LargoManager.exe" />
+          <ComponentRef Id="LargoSettings.exe" />
+          <ComponentRef Id="LargoEditor.exe" />
+          <ComponentRef Id="LargoPlayer.exe" />
+          <ComponentRef Id="LargoConductor.exe" />
+          <ComponentRef Id="LargoPerformer.exe" />
+
+	<!-- ******** FACTORY FILES ********* -->
+          <ComponentRef Id="HarmonicEssence.XML" />
+          <ComponentRef Id="MelodicFaces.XML" />
+          <ComponentRef Id="MelodicInstruments.XML" />
+          <ComponentRef Id="MusicalForms.XML" />
+
+          <ComponentRef Id="MusicalNotators.XML" />
+          <ComponentRef Id="OrchestraEssence.XML" />
+          <ComponentRef Id="RhythmicEssence.XML" />
+
+          <ComponentRef Id="RhythmicFaces.XML" />
+          <ComponentRef Id="RhythmicInstruments.XML" />
+          <ComponentRef Id="ToneStructures.XML" />
+        
+          <ComponentRef Id="LICENSE.TXT" />
+
+          <ComponentRef Id="LargoEditorWindows.XML" />
+          <ComponentRef Id="LargoManagerWindows.XML" />
+          <ComponentRef Id="LargoPlayerWindows.XML" />
+          <ComponentRef Id="LargoConductorWindows.XML" />
+
+          <ComponentRef Id="ManagerSettings.XML" />
+          <ComponentRef Id="MusicalSettings.XML" />
+          <ComponentRef Id="SettingsFolders.XML" />
+
+          <ComponentRef Id="HarmonicTemplates.XML" />
+          <ComponentRef Id="TectonicTemplates.XML" />
+
+          <ComponentRef Id="Carulli_FiveRomances.mid" />
+          <ComponentRef Id="Dvorak_SlavonicDance_No6.mid" />
+          <ComponentRef Id="Mozart_Jupiter_Menuetto.mid" />
+          <ComponentRef Id="Smetana_MyCountry_Vltava.mid" />
+
+          <ComponentRef Id="CONVERT.BAT" /> 
+          <ComponentRef Id="LAME.EXE" /> 
+          <ComponentRef Id="LAME_ENC.DLL" /> 
+          <ComponentRef Id="TIMIDITY.EXE" /> 
+          <ComponentRef Id="MUSIC.CFG" /> 
+            <!-- <ComponentRef Id="SGMV2.01.SF2" /> -->
+
+          <ComponentRef Id="CS.LargoSharedClasses" /> 
+          <ComponentRef Id="EN.LargoSharedClasses" /> 
+          <ComponentRef Id="IT.LargoSharedClasses" /> 
+
+
+	<!-- ******** MENU ********* -->
+          <ComponentRef Id="StartMenuShortcuts" /> 
+      </Feature>
+
+      <Property Id="ButtonText_No"><![CDATA[&No]]></Property>
+      <Property Id="ButtonText_Install"><![CDATA[&Install]]></Property>
+      <Property Id="ButtonText_Next"><![CDATA[&Next >]]></Property>
+      <Property Id="Setup"><![CDATA[Setup]]></Property>
+      <Property Id="ButtonText_Browse"><![CDATA[Br&owse]]></Property>
+      <Property Id="CustomSetupIcon"><![CDATA[custicon]]></Property>
+      <Property Id="RepairIcon"><![CDATA[repairic]]></Property>
+      <Property Id="ExclamationIcon"><![CDATA[exclamic]]></Property>
+      <Property Id="ButtonText_Repair"><![CDATA[&Repair]]></Property>
+      <Property Id="ButtonText_Back"><![CDATA[< &Back]]></Property>
+      <Property Id="InstallMode"><![CDATA[Typical]]></Property>
+      <Property Id="Progress2"><![CDATA[installs]]></Property>
+      <Property Id="Progress1"><![CDATA[Installing]]></Property>
+      <Property Id="Wizard"><![CDATA[Setup Wizard]]></Property>
+      <Property Id="RemoveIcon"><![CDATA[removico]]></Property>
+      <Property Id="ButtonText_Yes"><![CDATA[&Yes]]></Property>
+      <Property Id="ButtonText_Ignore"><![CDATA[&Ignore]]></Property>
+      <Property Id="ButtonText_Reset"><![CDATA[&Reset]]></Property>
+      <Property Id="ButtonText_Remove"><![CDATA[&Remove]]></Property>
+      <Property Id="ShowUserRegistrationDlg"><![CDATA[1]]></Property>
+      <Property Id="ButtonText_Exit"><![CDATA[&Exit]]></Property>
+      <Property Id="ButtonText_Return"><![CDATA[&Return]]></Property>
+      <Property Id="ButtonText_OK"><![CDATA[OK]]></Property>
+      <Property Id="CompleteSetupIcon"><![CDATA[completi]]></Property>
+      <Property Id="ButtonText_Resume"><![CDATA[&Resume]]></Property>
+
+       <!-- 
+      <Property Id="ARPHELPLINK"><![CDATA[http://www.microsoft.com/management]]></Property>
+      -->
+      
+      <Property Id="InstallerIcon"><![CDATA[insticon]]></Property>
+      <Property Id="ButtonText_Finish"><![CDATA[&Finish]]></Property>
+      <Property Id="PROMPTROLLBACKCOST"><![CDATA[P]]></Property>
+      <Property Id="PIDTemplate"><![CDATA[12345<###-%%%%%%%>@@@@@]]></Property>
+      <Property Id="DlgTitleFont"><![CDATA[{&DlgFontBold8}]]></Property>
+      <Property Id="ButtonText_Cancel"><![CDATA[Cancel]]></Property>
+      <Property Id="INSTALLLEVEL"><![CDATA[3]]></Property>
+      <Property Id="InfoIcon"><![CDATA[info]]></Property>
+      <Property Id="ButtonText_Retry"><![CDATA[&Retry]]></Property>
+      <Property Id="IAgree"><![CDATA[No]]></Property>
+      <Property Id="ComponentDownload"><![CDATA[ftp://anonymous@microsoft.com/components/]]></Property>
+      <Property Id="BannerBitmap"><![CDATA[bannrbmp]]></Property>
+      <Property Id="DialogBitmap"><![CDATA[dlgbmp]]></Property>
+
+      <AdminExecuteSequence />
+
+      <!--
+      <InstallExecuteSequence>
+        <RemoveExistingProducts After="InstallFinalize" />
+      </InstallExecuteSequence>
+    -->
+
+      <Binary Id="bannrbmp" SourceFile="Images\empty.ico" />
+      <Binary Id="completi" SourceFile="Images\empty.ico" />
+      <Binary Id="custicon" SourceFile="Images\empty.ico" />
+      <Binary Id="dlgbmp" SourceFile="Images\empty.ico" />
+      <Binary Id="exclamic" SourceFile="Images\setup.ico" />
+      <Binary Id="info" SourceFile="Images\setup.ico" />
+      <Binary Id="insticon" SourceFile="Images\setup.ico" />
+      <Binary Id="New" SourceFile="Images\setup.ico" />
+      <Binary Id="removico" SourceFile="Images\setup.ico" />
+      <Binary Id="repairic" SourceFile="Images\setup.ico" />
+      <Binary Id="Up" SourceFile="Images\setup.ico" />
+      
+      <UI>
+        <!-- Define the installer UI -->
+        <UIRef Id="TestUI" />
+      </UI>
+
+      <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+      <Property Id="WIXUI_SERVERS" Value="SERVERS" />
+
+      <!-- Step 2: Add UI to your installer / Step 4: Trigger the custom action 
+      <UI>
+      </UI>
+      
+      <UIRef Id="WixUI_Minimal" />
+      <Publish Dialog="ExitDialog"
+            Control="Finish"
+            Event="DoAction"
+            Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+      
+      <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch My Application Name" />
+      
+      Step 3: Include the custom action 
+      <Property Id="WixShellExecTarget" Value="[#myapplication.exe]" />
+      
+      <CustomAction Id="LaunchApplication"
+          BinaryKey="WixCA"
+          DllEntry="WixShellExec"
+          Impersonate="yes" />
+      
+      <CustomAction Id ="largo_run"                     
+              Directory  ="APPLICATIONDIR"
+              ExeCommand ='XLargo.exe'
+              Execute    ="immediate"
+              Return     ="asyncNoWait"
+       />
+    
+      <UI>
+        <UIRef Id="WixUI_Minimal" />
+      </UI>
+
+      <UI /> 
+      <UIRef Id="WixUI_FeatureTree" /> -->
+	</Product> 
+</Wix>
+
+  <!--
+  		 <MediaTemplate /> 
+     		 <Feature Id="ProductFeature" Title="WixSetup" Level="1">
+			        <ComponentGroupRef Id="ProductComponents" />  </Feature> 
+<Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+       <Component Id="ProductComponent">
+             https://wixtoolset.org/documentation/manual/v3/votive/votive_project_references.html   
+              TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. 
+              <File Id="MyExecutable" Name="$(var.MyProject.TargetFileName)" Source="$(var.MyProject.TargetPath)" DiskId="1" /> 
+              <File Source="C:\code\Minefold\Minefold\bin\Debug\Minefold.exe" Id="Minefold.exe"  />
+              TODO: Insert files, registry keys, and other resources here. 
+      </Component>             
+    </ComponentGroup>
+</Fragment>
+  <Feature Id="Application" Title="Minefold" Level="1">
+    <ComponentRef Id="ProductComponent" />
+  </Feature>
+  
+  -->

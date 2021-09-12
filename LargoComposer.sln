@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargoPerformer", "LargoPerf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConductorPanels", "ConductorPanels\ConductorPanels.csproj", "{AE2364CD-4AD4-4254-8583-D9D52A0BAB60}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixSetup", "WixSetup\WixSetup.wixproj", "{0C966886-22A5-4247-A5AB-391B421A1BD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -171,6 +173,12 @@ Global
 		{AE2364CD-4AD4-4254-8583-D9D52A0BAB60}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AE2364CD-4AD4-4254-8583-D9D52A0BAB60}.Release|x86.ActiveCfg = Release|x86
 		{AE2364CD-4AD4-4254-8583-D9D52A0BAB60}.Release|x86.Build.0 = Release|x86
+		{0C966886-22A5-4247-A5AB-391B421A1BD6}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0C966886-22A5-4247-A5AB-391B421A1BD6}.Debug|x86.ActiveCfg = Debug|x86
+		{0C966886-22A5-4247-A5AB-391B421A1BD6}.Debug|x86.Build.0 = Debug|x86
+		{0C966886-22A5-4247-A5AB-391B421A1BD6}.Release|Any CPU.ActiveCfg = Release|x86
+		{0C966886-22A5-4247-A5AB-391B421A1BD6}.Release|x86.ActiveCfg = Release|x86
+		{0C966886-22A5-4247-A5AB-391B421A1BD6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
