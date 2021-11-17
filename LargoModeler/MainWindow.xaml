@@ -1,0 +1,90 @@
+﻿<Window x:Class="LargoModeler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:core="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:LargoModeler"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="403" Width="990"
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <!--
+                <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LargoSharedControls;component/SharedResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        -->
+
+        <ObjectDataProvider x:Key="BeatValues" MethodName="GetValues"
+                            ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="local:BeatValues"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="OrchestraValues" MethodName="GetValues"
+                            ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="local:OrchestraValues"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+    </Window.Resources>
+
+    <Grid Margin="0,0,2,0">
+
+        <!--
+        <TextBlock HorizontalAlignment="Left" Margin="401,18,0,0" TextWrapping="Wrap" Text="Number of bars:" VerticalAlignment="Top"/>
+        <Slider x:Name="sliderBase" HorizontalAlignment="Left" Margin="515,16,0,0" VerticalAlignment="Top" Width="71"
+            Minimum="1" Maximum="32" ValueChanged="NumberOfBarsChanged" SmallChange="2" Value="8" />
+        <TextBlock x:Name="txtBase" HorizontalAlignment="Left" Margin="589,19,0,0" TextWrapping="Wrap" Text="8" 
+                   VerticalAlignment="Top" Width="25" Height="16" RenderTransformOrigin="0.138,0.438"/>
+        <Button Content="Generate" HorizontalAlignment="Left" Margin="635,15,0,0" VerticalAlignment="Top" Width="75" Click="Generate"/>
+        -->
+        <DataGrid  x:Name ="dataGridBars" VerticalAlignment="Stretch" 
+			    AutoGenerateColumns="False" Margin="3,4,0,4" HorizontalAlignment="Left" Width="320" SelectionChanged="dataGridBars_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Bar" 
+                                        Binding="{Binding Number}" IsReadOnly="True" 
+                                        Width="40"  />
+                <!-- ChordsToString -->
+                <DataGridTextColumn Header="Harmony" 
+                                        Binding="{Binding Harmony}" IsReadOnly="True" 
+                                        Width="*"  />
+                <DataGridTextColumn Header="Shape" 
+                                        Binding="{Binding Shape}" IsReadOnly="True" 
+                                        Width="110"  />
+                <DataGridTextColumn Header="Length" 
+					                    Binding="{Binding Length}" IsReadOnly="True"
+					                    Width="50"  />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="dataGridZones" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  Margin="329,76,0,4" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="100" />
+                <DataGridComboBoxColumn Header="Beat" Width="150" SelectedItemBinding="{Binding Beat}" 
+                     ItemsSource="{Binding Source={StaticResource BeatValues}}" />
+                <DataGridTextColumn Header="Level" Binding="{Binding Level}" Width="70" />
+                <DataGridComboBoxColumn Header="Orchestra" Width="150" SelectedItemBinding="{Binding Orchestra}" 
+                     ItemsSource="{Binding Source={StaticResource OrchestraValues}}" />
+                <DataGridTextColumn Header="Voices" Binding="{Binding Voices}" Width="70" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button  Name="ButtonSave" Click="Save" ToolTip="Save musical block"
+                         Width="28" Height="28" Margin="894,39,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  >
+            <Image Source="/LargoSharedControls;component/Images/button_save.png" 
+                   Width="24" Height="24"  />
+        </Button>
+        <Button 
+                Margin="854,40,0,0" VerticalAlignment="Top" Click="Play" ToolTip="Play music"
+                Width="28" HorizontalAlignment="Left" >
+            <Image Source="/LargoSharedControls;component/Images/button_play.png" />
+        </Button>
+    </Grid>
+</Window>
