@@ -78,6 +78,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="StaffBar.cs" />
+    <Compile Include="StaffElement.cs" />
     <Compile Include="StaffZone.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -121,6 +122,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConductorPanels\ConductorPanels.csproj">
+      <Project>{ae2364cd-4ad4-4254-8583-d9d52a0bab60}</Project>
+      <Name>ConductorPanels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LargoSharedClasses\LargoSharedClasses.csproj">
       <Project>{17701162-cef6-4450-a7f7-134931fff835}</Project>
       <Name>LargoSharedClasses</Name>
