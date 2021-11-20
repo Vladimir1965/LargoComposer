@@ -1,17 +1,22 @@
-﻿using LargoSharedClasses.Composer;
+﻿using LargoSharedClasses.Abstract;
+using LargoSharedClasses.Composer;
 using LargoSharedClasses.Interfaces;
+using LargoSharedClasses.Localization;
 using LargoSharedClasses.Music;
 using LargoSharedClasses.Port;
+using LargoSharedClasses.Rhythm;
 using LargoSharedClasses.Settings;
+using LargoSharedClasses.Support;
+using LargoSharedWindows;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows;
 
 namespace LargoModeler
 {
-
     /// <summary>
     /// Main Window.
     /// </summary>
@@ -20,6 +25,39 @@ namespace LargoModeler
         public MainWindow()
         {
             InitializeComponent();
+
+            if (!MusicalSettings.LoadSettingsStartup(SettingsApplication.ManufacturerName, SettingsApplication.ApplicationName)) {
+                MessageBox.Show(LocalizedControls.String("Load of settings failed!"));
+                return;
+            }
+
+            //// UserFileLoader.Singleton.LoadWindowManager("LargoModeler", "MainWindow", typeof(MainWindow));
+            var path = MusicalSettings.Singleton.Folders.GetFolder(MusicalFolder.InternalData);
+            PortCatalogs.Singleton.ReadXmlFiles(path);
+
+            WindowManager.Singleton.LoadPosition(this);
+            UserFileLoader.Singleton.LoadTheme(this.Resources.MergedDictionaries);
+            this.Show();
+
+            this.BodyComposer = new BodyComposer();
+            this.MusicPort = PortAbstract.CreatePort(MusicalSourceType.MIFI);
+
+            this.Header = MusicalHeader.GetDefaultMusicalHeader;
+            this.Header.NumberOfBars = this.StaffBars.Count;
+            this.Header.FileName = "Test-Modeler";
+            this.Header.Metric.MetricBeat = 6;
+            this.Header.Tempo = 200;
+
+            var list1 = new List<KeyValuePair>();  //// DataEnums.GetHarmonicSystems;
+            list1.Add(new KeyValuePair(12, "12-Tones"));
+            this.controlHarmonicSystem.LoadData(list1);
+
+            var list2 = new List<KeyValuePair>();  //// DataEnums.GetHarmonicSystems;
+            list2.Add(new KeyValuePair(12, "12-Ticks"));
+            this.controlRhythmicSystem.LoadData(list2);
+
+            //// SharedWindows.Singleton.SideHarmonicModality(null, null);
+            //// SharedWindows.Singleton.SideRhythmicModality(null, null);
         }
 
         #region Properties
@@ -39,7 +77,20 @@ namespace LargoModeler
         /// </value>
         private MusicalContext Context { get; set; }
 
+        /// <summary>
+        /// Gets or sets the staff zones.
+        /// </summary>
+        /// <value>
+        /// The staff zones.
+        /// </value>
         private List<StaffZone> StaffZones { get; set; }
+
+        /// <summary>
+        /// Gets or sets the staff bars.
+        /// </summary>
+        /// <value>
+        /// The staff bars.
+        /// </value>
         private List<StaffBar> StaffBars { get; set; }
 
         /// <summary>
@@ -67,6 +118,11 @@ namespace LargoModeler
         private int InternalNumber { get; set; }
         #endregion 
 
+        /// <summary>
+        /// Generates the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Generate(object sender, RoutedEventArgs e)
         {
             var numberOfBars = 8;
@@ -74,6 +130,32 @@ namespace LargoModeler
             }
         }
 
+        /// <summary>
+        /// Refreshes the board.
+        /// </summary>
+        private void RefreshBoard()
+        {
+            var harmonicSystem = this.Header.System.HarmonicSystem;
+            var harmonicModality = this.PanelMusicalHarmony.HarmonicModality ?? new HarmonicModality(harmonicSystem, 1387);
+            if (HarmonyBoard.Singleton.HarmonicModality?.Number != harmonicModality?.Number) {
+                HarmonyBoard.Singleton.HarmonicModality = harmonicModality;
+                var q = new GeneralQualifier();
+                var hv = StructuralVarietyFactory.NewHarmonicStructModalVariety(StructuralVarietyType.BinarySubstructuresOfModality, harmonicModality, q, 100);
+                if (hv.StructList.Count > 0) {
+                    HarmonyBoard.Singleton.HarmonicStructures = hv.StructList.ToList();
+                } else {
+                    HarmonyBoard.Singleton.HarmonicStructures = PortCatalogs.DefaultHarmonicStructures(3, 3);
+                }
+
+                HarmonyBoard.Singleton.SelectedStructures = (from hs in HarmonyBoard.Singleton.HarmonicStructures where hs.Level == 3 select hs).ToList();
+            }
+        }
+
+        /// <summary>
+        /// Handles the Loaded event of the Window control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.StaffBars = new List<StaffBar>(); //// ObservableCollection
@@ -111,12 +193,16 @@ namespace LargoModeler
 
         private void Play(object sender, RoutedEventArgs e)
         {
+            this.ToMusic(null, null);
         }
 
         private void NumberOfBarsChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
         }
 
+        /// <summary>
+        /// Displays the selected elements.
+        /// </summary>
         private void DisplaySelectedElements()
         {
             var staffZone = this.dataGridZones.SelectedItem as StaffZone;
@@ -132,8 +218,6 @@ namespace LargoModeler
             var elements = from elem in staffZone.staffElements where elem.StaffBar.Number == staffBar.Number select elem;
             this.dataGridElements.ItemsSource = elements.ToList();
         }
-
-
 
         private void dataGridZones_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -152,13 +236,8 @@ namespace LargoModeler
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void ToMusic(object sender, RoutedEventArgs e)
         {
-            this.Header = MusicalHeader.GetDefaultMusicalHeader;
-            this.Header.NumberOfBars = this.StaffBars.Count;
-            this.Header.FileName = "Test-Modeler";
-            this.Header.Metric.MetricBeat = 6;
-            this.Header.Tempo = 200;
-
             this.Context = new MusicalContext(MusicalSettings.Singleton, this.Header);
+            this.RefreshBoard();
 
             var strip = new MusicalStrip(this.Context);
             var block = new MusicalBlock {
@@ -168,35 +247,63 @@ namespace LargoModeler
 
             block.Header.Number = 1;
 
-            foreach (var zone in this.StaffZones) {
+            foreach (var staffZone in this.StaffZones) {
                 int lineNumInZone = 0;
-                for (int li = 0; li < zone.Lines; li++) {
+                for (int li = 0; li < staffZone.Lines; li++) {
                     var line = new MusicalLine {
                         Purpose = LinePurpose.Composed
                     };
 
                     strip.AddLine(line, true);
 
-                    if (zone.Orchestra != null && lineNumInZone < zone.Orchestra.ListVoices.Count) {
-                        line.MainVoice = zone.Orchestra.ListVoices[lineNumInZone];
+                    staffZone.Status = new LineStatus();
+                    staffZone.Orchestra = PortCatalogs.Singleton.OrchestraEssence[li];
+                    if (staffZone.Orchestra != null && lineNumInZone < staffZone.Orchestra.ListVoices.Count) {
+                        line.MainVoice = staffZone.Orchestra.ListVoices[lineNumInZone];
                         line.Voices = new List<IAbstractVoice> { line.MainVoice };
                         //// line.MainVoice.Channel = strip.FindFreeChannel(line.LineIndex);
                     }
 
-                    var status = zone.Status;
+                    var status = staffZone.Status;
                     status.Octave = line.MainVoice.Octave;
-                    status.Loudness = zone.Loudness; //// line.MainVoice.Loudness;
+                    status.Loudness = staffZone.Loudness; //// line.MainVoice.Loudness;
                     //// status.Instrument = line.MainVoice.Instrument;
-                    status.OrchestraUnit = zone.Orchestra;
+                    status.OrchestraUnit = staffZone.Orchestra;
 
-                    foreach (var bar in this.StaffBars) {
+                    foreach (var staffBar in this.StaffBars) {
+                        var staffElement = (from elem in staffZone.staffElements where elem.StaffBar.Number == staffBar.Number select elem).FirstOrDefault();
                         var stn = (LineStatus)status.Clone();
-                        stn.BarNumber = bar.Number;
+                        stn.BarNumber = staffBar.Number;
                         line.StatusList.Add(stn);
 
                         /* if (stn.RhythmicStructure == null) {
                             stn.RhythmicStructure = zone.RhythmicStructure;
                         } */
+
+                        var rsystem = this.Header.System.RhythmicSystem;
+                        string code1 = string.Empty;
+                        switch (staffElement.Beat) {
+                            case BeatValues.Beat: {                                    
+                                    code1 = "1,0,0,0,0,0,1,0,0,0,0,0";
+                                    break;
+                                }
+                            case BeatValues.Empty: {
+                                    code1 = "2,0,0,0,0,0,0,0,0,0,0,0";
+                                    break;
+                                }
+                            case BeatValues.Light: {
+                                    code1 = "2,0,0,1,0,0,2,0,0,1,0,0";
+                                    break;
+                                }
+                            case BeatValues.Complement: {
+                                    code1 = "1,0,0,1,1,1,1,0,0,1,0,0";
+                                    break;
+                                }
+                        }
+
+                        var r1 = new RhythmicStructure(rsystem, code1);
+                        r1.DetermineBehavior();
+                        stn.RhythmicStructure = r1;
 
                         //// this.BuildMelodicPlan(this.Header, zone, stn);
                         stn.Voice = (byte)line.LineIndex;
@@ -228,7 +335,6 @@ namespace LargoModeler
             this.ExportAndPlay(this.Header, block);
         }
 
-
         /// <summary>
         /// Exports the and play.
         /// </summary>
@@ -248,7 +354,5 @@ namespace LargoModeler
             var path = @"C:\temp"; //// ConductorSettings.Singleton.PathToInternalStream;
             this.MusicPort.WriteMusicFile(bundle, Path.Combine(path, name + ".mif"));
         }
-
-
     }
 }

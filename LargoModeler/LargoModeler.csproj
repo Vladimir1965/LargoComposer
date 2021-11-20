@@ -80,6 +80,7 @@
     <Compile Include="StaffBar.cs" />
     <Compile Include="StaffElement.cs" />
     <Compile Include="StaffZone.cs" />
+    <Compile Include="UserFileLoader.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -133,6 +134,14 @@
     <ProjectReference Include="..\LargoSharedControls\LargoSharedControls.csproj">
       <Project>{7010bfdf-ba28-4adf-8098-90e712583e51}</Project>
       <Name>LargoSharedControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LargoSharedPanels\LargoSharedPanels.csproj">
+      <Project>{56e85e30-6b1b-4e83-9de1-78fd4fe1a14b}</Project>
+      <Name>LargoSharedPanels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LargoSharedWindows\LargoSharedWindows.csproj">
+      <Project>{6ecf34e9-3073-40ac-85f3-3de56ab8cc44}</Project>
+      <Name>LargoSharedWindows</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

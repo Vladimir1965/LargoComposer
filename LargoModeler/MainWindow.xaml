@@ -6,6 +6,7 @@
         xmlns:core="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:LargoModeler"
         xmlns:Detail="clr-namespace:ConductorPanels;assembly=ConductorPanels"
+        xmlns:LargoSharedControls="clr-namespace:LargoSharedControls;assembly=LargoSharedControls"
         mc:Ignorable="d"
        Title="MainWindow" Height="403" Width="990"
         Loaded="Window_Loaded">
@@ -45,12 +46,17 @@
                    VerticalAlignment="Top" Width="25" Height="16" RenderTransformOrigin="0.138,0.438"/>
         <Button Content="Generate" HorizontalAlignment="Left" Margin="635,15,0,0" VerticalAlignment="Top" Width="75" Click="Generate"/>
         -->
-
+        <LargoSharedControls:ControlHarmonicSystem x:Name="controlHarmonicSystem" HorizontalAlignment="Left" 
+                Height="29" Margin="137,3,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.5,0.172"/>
+        <LargoSharedControls:ControlRhythmicSystem x:Name="controlRhythmicSystem" HorizontalAlignment="Left" 
+                Height="29" Margin="137,33,0,0" VerticalAlignment="Top" Width="93"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Harmonic system:" VerticalAlignment="Top" Width="103"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Rhythmic system:" VerticalAlignment="Top" Width="103"/>
         <Detail:PanelMusicalHarmony x:Name="PanelMusicalHarmony" HorizontalAlignment="Left" Height="49" Margin="352,11,0,0" 
                                     VerticalAlignment="Top" Width="406"/>
 
         <DataGrid  x:Name ="dataGridBars" VerticalAlignment="Stretch" 
-			    AutoGenerateColumns="False" Margin="3,4,0,4" HorizontalAlignment="Left" Width="320" SelectionChanged="dataGridBars_SelectionChanged" >
+			    AutoGenerateColumns="False" Margin="3,92,0,4" HorizontalAlignment="Left" Width="320" SelectionChanged="dataGridBars_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Bar" 
                                         Binding="{Binding Number}" IsReadOnly="True" 
