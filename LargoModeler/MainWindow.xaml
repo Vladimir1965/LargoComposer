@@ -8,7 +8,7 @@
         xmlns:Detail="clr-namespace:ConductorPanels;assembly=ConductorPanels"
         xmlns:LargoSharedControls="clr-namespace:LargoSharedControls;assembly=LargoSharedControls"
         mc:Ignorable="d"
-       Title="MainWindow" Height="403" Width="990"
+       Title="MainWindow" Height="403" Width="1170"
         Loaded="Window_Loaded">
 
     <Window.Resources>
@@ -89,6 +89,7 @@
             <DataGrid.Columns>
                 <DataGridComboBoxColumn Header="Beat" Width="150" SelectedItemBinding="{Binding Beat}" 
                      ItemsSource="{Binding Source={StaticResource BeatValues}}" />
+                <DataGridTextColumn Header="Rhythm" Width="200" Binding="{Binding RhythmicStructure}" />
                 <DataGridTextColumn Header="Level" Binding="{Binding Level}" Width="70" />
             </DataGrid.Columns>
         </DataGrid>
@@ -103,5 +104,7 @@
                 Width="28" HorizontalAlignment="Left" >
             <Image Source="/LargoSharedControls;component/Images/button_play.png" />
         </Button>
+        
+        <Button Content="Refresh" HorizontalAlignment="Left" Margin="802,12,0,0" VerticalAlignment="Top" Width="75" Click="Refresh"/>
     </Grid>
 </Window>

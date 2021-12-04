@@ -43,7 +43,6 @@ namespace LargoModeler
             this.MusicPort = PortAbstract.CreatePort(MusicalSourceType.MIFI);
 
             this.Header = MusicalHeader.GetDefaultMusicalHeader;
-            this.Header.NumberOfBars = this.StaffBars.Count;
             this.Header.FileName = "Test-Modeler";
             this.Header.Metric.MetricBeat = 6;
             this.Header.Tempo = 200;
@@ -151,6 +150,41 @@ namespace LargoModeler
             }
         }
 
+        private void RefreshBars()
+        {
+            this.StaffBars = new List<StaffBar>(); //// ObservableCollection
+            for (int barNumber = 1; barNumber <= 8; barNumber++) {
+                var bar = new StaffBar(barNumber);
+
+                var harStructure = this.PanelMusicalHarmony.GenNextHarmonicStructure();
+                if (harStructure == null) {
+                    return;
+                }
+
+                harStructure.BitFrom = 0;
+                harStructure.Length = this.Header.System.HarmonicOrder;
+                
+                var harBar = new HarmonicBar(0, 0);
+                harBar.AddStructure(harStructure);
+                var harmonicBar = new HarmonicBar(this.Header, harBar);
+                bar.HarmonicBar = harmonicBar;
+
+                this.StaffBars.Add(bar);
+            }
+
+            foreach (var bar in this.StaffBars) {
+                foreach (var zone in this.StaffZones) {
+                    var staffElement = new StaffElement(zone, bar, (zone.Name == "Bas") ? BeatValues.Beat : BeatValues.Light);
+                    var rsystem = this.Header.System.RhythmicSystem;
+                    staffElement.DetermineRhythm(rsystem);
+                    zone.staffElements.Add(staffElement);
+                }
+            }
+
+            this.Header.NumberOfBars = this.StaffBars.Count;
+            this.dataGridBars.ItemsSource = this.StaffBars;
+        }
+
         /// <summary>
         /// Handles the Loaded event of the Window control.
         /// </summary>
@@ -158,29 +192,14 @@ namespace LargoModeler
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.StaffBars = new List<StaffBar>(); //// ObservableCollection
-            for (int barNumber = 1; barNumber <= 8; barNumber++) {
-                var bar = new StaffBar(barNumber);
-                this.StaffBars.Add(bar);
-            }
-
             this.StaffZones = new List<StaffZone>(); //// ObservableCollection
             var zone1 = new StaffZone("Bas");
-            foreach (var bar in this.StaffBars) {
-                zone1.staffElements.Add(new StaffElement(zone1, bar));
-            }
-
             this.StaffZones.Add(zone1);
 
-            var zone2 = new StaffZone("Sopran");
-            foreach (var bar in this.StaffBars) {
-                zone2.staffElements.Add(new StaffElement(zone2, bar));
-            }
-
+            var zone2 = new StaffZone("Sopran");           
             this.StaffZones.Add(zone2);
 
             /// this.dataGrid1.DataContext = Records;
-            this.dataGridBars.ItemsSource = this.StaffBars;
             this.dataGridZones.ItemsSource = this.StaffZones;
             //// var staffZones = new List<StaffZone>(); //// ObservableCollection
             //// this.dataGrid1.DataContext = Records;
@@ -237,8 +256,6 @@ namespace LargoModeler
         private void ToMusic(object sender, RoutedEventArgs e)
         {
             this.Context = new MusicalContext(MusicalSettings.Singleton, this.Header);
-            this.RefreshBoard();
-
             var strip = new MusicalStrip(this.Context);
             var block = new MusicalBlock {
                 Header = this.Header,
@@ -281,31 +298,7 @@ namespace LargoModeler
                         /* if (stn.RhythmicStructure == null) {
                             stn.RhythmicStructure = zone.RhythmicStructure;
                         } */
-
-                        var rsystem = this.Header.System.RhythmicSystem;
-                        string code1 = string.Empty;
-                        switch (staffElement.Beat) {
-                            case BeatValues.Beat: {                                    
-                                    code1 = "1,0,0,0,0,0,1,0,0,0,0,0";
-                                    break;
-                                }
-                            case BeatValues.Empty: {
-                                    code1 = "2,0,0,0,0,0,0,0,0,0,0,0";
-                                    break;
-                                }
-                            case BeatValues.Light: {
-                                    code1 = "2,0,0,1,0,0,2,0,0,1,0,0";
-                                    break;
-                                }
-                            case BeatValues.Complement: {
-                                    code1 = "1,0,0,1,1,1,1,0,0,1,0,0";
-                                    break;
-                                }
-                        }
-
-                        var r1 = new RhythmicStructure(rsystem, code1);
-                        r1.DetermineBehavior();
-                        stn.RhythmicStructure = r1;
+                        stn.RhythmicStructure = staffElement.RhythmicStructure;
 
                         //// this.BuildMelodicPlan(this.Header, zone, stn);
                         stn.Voice = (byte)line.LineIndex;
@@ -318,23 +311,29 @@ namespace LargoModeler
 
             block.ConvertStripToBody(true);
 
-            foreach (var mbar in block.Body.Bars) {
-                var harStructure = this.PanelMusicalHarmony.GenNextHarmonicStructure();
-                if (harStructure == null) {
-                    return;
-                }
-
-                harStructure.BitFrom = 0;
-                harStructure.Length = this.Header.System.HarmonicOrder;
-                var harBar = new HarmonicBar(0, 0);
-                harBar.AddStructure(harStructure);
-                var harmonicBar = new HarmonicBar(this.Header, harBar);
-                mbar.SetHarmonicBar(harmonicBar);
+            foreach (var staffBar in this.StaffBars) {
+                var mbar = block.Body.Bars[staffBar.Number-1];
+                mbar.SetHarmonicBar(staffBar.HarmonicBar);
             }
 
-            //// var listHarmony = KitFactory.Singleton.GetHarmony();
-            //// this.BuildHarmony(this.Header, block, listHarmony);
-            this.ExportAndPlay(this.Header, block);
+                /*
+                foreach (var mbar in block.Body.Bars) {
+                    var harStructure = this.PanelMusicalHarmony.GenNextHarmonicStructure();
+                    if (harStructure == null) {
+                        return;
+                    }
+
+                    harStructure.BitFrom = 0;
+                    harStructure.Length = this.Header.System.HarmonicOrder;
+                    var harBar = new HarmonicBar(0, 0);
+                    harBar.AddStructure(harStructure);
+                    var harmonicBar = new HarmonicBar(this.Header, harBar);
+                    mbar.SetHarmonicBar(harmonicBar);
+                }*/
+
+                //// var listHarmony = KitFactory.Singleton.GetHarmony();
+                //// this.BuildHarmony(this.Header, block, listHarmony);
+                this.ExportAndPlay(this.Header, block);
         }
 
         /// <summary>
@@ -355,6 +354,14 @@ namespace LargoModeler
             var name = header.FileName + (this.InternalNumber++).ToString();
             var path = @"C:\temp"; //// ConductorSettings.Singleton.PathToInternalStream;
             this.MusicPort.WriteMusicFile(bundle, Path.Combine(path, name + ".mif"));
+            bool playOnline = true;
+            MusicalPlayer.Play(block, playOnline);
+        }
+
+        private void Refresh(object sender, RoutedEventArgs e)
+        {
+            this.RefreshBoard();
+            this.RefreshBars();
         }
     }
 }

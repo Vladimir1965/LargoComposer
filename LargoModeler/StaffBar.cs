@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LargoSharedClasses.Music;
+using System.Collections.Generic;
 
 namespace LargoModeler
 {
@@ -7,14 +8,33 @@ namespace LargoModeler
         public StaffBar(int givenNumber)
         {
             this.Number = givenNumber;
-            this.Harmony = string.Empty;
-            this.Shape = string.Empty;
             this.Length = 1;
         }
 
         public int Number { get; set; }
-        public string Harmony { get; set; }
-        public string Shape { get; set; }
+
+        public string Harmony {
+            get {
+                if (this.HarmonicBar == null) {
+                    return string.Empty;
+                }
+
+                return this.HarmonicBar.ChordsToString;
+            }
+        }
+
+        public HarmonicBar HarmonicBar { get; set; }
+
+        public string Shape {
+            get {
+                if (this.HarmonicBar?.RhythmicShape == null) {
+                    return string.Empty;
+                }
+
+                return this.HarmonicBar.RhythmicShape.DistanceSchema;
+            }
+        }
+
         public byte Length { get; set; }
     }
 }
