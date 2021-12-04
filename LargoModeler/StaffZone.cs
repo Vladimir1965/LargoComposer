@@ -13,6 +13,7 @@ namespace LargoModeler
             this.OrchestraValue = OrchestraValues.Piano;
             this.Lines = 2;
             this.staffElements = new List<StaffElement>(); //// ObservableCollection
+            this.Loudness = MusicalLoudness.MeanLoudness;
         }
 
         public OrchestraValues OrchestraValue { get; set; }

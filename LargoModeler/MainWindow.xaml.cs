@@ -269,6 +269,8 @@ namespace LargoModeler
                     status.Loudness = staffZone.Loudness; //// line.MainVoice.Loudness;
                     //// status.Instrument = line.MainVoice.Instrument;
                     status.OrchestraUnit = staffZone.Orchestra;
+                    status.LineType = MusicalLineType.Melodic;
+                    status.LocalPurpose = LinePurpose.Composed;
 
                     foreach (var staffBar in this.StaffBars) {
                         var staffElement = (from elem in staffZone.staffElements where elem.StaffBar.Number == staffBar.Number select elem).FirstOrDefault();
