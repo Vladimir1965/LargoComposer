@@ -55,6 +55,25 @@
         <Detail:PanelMusicalHarmony x:Name="PanelMusicalHarmony" HorizontalAlignment="Left" Height="49" Margin="352,11,0,0" 
                                     VerticalAlignment="Top" Width="406"/>
 
+        <Menu Grid.Column="0" Name="MenuEdit2"  Height="26" Width="134" FlowDirection="LeftToRight"
+                      x:FieldModifier="private" 
+                VerticalAlignment="Top" HorizontalAlignment="Left" Margin="1002,51,0,0"  ToolTip="Open side panel" RenderTransformOrigin="0.5,0.5" >
+            <Menu.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.214"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Menu.RenderTransform>
+
+            <MenuItem Header="Orchestra" Click="ViewPanel" Tag="9" >
+                <MenuItem.Icon>
+                    <Image Source="pack://application:,,,/LargoSharedControls;component/Images/icon_orchestra.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+
         <DataGrid  x:Name ="dataGridBars" VerticalAlignment="Stretch" 
 			    AutoGenerateColumns="False" Margin="3,92,0,4" HorizontalAlignment="Left" Width="320" SelectionChanged="dataGridBars_SelectionChanged" >
             <DataGrid.Columns>
@@ -75,17 +94,18 @@
         </DataGrid>
 
         <DataGrid x:Name="dataGridZones" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                  Margin="330,92,322,75" AutoGenerateColumns="False" SelectionChanged="dataGridZones_SelectionChanged">
+                  Margin="330,92,441,75" AutoGenerateColumns="False" SelectionChanged="dataGridZones_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="100" />
-                <DataGridComboBoxColumn Header="Orchestra" Width="150" SelectedItemBinding="{Binding OrchestraValue}" 
-                     ItemsSource="{Binding Source={StaticResource OrchestraValues}}" />
+                <DataGridTextColumn Header="Orchestra" Binding="{Binding OrchestraName}" Width="100" />
+                <!-- <DataGridComboBoxColumn Header="Orchestra" Width="150" SelectedItemBinding="{Binding OrchestraValue}" 
+                     ItemsSource="{Binding Source={StaticResource OrchestraValues}}" /> -->
                 <DataGridTextColumn Header="Lines" Binding="{Binding Voices}" Width="70" />
             </DataGrid.Columns>
         </DataGrid>
 
         <DataGrid x:Name="dataGridElements" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                  Margin="663,92,83,78" AutoGenerateColumns="False">
+                  Margin="724,92,22,78" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridComboBoxColumn Header="Beat" Width="150" SelectedItemBinding="{Binding Beat}" 
                      ItemsSource="{Binding Source={StaticResource BeatValues}}" />
@@ -104,7 +124,7 @@
                 Width="28" HorizontalAlignment="Left" >
             <Image Source="/LargoSharedControls;component/Images/button_play.png" />
         </Button>
-        
+
         <Button Content="Refresh" HorizontalAlignment="Left" Margin="802,12,0,0" VerticalAlignment="Top" Width="75" Click="Refresh"/>
     </Grid>
 </Window>

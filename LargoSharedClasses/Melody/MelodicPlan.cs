@@ -18,6 +18,7 @@ namespace LargoSharedClasses.Melody
     /// <summary> A melodic plan. </summary>
     public class MelodicPlan
     {
+        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="MelodicPlan"/> class.
         /// </summary>
@@ -54,6 +55,7 @@ namespace LargoSharedClasses.Melody
 
             this.PlannedTones = ms;
         }
+        #endregion
 
         /// <summary> Gets or sets complete list of all planed tones for musical part. </summary>
         /// <value> Property description. </value>

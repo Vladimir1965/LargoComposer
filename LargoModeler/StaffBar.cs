@@ -5,11 +5,13 @@ namespace LargoModeler
 {
     public class StaffBar
     {
+        #region Constructors
         public StaffBar(int givenNumber)
         {
             this.Number = givenNumber;
             this.Length = 1;
         }
+        #endregion
 
         public int Number { get; set; }
 

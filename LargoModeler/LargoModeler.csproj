@@ -127,6 +127,14 @@
       <Project>{ae2364cd-4ad4-4254-8583-d9d52a0bab60}</Project>
       <Name>ConductorPanels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EditorPanels\EditorPanels.csproj">
+      <Project>{41abed79-4ae2-457c-8b66-7a732358ce8e}</Project>
+      <Name>EditorPanels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EditorWindows\EditorWindows.csproj">
+      <Project>{e75deff6-a09e-4404-a00b-e3f66b947651}</Project>
+      <Name>EditorWindows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LargoSharedClasses\LargoSharedClasses.csproj">
       <Project>{17701162-cef6-4450-a7f7-134931fff835}</Project>
       <Name>LargoSharedClasses</Name>

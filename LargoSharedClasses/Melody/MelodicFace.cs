@@ -16,6 +16,7 @@ namespace LargoSharedClasses.Melody
     /// <summary> A melodic face. </summary>
     public class MelodicFace
     {
+        #region Constructors
         /// <summary> Initializes a new instance of the <see cref="MelodicFace" /> class. </summary>
         public MelodicFace() {
         }
@@ -46,6 +47,7 @@ namespace LargoSharedClasses.Melody
             this.MelodicDirection = givenDirection;
             this.DetermineName();
         }
+        #endregion
 
         /// <summary> Gets or sets the name. </summary>
         /// <value> The name. </value>

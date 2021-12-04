@@ -5,18 +5,24 @@ namespace LargoModeler
 {
     public class StaffElement
     {
+        #region Constructors
         public StaffElement(StaffZone givenStaffZone, StaffBar givenStaffBar, BeatValues givenBeat)
         {
             this.StaffZone = givenStaffZone;
             this.StaffBar = givenStaffBar;
             this.Beat = givenBeat;
         }
+        #endregion
 
+        #region Properties
         public StaffZone StaffZone { get; set; }
+
         public StaffBar StaffBar { get; set; }
+
         public BeatValues Beat { get; set; }
 
         public RhythmicStructure RhythmicStructure { get; set; }
+        #endregion
 
         public void DetermineRhythm(RhythmicSystem givenRhythmicSystem)
         {

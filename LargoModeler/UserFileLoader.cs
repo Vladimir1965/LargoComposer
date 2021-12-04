@@ -6,6 +6,7 @@
 // <date>2021-09-01</date>
 // <summary>Part of Largo Composer</summary>
 
+using EditorWindows;
 using LargoSharedClasses.Settings;
 using LargoSharedClasses.Support;
 using LargoSharedWindows;
@@ -85,6 +86,12 @@ namespace LargoModeler
             if (objType.AssemblyQualifiedName != null) {
                 var assemblyQualifiedName = objType.AssemblyQualifiedName.Replace("InherentException", "#WCLASSNAME");
                 WindowManager.LargoSharedAssemblyName = assemblyQualifiedName;
+            }
+
+            objType = typeof(SideInstrumentWindow);
+            if (objType.AssemblyQualifiedName != null) {
+                var assemblyQualifiedName = objType.AssemblyQualifiedName.Replace("SideInstrumentWindow", "#WCLASSNAME");
+                WindowManager.EditorWindowsAssemblyName = assemblyQualifiedName;
             }
 
             if (mainObjType.AssemblyQualifiedName != null) {

@@ -20,6 +20,7 @@ namespace LargoSharedClasses.Orchestra
     /// </summary>
     public class OrchestraUnit
     {
+        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="OrchestraUnit"/> class.
         /// </summary>
@@ -62,6 +63,7 @@ namespace LargoSharedClasses.Orchestra
                 }
             }
         }
+        #endregion
 
         #region Properties - Xml
         /// <summary> Gets Xml representation. </summary>
@@ -153,5 +155,14 @@ namespace LargoSharedClasses.Orchestra
                 this.ListVoices.Add(voice4);
             }
         }
+
+        #region String representation
+        /// <summary> String representation of the object. </summary>
+        /// <returns> Returns value. </returns>
+        public override string ToString()
+        {
+            return this.Name;
+        }
+        #endregion
     }
 }

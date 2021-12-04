@@ -1,4 +1,5 @@
-﻿using LargoSharedClasses.Abstract;
+﻿using EditorWindows;
+using LargoSharedClasses.Abstract;
 using LargoSharedClasses.Composer;
 using LargoSharedClasses.Interfaces;
 using LargoSharedClasses.Localization;
@@ -31,7 +32,7 @@ namespace LargoModeler
                 return;
             }
 
-            //// UserFileLoader.Singleton.LoadWindowManager("LargoModeler", "MainWindow", typeof(MainWindow));
+            UserFileLoader.Singleton.LoadWindowManager("LargoModeler", "MainWindow", typeof(MainWindow));
             var path = MusicalSettings.Singleton.Folders.GetFolder(MusicalFolder.InternalData);
             PortCatalogs.Singleton.ReadXmlFiles(path);
 
@@ -150,6 +151,9 @@ namespace LargoModeler
             }
         }
 
+        /// <summary>
+        /// Refreshes the bars.
+        /// </summary>
         private void RefreshBars()
         {
             this.StaffBars = new List<StaffBar>(); //// ObservableCollection
@@ -194,9 +198,12 @@ namespace LargoModeler
         {
             this.StaffZones = new List<StaffZone>(); //// ObservableCollection
             var zone1 = new StaffZone("Bas");
+            zone1.OrchestraUnit = PortCatalogs.Singleton.OrchestraEssence[3]; // li
+
             this.StaffZones.Add(zone1);
 
-            var zone2 = new StaffZone("Sopran");           
+            var zone2 = new StaffZone("Sopran");
+            zone2.OrchestraUnit = PortCatalogs.Singleton.OrchestraEssence[4]; // li
             this.StaffZones.Add(zone2);
 
             /// this.dataGrid1.DataContext = Records;
@@ -210,6 +217,11 @@ namespace LargoModeler
         {
         }
 
+        /// <summary>
+        /// Plays the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Play(object sender, RoutedEventArgs e)
         {
             this.ToMusic(null, null);
@@ -274,9 +286,8 @@ namespace LargoModeler
                     strip.AddLine(line, true);
 
                     staffZone.Status = new LineStatus();
-                    staffZone.Orchestra = PortCatalogs.Singleton.OrchestraEssence[li];
-                    if (staffZone.Orchestra != null && lineNumInZone < staffZone.Orchestra.ListVoices.Count) {
-                        line.MainVoice = staffZone.Orchestra.ListVoices[lineNumInZone];
+                    if (staffZone.OrchestraUnit != null && lineNumInZone < staffZone.OrchestraUnit.ListVoices.Count) {
+                        line.MainVoice = staffZone.OrchestraUnit.ListVoices[lineNumInZone];
                         line.Voices = new List<IAbstractVoice> { line.MainVoice };
                         //// line.MainVoice.Channel = strip.FindFreeChannel(line.LineIndex);
                     }
@@ -285,7 +296,7 @@ namespace LargoModeler
                     status.Octave = line.MainVoice.Octave;
                     status.Loudness = staffZone.Loudness; //// line.MainVoice.Loudness;
                     //// status.Instrument = line.MainVoice.Instrument;
-                    status.OrchestraUnit = staffZone.Orchestra;
+                    status.OrchestraUnit = staffZone.OrchestraUnit;
                     status.LineType = MusicalLineType.Melodic;
                     status.LocalPurpose = LinePurpose.Composed;
 
@@ -358,10 +369,20 @@ namespace LargoModeler
             MusicalPlayer.Play(block, playOnline);
         }
 
+        /// <summary>
+        /// Refreshes the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Refresh(object sender, RoutedEventArgs e)
         {
             this.RefreshBoard();
             this.RefreshBars();
+        }
+
+        private void ViewPanel(object sender, RoutedEventArgs e)
+        {
+            UserWindows.Singleton.ViewPanel(9);
         }
     }
 }
