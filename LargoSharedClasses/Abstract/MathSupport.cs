@@ -148,7 +148,7 @@ namespace LargoSharedClasses.Abstract {
         }
 
         /// <summary>
-        /// Returns random correction, aRandomEffect 0-1. 
+        /// Returns random integer from 0 to limit-1. 
         /// </summary>
         /// <param name="limit">Upper limit.</param>
         /// <returns> Returns value. </returns>

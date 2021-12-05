@@ -42,7 +42,15 @@ namespace LargoModeler
                         break;
                     }
                 case BeatValues.Complement: {
-                        code1 = "1,0,0,1,1,1,1,0,0,1,0,0";
+                        code1 = "1,0,0,1,1,1,1,0,0,1,1,1";
+                        break;
+                    }
+                case BeatValues.Full: {
+                        code1 = "1,1,1,1,1,1,1,1,1,1,1,1";
+                        break;
+                    }
+                case BeatValues.Syncopic: {
+                        code1 = "1,0,0,1,0,0,0,0,0,1,0,0";
                         break;
                     }
             }

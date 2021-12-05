@@ -4,6 +4,7 @@ using LargoSharedClasses.Composer;
 using LargoSharedClasses.Interfaces;
 using LargoSharedClasses.Localization;
 using LargoSharedClasses.Music;
+using LargoSharedClasses.Orchestra;
 using LargoSharedClasses.Port;
 using LargoSharedClasses.Rhythm;
 using LargoSharedClasses.Settings;
@@ -42,6 +43,7 @@ namespace LargoModeler
 
             this.BodyComposer = new BodyComposer();
             this.MusicPort = PortAbstract.CreatePort(MusicalSourceType.MIFI);
+            this.MidiPort = PortAbstract.CreatePort(MusicalSourceType.MIDI);
 
             this.Header = MusicalHeader.GetDefaultMusicalHeader;
             this.Header.FileName = "Test-Modeler";
@@ -58,6 +60,7 @@ namespace LargoModeler
 
             //// SharedWindows.Singleton.SideHarmonicModality(null, null);
             //// SharedWindows.Singleton.SideRhythmicModality(null, null);
+            this.AssignEventHandlers();
         }
 
         #region Properties
@@ -100,6 +103,14 @@ namespace LargoModeler
         /// The music port.
         /// </value>
         private PortAbstract MusicPort { get; }
+
+        /// <summary>
+        /// Gets the midi port.
+        /// </summary>
+        /// <value>
+        /// The midi port.
+        /// </value>
+        private PortAbstract MidiPort { get; }
 
         /// <summary>
         /// Gets the body composer.
@@ -157,7 +168,7 @@ namespace LargoModeler
         private void RefreshBars()
         {
             this.StaffBars = new List<StaffBar>(); //// ObservableCollection
-            for (int barNumber = 1; barNumber <= 8; barNumber++) {
+            for (int barNumber = 1; barNumber <= 16; barNumber++) {
                 var bar = new StaffBar(barNumber);
 
                 var harStructure = this.PanelMusicalHarmony.GenNextHarmonicStructure();
@@ -167,7 +178,7 @@ namespace LargoModeler
 
                 harStructure.BitFrom = 0;
                 harStructure.Length = this.Header.System.HarmonicOrder;
-                
+
                 var harBar = new HarmonicBar(0, 0);
                 harBar.AddStructure(harStructure);
                 var harmonicBar = new HarmonicBar(this.Header, harBar);
@@ -178,7 +189,14 @@ namespace LargoModeler
 
             foreach (var bar in this.StaffBars) {
                 foreach (var zone in this.StaffZones) {
-                    var staffElement = new StaffElement(zone, bar, (zone.Name == "Bas") ? BeatValues.Beat : BeatValues.Light);
+                    var r = MathSupport.RandomNatural(6);
+                    var beat =  (r == 0) ? BeatValues.Beat : 
+                                (r == 1) ? BeatValues.Light :
+                                (r == 2) ? BeatValues.Complement :
+                                (r == 3) ? BeatValues.Syncopic :
+                                (r == 4) ? BeatValues.Empty :
+                                BeatValues.Full;
+                    var staffElement = new StaffElement(zone, bar, beat);
                     var rsystem = this.Header.System.RhythmicSystem;
                     staffElement.DetermineRhythm(rsystem);
                     zone.staffElements.Add(staffElement);
@@ -196,39 +214,25 @@ namespace LargoModeler
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.PrepareZones();
+        }
+
+        private void PrepareZones()
+        {
             this.StaffZones = new List<StaffZone>(); //// ObservableCollection
             var zone1 = new StaffZone("Bas");
             zone1.OrchestraUnit = PortCatalogs.Singleton.OrchestraEssence[3]; // li
-
             this.StaffZones.Add(zone1);
 
-            var zone2 = new StaffZone("Sopran");
+            var zone2 = new StaffZone("Tenor");
             zone2.OrchestraUnit = PortCatalogs.Singleton.OrchestraEssence[4]; // li
             this.StaffZones.Add(zone2);
 
-            /// this.dataGrid1.DataContext = Records;
+            var zone3 = new StaffZone("Sopran");
+            zone3.OrchestraUnit = PortCatalogs.Singleton.OrchestraEssence[5]; // li
+            this.StaffZones.Add(zone3);
+
             this.dataGridZones.ItemsSource = this.StaffZones;
-            //// var staffZones = new List<StaffZone>(); //// ObservableCollection
-            //// this.dataGrid1.DataContext = Records;
-            //// this.dataGridZones.ItemsSource = staffZones;
-        }
-
-        private void Save(object sender, RoutedEventArgs e)
-        {
-        }
-
-        /// <summary>
-        /// Plays the specified sender.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        private void Play(object sender, RoutedEventArgs e)
-        {
-            this.ToMusic(null, null);
-        }
-
-        private void NumberOfBarsChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
         }
 
         /// <summary>
@@ -246,18 +250,10 @@ namespace LargoModeler
                 return;
             }
 
-            var elements = from elem in staffZone.staffElements where elem.StaffBar.Number == staffBar.Number select elem;
+            var elements = from elem in staffZone.staffElements 
+                           where elem.StaffBar.Number == staffBar.Number 
+                           select elem;
             this.dataGridElements.ItemsSource = elements.ToList();
-        }
-
-        private void dataGridZones_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            this.DisplaySelectedElements();
-        }
-
-        private void dataGridBars_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            this.DisplaySelectedElements();
         }
 
         /// <summary>
@@ -301,7 +297,9 @@ namespace LargoModeler
                     status.LocalPurpose = LinePurpose.Composed;
 
                     foreach (var staffBar in this.StaffBars) {
-                        var staffElement = (from elem in staffZone.staffElements where elem.StaffBar.Number == staffBar.Number select elem).FirstOrDefault();
+                        var staffElement = (from elem in staffZone.staffElements 
+                                            where elem.StaffBar.Number == staffBar.Number 
+                                            select elem).FirstOrDefault();
                         var stn = (LineStatus)status.Clone();
                         stn.BarNumber = staffBar.Number;
                         line.StatusList.Add(stn);
@@ -327,24 +325,7 @@ namespace LargoModeler
                 mbar.SetHarmonicBar(staffBar.HarmonicBar);
             }
 
-                /*
-                foreach (var mbar in block.Body.Bars) {
-                    var harStructure = this.PanelMusicalHarmony.GenNextHarmonicStructure();
-                    if (harStructure == null) {
-                        return;
-                    }
-
-                    harStructure.BitFrom = 0;
-                    harStructure.Length = this.Header.System.HarmonicOrder;
-                    var harBar = new HarmonicBar(0, 0);
-                    harBar.AddStructure(harStructure);
-                    var harmonicBar = new HarmonicBar(this.Header, harBar);
-                    mbar.SetHarmonicBar(harmonicBar);
-                }*/
-
-                //// var listHarmony = KitFactory.Singleton.GetHarmony();
-                //// this.BuildHarmony(this.Header, block, listHarmony);
-                this.ExportAndPlay(this.Header, block);
+            this.ExportAndPlay(this.Header, block);
         }
 
         /// <summary>
@@ -357,6 +338,7 @@ namespace LargoModeler
             BlockComposer blockComposer = new BlockComposer {
                 ComposedBlock = block
             };
+
             blockComposer.PrepareLinesForComposition();
             this.BodyComposer.ComposeMusic(block.Body);
             blockComposer.ComposedBlock.ConvertBodyToStrip(true, true);
@@ -364,7 +346,8 @@ namespace LargoModeler
             var bundle = MusicalBundle.GetEnvelopeOfBlock(block, "Kit");
             var name = header.FileName + (this.InternalNumber++).ToString();
             var path = @"C:\temp"; //// ConductorSettings.Singleton.PathToInternalStream;
-            this.MusicPort.WriteMusicFile(bundle, Path.Combine(path, name + ".mif"));
+            this.MusicPort.WriteMusicFile(bundle, Path.Combine(path, name + ".mifi"));
+            this.MidiPort.WriteMusicFile(bundle, Path.Combine(path, name + ".midi"));
             bool playOnline = true;
             MusicalPlayer.Play(block, playOnline);
         }
@@ -380,9 +363,96 @@ namespace LargoModeler
             this.RefreshBars();
         }
 
+        /// <summary>
+        /// Views the panel.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void ViewPanel(object sender, RoutedEventArgs e)
         {
             UserWindows.Singleton.ViewPanel(9);
         }
+
+        #region Drag-Drop
+        /// <summary>
+        /// Drops the image.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.Windows.DragEventArgs"/> instance containing the event data.</param>
+        private void DropImage(object sender, DragEventArgs e)
+        {
+            //// e.Data.GetDataPresent("RhythmicStructure") ||
+            bool handled = false, ok = false;
+            var exists = !handled && e.Data.GetDataPresent("OrchestraUnit");
+            if (exists) {
+                var staffZone = this.dataGridZones.SelectedItem as StaffZone;
+                if (staffZone == null) {
+                    return;
+                }
+
+                if (staffZone != null) {
+                    if (e.Data.GetData("OrchestraUnit") is OrchestraUnit orchestraUnit) {
+                        ok = true;
+                        staffZone.OrchestraUnit = orchestraUnit;
+                        this.dataGridZones.ItemsSource = null;
+                        this.dataGridZones.ItemsSource = this.StaffZones;
+                    }
+                }
+
+                e.Handled = ok;
+            }
+        }
+        #endregion
+
+        #region Private methods - Others
+
+        /// <summary>
+        /// Plays the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        private void Play(object sender, RoutedEventArgs e)
+        {
+            this.ToMusic(null, null);
+        }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void NumberOfBarsChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+        }
+
+        /// <summary>
+        /// Assigns the event handlers.
+        /// </summary>
+        private void AssignEventHandlers()
+        {
+            this.AllowDrop = true;
+            this.Drop += this.DropImage;
+        }
+
+        /// <summary>
+        /// Handles the SelectionChanged event of the dataGridZones control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
+        private void dataGridZones_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            this.DisplaySelectedElements();
+        }
+
+        /// <summary>
+        /// Handles the SelectionChanged event of the dataGridBars control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
+        private void dataGridBars_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            this.DisplaySelectedElements();
+        }
+        #endregion
+
     }
 }
