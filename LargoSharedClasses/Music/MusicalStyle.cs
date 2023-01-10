@@ -29,7 +29,8 @@ namespace LargoSharedClasses.Music
         /// <summary>
         /// Initializes a new instance of the <see cref="MusicalStyle" /> class.
         /// </summary>
-        public MusicalStyle() {
+        public MusicalStyle()
+        {
             this.RhythmicPatterns = new List<RhythmicPattern>();
             this.MelodicPatterns = new List<MelodicPattern>();
             this.RhythmicStructures = new List<RhythmicStructure>();
@@ -39,13 +40,12 @@ namespace LargoSharedClasses.Music
         /// Initializes a new instance of the <see cref="MusicalStyle"/> class.
         /// </summary>
         /// <param name="givenBlock">The given block.</param>
-        public MusicalStyle(MusicalBlock givenBlock) {
+        public MusicalStyle(MusicalBlock givenBlock)
+        {
             this.ObjectName = givenBlock.Header.FullName;
             this.Header = givenBlock.Header;
-            this.RhythmicPatterns = givenBlock.RhythmicPatterns;
-            this.MelodicPatterns = givenBlock.MelodicPatterns;
-
-            //// var body = givenBlock.Body;
+            this.LoadMelodicPatternsOfBlock(givenBlock);
+            this.LoadRhythmicPatternsOfBlock(givenBlock);
         }
         #endregion
 
@@ -66,6 +66,10 @@ namespace LargoSharedClasses.Music
         /// </value>
         public string ObjectName { get; set; }
 
+        public IList<MelodicPattern> MelodicPatterns { get; set; }
+
+        public IList<RhythmicPattern> RhythmicPatterns { get; set; }
+
         /// <summary>
         /// Gets a value indicating whether is valid.
         /// </summary>
@@ -74,22 +78,6 @@ namespace LargoSharedClasses.Music
         /// </value>
         [UsedImplicitly]
         public bool IsValid => this.MelodicPatterns.Any();
-
-        /// <summary>
-        /// Gets or sets The harmonic streams.
-        /// </summary>
-        /// <value>
-        /// The rhythmic patterns.
-        /// </value>
-        public IList<RhythmicPattern> RhythmicPatterns { get; set; }
-
-        /// <summary>
-        /// Gets or sets The harmonic streams.
-        /// </summary>
-        /// <value>
-        /// The melodic patterns.
-        /// </value>
-        public IList<MelodicPattern> MelodicPatterns { get; set; }
 
         /// <summary>
         /// Gets or sets the rhythmic structures.
@@ -112,7 +100,8 @@ namespace LargoSharedClasses.Music
         /// The get rhythmic structures.
         /// </value>
         [UsedImplicitly]
-        public IList<RhythmicStructure> GetRhythmicStructures(bool justSelected) {
+        public IList<RhythmicStructure> GetRhythmicStructures(bool justSelected)
+        {
             var rhyStructures = new List<RhythmicStructure>(); //// style.RhythmicStructures;
 
             foreach (var p in this.RhythmicPatterns) {
@@ -134,7 +123,8 @@ namespace LargoSharedClasses.Music
         #region String representation
         /// <summary> String representation of the object. </summary>
         /// <returns> Returns value. </returns>
-        public override string ToString() {
+        public override string ToString()
+        {
             var s = new StringBuilder();
             s.AppendFormat("Style {0}", this.ObjectName);
 
@@ -149,7 +139,8 @@ namespace LargoSharedClasses.Music
         /// </summary>
         /// <param name="style">The style.</param>
         [UsedImplicitly]
-        public void AddObjectContent(MusicalStyle style) {
+        public void AddObjectContent(MusicalStyle style)
+        {
             //// this = style.HarmonicOrder;  this.RhythmicOrder = style.RhythmicOrder; //// ??????? 
             var mp = (List<MelodicPattern>)this.MelodicPatterns;
             mp.AddRange(style.MelodicPatterns);
@@ -166,7 +157,8 @@ namespace LargoSharedClasses.Music
         /// </summary>
         /// <param name="givenFolder">The given folder.</param>
         [UsedImplicitly]
-        public void SaveToFolder(string givenFolder) {
+        public void SaveToFolder(string givenFolder)
+        {
             var tmpFolderPath = SupportFiles.GetTemporaryDirectory;
             Directory.CreateDirectory(tmpFolderPath);
             XElement xcomponent = new XElement(
@@ -212,7 +204,8 @@ namespace LargoSharedClasses.Music
         /// <param name="givenFilePath">The given file path.</param>
         /// <returns>Returns value.</returns>
         [UsedImplicitly]
-        private static MusicalStyle GetStyle(string givenFilePath) {
+        private static MusicalStyle GetStyle(string givenFilePath)
+        {
             var style = new MusicalStyle();
             var fileName = Path.GetFileNameWithoutExtension(givenFilePath);
             if (fileName == null) {
@@ -266,7 +259,8 @@ namespace LargoSharedClasses.Music
         /// Loads the melodic patterns.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        private void LoadMelodicPatterns(string filePath) {
+        private void LoadMelodicPatterns(string filePath)
+        {
             var root = XmlSupport.GetXDocRoot(filePath);
             if (root != null && root.Name == "MelodicPatterns") {
                 var xbundle = root;
@@ -287,7 +281,8 @@ namespace LargoSharedClasses.Music
         /// Loads the rhythmic patterns.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        private void LoadRhythmicPatterns(string filePath) {
+        private void LoadRhythmicPatterns(string filePath)
+        {
             var root = XmlSupport.GetXDocRoot(filePath);
             if (root != null && root.Name == "RhythmicPatterns") {
                 var xbundle = root;
@@ -308,7 +303,8 @@ namespace LargoSharedClasses.Music
         /// Loads the rhythmic structures.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        private void LoadRhythmicStructures(string filePath) {
+        private void LoadRhythmicStructures(string filePath)
+        {
             var root = XmlSupport.GetXDocRoot(filePath);
             if (root != null && root.Name == "RhythmicStructures") {
                 var xbundle = root;
@@ -329,13 +325,58 @@ namespace LargoSharedClasses.Music
 
         #endregion
 
+        #region Pattern - Load from block
+        /// <summary>
+        /// Gets the melodic patterns.
+        /// </summary>
+        /// <value>
+        /// The melodic patterns.
+        /// </value>
+        private void LoadMelodicPatternsOfBlock(MusicalBlock givenBlock)
+        {
+            var body = givenBlock.Body;
+            var list = new List<MelodicPattern>();
+
+            foreach (var bar in body.Bars) {
+                var pattern = new MelodicPattern(givenBlock.Header, bar) { SetName = givenBlock.Header.FullName };
+                if (!pattern.IsEmpty && !pattern.ExistsInPatterns(list)) {
+                    list.Add(pattern);
+                }
+            }
+
+            this.MelodicPatterns = list;
+        }
+
+        /// <summary>
+        /// Gets the rhythmic patterns.
+        /// </summary>
+        /// <value>
+        /// The rhythmic patterns.
+        /// </value>
+        public void LoadRhythmicPatternsOfBlock(MusicalBlock givenBlock)
+        {
+            var body = givenBlock.Body;
+            var list = new List<RhythmicPattern>();
+
+            foreach (var bar in body.Bars) {
+                var pattern = new RhythmicPattern(givenBlock.Header, bar) { SetName = givenBlock.Header.FullName };
+                if (!pattern.IsEmpty && !pattern.ExistsInPatterns(list)) {
+                    list.Add(pattern);
+                }
+            }
+
+            this.RhythmicPatterns = list;
+        }
+        #endregion
+
         #region Private methods - Save final
 
         /// <summary>
         /// Writes the melodic patterns.
         /// </summary>
         /// <returns>Returns value.</returns>
-        private XElement WriteMelodicPatterns() {
+        private XElement WriteMelodicPatterns()
+        {
             XElement xpatterns = new XElement(
                 "MelodicPatterns",
                 new XAttribute("Description", string.Empty));
@@ -352,7 +393,8 @@ namespace LargoSharedClasses.Music
         /// Writes the rhythmic patterns.
         /// </summary>
         /// <returns>Returns value.</returns>
-        private XElement WriteRhythmicPatterns() {
+        private XElement WriteRhythmicPatterns()
+        {
             XElement xpatterns = new XElement(
                 "RhythmicPatterns",
                 new XAttribute("Description", string.Empty));
@@ -369,7 +411,8 @@ namespace LargoSharedClasses.Music
         /// Writes the rhythmic structures.
         /// </summary>
         /// <returns>Returns value.</returns>
-        private XElement WriteRhythmicStructures() {
+        private XElement WriteRhythmicStructures()
+        {
             XElement xstructures = new XElement(
                 "RhythmicStructures",
                 new XAttribute("Description", string.Empty));

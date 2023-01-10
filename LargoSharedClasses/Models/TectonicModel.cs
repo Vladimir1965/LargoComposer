@@ -67,7 +67,7 @@ namespace LargoSharedClasses.Models
             model.Header = musicalBlock.Header;
 
             ProcessLogger.Singleton.SendMessageEvent(null, LocalizedMusic.String("Analyzing tempo..."), 0); //// musicalBlock.Name
-            var tempoChanges = musicalBlock.AnalyzeTempoChanges();
+            var tempoChanges = musicalBlock.Body.AnalyzeTempoChanges();
             tempoChanges.ForAll(change => model.BlockChanges.Changes.Add(change));
 
             //// 2016 this.Body.MakeBars(model.Header.NumberOfBars, this.Header);    model.SourceMusicalBlock.NumberOfBars

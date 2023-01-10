@@ -5,7 +5,6 @@ C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\bin\Debug\en\LargoShar
 C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\bin\Debug\it\LargoSharedClasses.resources.dll
 C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\bin\Debug\JetBrains.Annotations.dll
 C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\bin\Debug\JetBrains.Annotations.xml
-C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.csprojAssemblyReference.cache
 C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.Localization.BaseControls.resources
 C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.Localization.BaseMusic.resources
 C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.Localization.Localized.resources
@@ -24,3 +23,5 @@ C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\it\LargoShar
 C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.csproj.CopyComplete
 C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.dll
 C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.pdb
+C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.csproj.AssemblyReference.cache
+C:\Private\SOLUTIONS-GIT\LargoComposer\LargoSharedClasses\obj\Debug\LargoSharedClasses.csproj.CoreCompileInputs.cache

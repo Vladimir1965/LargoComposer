@@ -33,7 +33,7 @@ namespace LargoSharedClasses.Music
     /// Musical file.
     /// </summary>
     [Serializable]
-    public sealed class MusicalBlock : MusicalContent
+    public sealed partial class MusicalBlock : MusicalContent
     {
         #region Fields
         /// <summary>
@@ -226,17 +226,6 @@ namespace LargoSharedClasses.Music
             set => this.strip = value ?? throw new ArgumentException(LocalizedMusic.String("Argument cannot be null."), nameof(value));
         }
 
-        /// <summary> Gets or sets a value indicating whether this object is body status ok. </summary>
-        /// <value> True if this object is body status ok, false if not. </value>
-        [UsedImplicitly]
-        public bool IsBodyStatusOk { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this object is strip status ok.
-        /// </summary>
-        /// <value> True if this object is strip status ok, false if not. </value>
-        public bool IsStripStatusOk { get; set; }
-
         /// <summary>
         /// Gets or sets a value indicating whether [had instrument in tones].
         /// Default value is NO, i.e. instrument are taken from voices.
@@ -333,52 +322,6 @@ namespace LargoSharedClasses.Music
             }
         }
 
-        #region Pattern - properties
-        /// <summary>
-        /// Gets the melodic patterns.
-        /// </summary>
-        /// <value>
-        /// The melodic patterns.
-        /// </value>
-        public IList<MelodicPattern> MelodicPatterns {
-            get {
-                var body = this.Body;
-                var list = new List<MelodicPattern>();
-
-                foreach (var bar in body.Bars) {
-                    var pattern = new MelodicPattern(this.Header, bar) { SetName = this.Header.FullName };
-                    if (!pattern.IsEmpty && !pattern.ExistsInPatterns(list)) {
-                        list.Add(pattern);
-                    }
-                }
-
-                return list;
-            }
-        }
-
-        /// <summary>
-        /// Gets the rhythmic patterns.
-        /// </summary>
-        /// <value>
-        /// The rhythmic patterns.
-        /// </value>
-        public IList<RhythmicPattern> RhythmicPatterns {
-            get {
-                var body = this.Body;
-                var list = new List<RhythmicPattern>();
-
-                foreach (var bar in body.Bars) {
-                    var pattern = new RhythmicPattern(this.Header, bar) { SetName = this.Header.FullName };
-                    if (!pattern.IsEmpty && !pattern.ExistsInPatterns(list)) {
-                        list.Add(pattern);
-                    }
-                }
-
-                return list;
-            }
-        }
-        #endregion
-
         #region Other properties
 
         /// <summary> Gets string with bar details. </summary>
@@ -460,6 +403,7 @@ namespace LargoSharedClasses.Music
             return null;
         }
 
+        /*
         /// <summary>
         /// Prepares the block.
         /// </summary>
@@ -500,7 +444,7 @@ namespace LargoSharedClasses.Music
             //// 2018/10 block.ConvertStripToBody(true);
 
             return block;
-        }
+        } */
 
         /// <summary>
         /// Defaults the block.
@@ -644,28 +588,6 @@ namespace LargoSharedClasses.Music
         }
 
         /// <summary>
-        /// Loads the instruments to lines.
-        /// </summary>
-        public void LoadFirstStatusToLines() {
-            foreach (var line in this.Strip.Lines) {
-                foreach (var bar in this.Body.Bars) {
-                    var point = new MusicalPoint(line.LineIndex, bar.BarNumber);
-                    var element = this.Body.GetElement(point);
-                    if (element?.Status?.Instrument != null && !element.Status.Instrument.IsEmpty) {
-                        line.FirstStatus.Instrument = element.Status.Instrument; //// FixedInstrument
-                        line.CurrentInstrument = line.FirstStatus.Instrument.Number; //// FixedInstrument
-                        line.FirstStatus.LineType = element.Status.LineType;
-                        line.FirstStatus.LocalPurpose = element.Status.LocalPurpose;  //// 2010/12
-                        //// line.FirstStatus.Instrument = new MusicalInstrument(element.Status.InstrumentNumber, element.Status.LineType);
-                        break;
-                    }
-                }
-
-                line.FirstStatus.MelodicVariety = new MusicalVariety(MusicalSettings.Singleton);
-            }
-        }
-
-        /// <summary>
         /// Clones the specified include tones.
         /// </summary>
         /// <param name="cloneTracks">If set to <c>true</c> [clone tracks].</param>
@@ -682,31 +604,6 @@ namespace LargoSharedClasses.Music
 
             block.strip = this.Strip.Clone(includeTones);
             return block;
-        }
-
-        /// <summary>
-        /// Sets the tempo events.
-        /// </summary>
-        /// <param name="givenTempoChanges">The given tempo changes.</param>
-        [UsedImplicitly]
-        public void SetTempoEvents(IEnumerable<TempoChange> givenTempoChanges) {
-            Contract.Requires(givenTempoChanges != null);
-
-            var list = new List<MetaTempo>();
-            var barDivision = MusicalProperties.BarDivision(this.Header.Division, this.Header.Metric.MetricBeat, this.Header.Metric.MetricGround);
-            var barDuration = MusicalProperties.MidiDuration(this.Header.System.RhythmicOrder, this.Header.System.RhythmicOrder, barDivision);
-            // ReSharper disable once LoopCanBePartlyConvertedToQuery
-            foreach (var change in givenTempoChanges) {
-                var barDeltaTime = barDuration * (change.BarNumber - 1);
-                var ev = new MetaTempo(0, 100) {
-                    StartTime = barDeltaTime,
-                    Tempo = change.TempoNumber
-                };  //// 100 is arbitrary number here
-                //// Tempo have to change just before start of bar
-                list.Add(ev);
-            }
-
-            this.Body.TempoEvents = list;
         }
 
         /// <summary>
@@ -754,33 +651,6 @@ namespace LargoSharedClasses.Music
         }
         #endregion
 
-        #region Analysis - Public
-        /// <summary>
-        /// Analyzes the tempo changes.
-        /// </summary>
-        /// <returns> Returns value. </returns>
-        public IEnumerable<TempoChange> AnalyzeTempoChanges() {
-            var changes = new List<TempoChange>();
-            int lastTempoNumber = 0;
-            foreach (var bar in this.Body.Bars) {
-                //// var status = bar.Status; if (status == null) { continue;  }
-
-                if (bar.TempoNumber != lastTempoNumber) {
-                    var tc = new TempoChange(bar.BarNumber) {
-                        TempoNumber = bar.TempoNumber
-                    };
-
-                    changes.Add(tc);
-                }
-
-                lastTempoNumber = bar.TempoNumber;
-            }
-
-            return changes;
-        }
-
-        #endregion
-
         #region Actions - Content changes
 
         /// <summary>
@@ -801,11 +671,8 @@ namespace LargoSharedClasses.Music
         /// </summary>
         /// <param name="area">The area.</param>
         /// <param name="rhythmicStructure">The rhythmic structure.</param>
-        public void Rhythmize(MusicalSection area, RhythmicStructure rhythmicStructure) {                                                        
-            var elements = this.Body.AllElements;
-            foreach (var element in elements) {
-                element.FillWithRhythm(rhythmicStructure, MusicalLoudness.MeanLoudness);
-            }
+        public void Rhythmize(MusicalSection area, RhythmicStructure rhythmicStructure) {
+            this.Body.Rhythmize(area, rhythmicStructure);
         }
 
         /// <summary>
@@ -814,16 +681,7 @@ namespace LargoSharedClasses.Music
         /// <param name="area">The area.</param>
         /// <param name="harmonicModality">The harmonic modality.</param>
         public void Modulate(MusicalSection area, HarmonicModality harmonicModality) {
-            foreach (var bar in this.Body.Bars) {
-                var harmonicBar = bar.HarmonicBar;
-                foreach (var structure in harmonicBar.HarmonicStructures) {
-                    structure.Modulate(harmonicModality);
-                }
-
-                bar.SetHarmonicBar(harmonicBar);
-                //// harmonicBar.SimpleStructuralOutline = null;
-                //// harmonicBar.StructuralOutline = null;
-            }
+            this.Body.Modulate(area, harmonicModality);
         }
         
         /// <summary>
@@ -832,24 +690,7 @@ namespace LargoSharedClasses.Music
         /// <param name="area">The area.</param>
         /// <param name="rhythmicMaterial">The rhythmic material.</param>
         public void ChangeRhythmic(MusicalSection area, RhythmicMaterial rhythmicMaterial) {
-            RhythmicContainer.Singleton.Reset();
-            RhythmicContainer.Singleton.AddRhythmicStructures(rhythmicMaterial.Structures);
-            var elements = this.Body.AllElements;
-            foreach (var element in elements) {
-                var r = element.Status.RhythmicStructure;
-                if (r == null) {
-                    continue;
-                }
-
-                #warning Add other variants of pairing - e.g. primarily according to occurence
-                var s = RhythmicContainer.Singleton.FindSimilarStructure(r);
-                if (s == null) {
-                    continue;
-                }
-
-                var t = s.ConvertToSystem(this.Header.System.RhythmicSystem);
-                element.FillWithRhythm(t, MusicalLoudness.MeanLoudness);
-            } 
+            this.Body.ChangeRhythmic(area, rhythmicMaterial);
         }
 
         /// <summary>
@@ -908,69 +749,6 @@ namespace LargoSharedClasses.Music
             s.Append("\t" + this.Header.FileName.ToString(CultureInfo.CurrentCulture));
             return s.ToString();
         }
-        #endregion
-
-        #region Body-Strip Status Conversion -- see also Strip.WriteBody
-
-        /// <summary>
-        /// Gets the line status list.
-        /// This methods probably do not work properly !?!?
-        /// Now used before composition in combination with SendStatusToTones!?
-        /// </summary>
-        public void ConvertStripStatusToBody() {
-            if (this.Body?.Bars == null) {
-                return;
-            }
-
-            foreach (MusicalLine line in this.Strip.Lines.Where(ml => ml != null)) {
-                line.CurrentStatus = line.FirstStatus;
-
-                foreach (var bar in this.Body.Bars) {
-                    var element =
-                        (from elem in bar.Elements where elem.Line.LineIdent == line.LineIdent select elem)
-                        .FirstOrDefault();
-                    if (element == null) {
-                        continue;
-                    }
-
-                    //// Status from tones only in case where there is no status defined in tracks
-                    if (line.StatusList != null && line.StatusList.Any()) {
-                        var status = (from ts in line.StatusList
-                                      where ts.BarNumber == bar.BarNumber
-                                      select ts).FirstOrDefault();
-                        if (status != null) {
-                            //// 2018/10 && lineStatus.Purpose != LinePurpose.None !?
-                            line.CurrentStatus = status;
-                        }
-
-                        var newStatus = (LineStatus)line.CurrentStatus.Clone();
-                        newStatus.BarNumber = bar.BarNumber;
-                        element.Status =
-                            newStatus; //// !!!! otherwise there are 2 different statuses for one element ...??
-                    }
-                    else {
-                        element.SetElementStatusFromTones();
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the line status list i.e. list of bar status in each given line. 
-        /// </summary>
-        public void ConvertBodyStatusToStrip() {
-            foreach (MusicalLine line in this.Strip.Lines.Where(ml => ml != null)) {
-                line.StatusList = new List<LineStatus>();
-            }
-
-            foreach (var bar in this.Body.Bars) {
-                foreach (var element in bar.Elements) {
-                    var line = element.MusicalLine;
-                    line.StatusList?.Add(element.Status);
-                }
-            }
-        }
-
         #endregion
 
         #region Strip-Body conversion
@@ -1045,3 +823,29 @@ namespace LargoSharedClasses.Music
         #endregion
     }
 }
+
+/*
+/// <summary>
+/// Sets the tempo events.
+/// </summary>
+/// <param name="givenTempoChanges">The given tempo changes.</param>
+[UsedImplicitly]
+public void SetTempoEvents(IEnumerable<TempoChange> givenTempoChanges) {
+    Contract.Requires(givenTempoChanges != null);
+
+    var list = new List<MetaTempo>();
+    var barDivision = MusicalProperties.BarDivision(this.Header.Division, this.Header.Metric.MetricBeat, this.Header.Metric.MetricGround);
+    var barDuration = MusicalProperties.MidiDuration(this.Header.System.RhythmicOrder, this.Header.System.RhythmicOrder, barDivision);
+    // ReSharper disable once LoopCanBePartlyConvertedToQuery
+    foreach (var change in givenTempoChanges) {
+        var barDeltaTime = barDuration * (change.BarNumber - 1);
+        var ev = new MetaTempo(0, 100) {
+            StartTime = barDeltaTime,
+            Tempo = change.TempoNumber
+        };  //// 100 is arbitrary number here
+        //// Tempo have to change just before start of bar
+        list.Add(ev);
+    }
+
+    this.Body.TempoEvents = list;
+}*/

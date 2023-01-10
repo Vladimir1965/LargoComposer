@@ -294,6 +294,94 @@ namespace LargoSharedClasses.Music
         }
         #endregion        
 
+        #region Analysis - Public
+        /// <summary>
+        /// Analyzes the tempo changes.
+        /// </summary>
+        /// <returns> Returns value. </returns>
+        public IEnumerable<TempoChange> AnalyzeTempoChanges()
+        {
+            var changes = new List<TempoChange>();
+            int lastTempoNumber = 0;
+            foreach (var bar in this.Bars) {
+                //// var status = bar.Status; if (status == null) { continue;  }
+
+                if (bar.TempoNumber != lastTempoNumber) {
+                    var tc = new TempoChange(bar.BarNumber) {
+                        TempoNumber = bar.TempoNumber
+                    };
+
+                    changes.Add(tc);
+                }
+
+                lastTempoNumber = bar.TempoNumber;
+            }
+
+            return changes;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Set rhythm to the specified area.
+        /// </summary>
+        /// <param name="area">The area.</param>
+        /// <param name="rhythmicStructure">The rhythmic structure.</param>
+        public void Rhythmize(MusicalSection area, RhythmicStructure rhythmicStructure)
+        {
+            var elements = this.AllElements;
+            foreach (var element in elements) {
+                element.FillWithRhythm(rhythmicStructure, MusicalLoudness.MeanLoudness);
+            }
+        }
+
+        /// <summary>
+        /// Changes the rhythmic.
+        /// </summary>
+        /// <param name="area">The area.</param>
+        /// <param name="rhythmicMaterial">The rhythmic material.</param>
+        public void ChangeRhythmic(MusicalSection area, RhythmicMaterial rhythmicMaterial)
+        {
+            var currentRhythmicSystem = this.Context.Header.System.RhythmicSystem;
+            RhythmicContainer.Singleton.Reset();
+            RhythmicContainer.Singleton.AddRhythmicStructures(rhythmicMaterial.Structures);
+            var elements = this.AllElements;
+            foreach (var element in elements) {
+                var r = element.Status.RhythmicStructure;
+                if (r == null) {
+                    continue;
+                }
+
+                #warning Add other variants of pairing - e.g. primarily according to occurence
+                var s = RhythmicContainer.Singleton.FindSimilarStructure(r);
+                if (s == null) {
+                    continue;
+                }
+
+                var t = s.ConvertToSystem(currentRhythmicSystem);
+                element.FillWithRhythm(t, MusicalLoudness.MeanLoudness);
+            }
+        }
+
+        /// <summary>
+        /// Modulates the specified area.
+        /// </summary>
+        /// <param name="area">The area.</param>
+        /// <param name="harmonicModality">The harmonic modality.</param>
+        public void Modulate(MusicalSection area, HarmonicModality harmonicModality)
+        {
+            foreach (var bar in this.Bars) {
+                var harmonicBar = bar.HarmonicBar;
+                foreach (var structure in harmonicBar.HarmonicStructures) {
+                    structure.Modulate(harmonicModality);
+                }
+
+                bar.SetHarmonicBar(harmonicBar);
+                //// harmonicBar.SimpleStructuralOutline = null;
+                //// harmonicBar.StructuralOutline = null;
+            }
+        }
+
         /// <summary>
         /// Reorders the line rhythmic.
         /// </summary>
