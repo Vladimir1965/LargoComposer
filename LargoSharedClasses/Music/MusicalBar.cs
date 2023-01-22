@@ -558,6 +558,10 @@ namespace LargoSharedClasses.Music
 
         #region Public methods  
 
+        public void ClearElements() {
+            this.Elements.Clear();
+        }
+
         /// <summary>
         /// Gets the harmonic rhythm.
         /// </summary>

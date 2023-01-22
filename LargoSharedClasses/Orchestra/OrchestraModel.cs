@@ -58,7 +58,8 @@ namespace LargoSharedClasses.Orchestra
         /// </returns>
         [UsedImplicitly]
         public static OrchestraModel GetNewModel(MusicalBlock musicalBlock) {
-            musicalBlock.Header.NumberOfLines = (byte)musicalBlock.Strip.Lines.Count;
+            musicalBlock.RefreshHeader(); //// ????
+            //// musicalBlock.Header.NumberOfLines = (byte)musicalBlock.Strip.Lines.Count;
 
             var model = GetNewModel(musicalBlock.Header.FileName, musicalBlock);
             model.Number = musicalBlock.Header.Number;

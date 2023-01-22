@@ -111,6 +111,7 @@
     <Compile Include="Models\MusicalBlockWrap.cs" />
     <Compile Include="Music\MusicalBlockStatus.cs" />
     <Compile Include="Orchestra\OrchestraUnit.cs" />
+    <Compile Include="Player\PlayCentrum.cs" />
     <Compile Include="Settings\SidePanels.cs" />
     <Compile Include="Templates\BarScope.cs" />
     <Compile Include="Music\MusicalContent.cs" />

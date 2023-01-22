@@ -20,6 +20,9 @@ namespace LargoTest
             var sb = new StringBuilder();
             foreach (var c in this.Line) {
                 sb.Append(c);
+                if (this.Leaves == null) {
+                    sb.Append(",");
+                }
 
                 var leavesResult = this.Leaves != null ? this.Leaves.Result(rotateLeaves) + " | " : string.Empty;
                 if (!string.IsNullOrEmpty(leavesResult)) {
@@ -32,6 +35,35 @@ namespace LargoTest
             }
 
             return sb.ToString();
+        }
+
+        public List<char> ResultList(bool rotateLeaves)
+        {
+            var sb = new List<char>();
+            foreach (var c in this.Line) {
+                sb.Add(c);
+                if (this.Leaves == null) {
+                    sb.Add(',');
+                }
+
+                var leavesResult = new List<char>();
+                if (this.Leaves != null) {
+                    leavesResult = this.Leaves.ResultList(rotateLeaves);
+                    leavesResult.Add('|');
+                }
+
+                if (leavesResult.Any()) {
+                    for (int k = 1; k < leavesResult.Count; k++) {
+                        sb.Add(leavesResult[k]);
+                    }
+                }
+
+                if (this.Leaves != null && rotateLeaves) {
+                    this.Leaves.RotateLine();
+                }
+            }
+
+            return sb;
         }
 
         public void RotateLine()

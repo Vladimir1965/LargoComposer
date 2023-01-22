@@ -146,7 +146,8 @@ namespace LargoSharedClasses.Models
         /// Returns value.
         /// </returns>
         public static HarmonicModel GetNewModel(MusicalBlock musicalBlock) {
-            musicalBlock.Header.NumberOfLines = (byte)musicalBlock.Strip.Lines.Count;
+            musicalBlock.RefreshHeader(); //// ????
+            //// musicalBlock.Header.NumberOfLines = (byte)musicalBlock.Strip.Lines.Count;
 
             var model = GetNewModel(musicalBlock.Header.FileName, musicalBlock);
             model.Number = musicalBlock.Header.Number;

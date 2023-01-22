@@ -8,7 +8,7 @@
         Title="MainWindow" Height="346.705" Width="563.75">
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="19,19,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox Name="BigTextBox" HorizontalAlignment="Left" Height="231" Margin="19,61,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="504"/>
+        <TextBox Name="BigTextBox" Height="231" Margin="10,61,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -64,11 +64,9 @@ namespace LargoSharedClasses.Music {
 
         #region Public Properties
 
-        /// <summary>
-        /// Gets or sets MidiTrack Collection.
-        /// </summary>
-        public CompactMidiStrip Sequence { get; set; }
+        public CompactMidiStrip Sequence { get; set; } 
 
+        public string UserMusicFolder { get; set; } // MusicalSettings.Singleton.Folders.GetFolder(MusicalFolder.UserMusic);
         #endregion
 
         #region Private Properties
@@ -137,7 +135,7 @@ namespace LargoSharedClasses.Music {
 
             //// Export to user folder - not needed for playing!
             if (this.WriteMidiToDisk) {
-                var path = MusicalSettings.Singleton.Folders.GetFolder(MusicalFolder.UserMusic);
+                var path = this.UserMusicFolder; //// MusicalSettings.Singleton.Folders.GetFolder(MusicalFolder.UserMusic);
                 if (path == null) {
                     return;
                 }

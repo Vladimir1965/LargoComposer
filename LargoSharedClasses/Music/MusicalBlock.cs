@@ -403,6 +403,24 @@ namespace LargoSharedClasses.Music
             return null;
         }
 
+        public void RefreshHeader()
+        {
+            this.Header.NumberOfLines = this.ContentLines.Count;
+            this.Header.NumberOfMelodicLines = 0;
+            this.Header.NumberOfRhythmicLines = 0;
+            foreach (var line in this.Strip.Lines) {
+                if (line.LineType == MusicalLineType.Melodic) {
+                    this.Header.NumberOfMelodicLines++;
+                }
+
+                if (line.LineType == MusicalLineType.Rhythmic) {
+                    this.Header.NumberOfRhythmicLines++;
+                }
+            }
+
+            this.Header.NumberOfBars = this.ContentBars.Count;
+        }
+
         /*
         /// <summary>
         /// Prepares the block.
@@ -613,7 +631,8 @@ namespace LargoSharedClasses.Music
         public void DeleteLine(Guid lineIdent) {
             this.Body.DeleteLine(lineIdent);
             this.Strip.DeleteLine(lineIdent);
-            this.Header.NumberOfLines--;
+            //// this.Header.NumberOfLines--;
+            this.RefreshHeader();
         }
 
         /// <summary>
@@ -764,22 +783,36 @@ namespace LargoSharedClasses.Music
             //// if (keepStatus) {
             if (this.Body == null || !this.Body.Bars.Any()) { //// 2020/10 during load body exists with no bars
                 this.Body = newBody;
-            }
-            else { 
+            } else {
                 foreach (var bar in this.Body.Bars) {
                     var newBar = newBody.GetBar(bar.BarNumber);
                     if (newBar != null) {
                         newBar.TempoNumber = bar.TempoNumber;
                         newBar.HarmonicBar = (HarmonicBar)bar.HarmonicBar.Clone();
+                        //// bar.HarmonicBar = (HarmonicBar)newBar.HarmonicBar.Clone();
                         //// newBar.Status = bar.Status;
+
+                        /// 2023/01 keep tones in elements !?!?!?
+                        /*
+                        bar.ClearElements();
+                        foreach (var elem in newBar.Elements) {
+                            bar.Elements.Add(elem);
+                        }*/
+
+                        foreach (var newelem in newBar.Elements) {
+                            var elem = bar.ElementOfLine(newelem.Line.LineIdent);
+                            foreach (var tone in newelem.Tones) {
+                                elem.Tones.Add(tone);
+                            }
+                        }
                     }
                 }
             }
             //// }
 
             this.ConvertStripStatusToBody(); //// 2019/10  !!!!!!!
-
-            this.Header.NumberOfLines = this.Strip.Lines.Count;
+            //// this.Header.NumberOfLines = this.Strip.Lines.Count;
+            this.RefreshHeader();
             this.Strip.Context.Header.NumberOfLines = this.Header.NumberOfLines;
             this.Strip.Context.Header.NumberOfBars = this.Body.Bars.Count;  //// 2020/10
             

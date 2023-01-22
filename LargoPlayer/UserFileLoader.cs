@@ -6,8 +6,8 @@
 // <date>2021-09-01</date>
 // <summary>Part of Largo Composer</summary>
 
-using LargoSharedClasses.MidiFile;
 using LargoSharedClasses.Music;
+using LargoSharedClasses.Player;
 using LargoSharedClasses.Settings;
 using LargoSharedClasses.Support;
 using LargoSharedWindows;
@@ -101,46 +101,11 @@ namespace LargoPlayer
         /// </summary>
         /// <param name="givenBlock">The given block.</param>
         public void MusicPlayMp3(MusicalBlock givenBlock) {
-            var midiBlock = new CompactMidiBlock(givenBlock);
-            //// midiBlock.CollectMidiEvents();
-            var fileName = givenBlock.Header.FullName;
-            var sequence = midiBlock.Sequence(fileName + ".mid");
-            //// MusicalPlayer.Singleton.PlayImmediately = false;
-            MusicalPlayer.Singleton.TakeSequence(sequence, false);
-            var path = MusicalSettings.Singleton.Folders.GetFolder(MusicalFolder.UserMusic);
-            var midiFilePath = Path.Combine(path, sequence.InternalName);
-            var mp3FilePath = Path.Combine(path, fileName + ".mp3");
-            this.ConvertToMp3(midiFilePath, mp3FilePath, string.Empty);
-            SystemProcesses.RunProcessSecure(mp3FilePath, string.Empty, false);
+            PlayCentrum.Singleton.UserMusicFolder = MusicalSettings.Singleton.Folders.GetFolder(MusicalFolder.UserMusic);
+            //// PlayCentrum.Singleton.SoundFontName = soundFontName;
+            PlayCentrum.Singleton.MusicPlayMp3(givenBlock);
         }
 
         #endregion
-
-        /// <summary>
-        /// Plays the wave file (see BuildSoundFile)
-        /// </summary>
-        /// <param name="midiFilePath">The midi file path.</param>
-        /// <param name="mp3FilePath">The MP3 file path.</param>
-        /// <param name="soundFontName">Name of the sound font.</param>
-        private void ConvertToMp3(string midiFilePath, string mp3FilePath, string soundFontName) {
-            var convertPath = PlayerSettings.Singleton.PathToInternalConverter;  //// MusicalFolder.InternalConverter
-            string midiName = @"music.mid";
-            var midiMusicPath = Path.Combine(convertPath, midiName);
-            File.Copy(midiFilePath, midiMusicPath, true);
-            //// var fto = new FileInfo(fileNameTo); if (fto.Exists) { fto.Delete();  } 
-
-            if (!File.Exists(midiMusicPath)) {
-                return;
-            }
-
-            Directory.SetCurrentDirectory(convertPath);
-            var command = Path.Combine(convertPath, "convert.bat");
-
-            //// var arguments = string.Format(CultureInfo.InvariantCulture, "{0},{1}", midiName, soundFontName), false);
-            SystemProcesses.RunProcessSecure(command, string.Empty, true);
-
-            var resultFilePath = Path.Combine(convertPath, "music.mp3");
-            File.Copy(resultFilePath, mp3FilePath, true);
-        }
     }
 }

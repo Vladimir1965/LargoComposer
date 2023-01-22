@@ -740,6 +740,7 @@ namespace LargoSharedClasses.Music
                 var rhyStruct = this.RhythmicStructure;
                 var shape = new RhythmicShape(rhyStruct.RhythmicSystem.Order, rhyStruct);
                 this.SetBarMetricCode(shape.GetStructuralCode);
+                this.RhythmicShape = shape; //// 2023/01
             }
         }
 
